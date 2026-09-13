@@ -1,0 +1,781 @@
+{
+  "date": "2026-09-13",
+  "edition": "02・15:30追補",
+  "title": "経済対話と抑止は併存。物流は悪化と回復を分けて追う。",
+  "cutoff_at": "2026-09-13T15:45:28+09:00",
+  "prepared_at": "2026-09-13T15:59:55+09:00",
+  "series_id": "daily_reference_scenarios_v1",
+  "deadline": "2026-11-03T23:59:59-05:00",
+  "model": "GPT-6 Astra / Ultra",
+  "initial": false,
+  "strict_blind": false,
+  "summary": [
+    "米中の経済対話と同盟協力が併存。A70％、E60％を中心にA〜Hは朝から据え置き、今回①→②も0pt。前日値はない。",
+    "日本の焦点は紅海・原油輸送、東南アジアの海況、米物価と需要。パナマの条件緩和や港湾復旧も点検。",
+    "研究の保存版は朝と同じ。新たな完成結果の不足を残し、制度と実輸送の違いを原文で点検。"
+  ],
+  "highlights": [
+    {
+      "label": "安全保障",
+      "text": "A70％。既存演習と将来の新規増強を分ける。",
+      "scenario": "A"
+    },
+    {
+      "label": "経済・通商",
+      "text": "E60％。発言・提言を具体的合意へ読み替えない。",
+      "scenario": "E"
+    },
+    {
+      "label": "日本への条件差",
+      "text": "H55％。同じ品目と取引方向で比較する。",
+      "scenario": "H"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "A",
+      "label": "第一列島線・同盟の強化",
+      "definition_version": 1,
+      "target": "開始時点後、第一列島線に関わる新規・拡充された共同演習、基地運用、共同対処・兵站の合意または実施を少なくとも一つ公式に確認する。既存行事の単純な再掲載だけは除外。",
+      "p_final": 0.7,
+      "p_previous_final": null,
+      "p_web_before_github": 0.7,
+      "daily_delta_pp": null,
+      "github_delta_pp": 0,
+      "evidence_confidence": "中",
+      "reason": "日米韓演習は協力継続の支持材料。既実施の行事を開始後の条件達成とはしない。",
+      "support": "日米韓演習の実施が同盟協力の継続を裏付ける。",
+      "counter": "台湾の日次観測と北朝鮮発射は対応の必要性を示すが、恒久的増強の決定ではない。",
+      "watch": "新規演習・基地運用・兵站合意の公式発表。",
+      "p_same_day_previous_final": 0.7,
+      "same_day_delta_pp": 0
+    },
+    {
+      "id": "B",
+      "label": "同盟維持・負担増の具体化",
+      "definition_version": 1,
+      "target": "米国の同盟維持を前提に、対日負担の具体額・比率・任務・期限のいずれかを伴う新たな公式要求または合意を確認する。一般的な公平負担の言説だけは除外。",
+      "p_final": 0.55,
+      "p_previous_final": null,
+      "p_web_before_github": 0.55,
+      "daily_delta_pp": null,
+      "github_delta_pp": 0,
+      "evidence_confidence": "低",
+      "reason": "55％据置。負担軽減を求める米国内政治の動機はあるが、今日の確認で対日新要求の額・任務・期限は得られない。",
+      "support": "国内の負担軽減を求める政策動機は想定できる。",
+      "counter": "新しい公式対日要求が確認できるまでは選挙報道を具体的負担増と数えない。",
+      "watch": "対日要求や共同声明の金額・対象任務・履行期限。",
+      "p_same_day_previous_final": 0.55,
+      "same_day_delta_pp": 0
+    },
+    {
+      "id": "C",
+      "label": "本土・西半球優先への転換",
+      "definition_version": 1,
+      "target": "米本土・西半球への資源優先が、他地域の任務・配置・予算の具体的縮小を伴う新しい公式決定または実施として確認される。国内重視の発言だけは除外。",
+      "p_final": 0.4,
+      "p_previous_final": null,
+      "p_web_before_github": 0.4,
+      "daily_delta_pp": null,
+      "github_delta_pp": 0,
+      "evidence_confidence": "低",
+      "reason": "40％据置。物価・心理・選挙戦略は国内優先の圧力となり得るが、海外資源削減の実装は確認できない。",
+      "support": "物価と家計心理は国内優先の圧力になる。",
+      "counter": "FEMA削減訴訟は国内行政の問題であり、第一列島線の軍事資源移転を証明しない。",
+      "watch": "予算配分、部隊配置、他地域任務の縮小を伴う決定。",
+      "p_same_day_previous_final": 0.4,
+      "same_day_delta_pp": 0
+    },
+    {
+      "id": "D",
+      "label": "第二列島線への実質後退",
+      "definition_version": 1,
+      "target": "第一列島線から第二列島線への重心移転として、配置・任務・同盟義務の具体的縮小を伴う方針変更または実施を確認する。通常の交代、第二列島線の増強だけは除外。",
+      "p_final": 0.1,
+      "p_previous_final": null,
+      "p_web_before_github": 0.1,
+      "daily_delta_pp": null,
+      "github_delta_pp": 0,
+      "evidence_confidence": "低",
+      "reason": "10％据置。日米韓の実働訓練は単純な撤退論への反証で、第二列島線への実質後退の新決定は確認できない。",
+      "support": "本日の公開資料では具体的な後退を確認できない。",
+      "counter": "前方訓練だけで将来の縮小を排除することもできない。",
+      "watch": "通常の交代と区別できる配置・任務・同盟義務の縮小。",
+      "p_same_day_previous_final": 0.1,
+      "same_day_delta_pp": 0
+    },
+    {
+      "id": "E",
+      "label": "米中経済緩和の具体化",
+      "definition_version": 1,
+      "target": "相互減税等の新たな経済緩和について、両国が同じ措置の対象・税率・実施日のいずれかを具体的に公表する。限定合意を含み、経済関係全体の正常化とは区別。協議継続だけは除外。",
+      "p_final": 0.6,
+      "p_previous_final": null,
+      "p_web_before_github": 0.6,
+      "daily_delta_pp": null,
+      "github_delta_pp": 0,
+      "evidence_confidence": "中",
+      "reason": "60％据置。中国車の米国生産容認発言、首脳意思疎通の姿勢は交渉余地を支える。",
+      "support": "相互関税緩和の協議と米国内生産に関する発言。",
+      "counter": "発言やAI企業の提言は双方が合意した対象・税率・実施日ではなく、ブリキ予備判定は規制併存を示す。",
+      "watch": "米中双方が示す同一措置の対象品目・税率・実施日。",
+      "p_same_day_previous_final": 0.6,
+      "same_day_delta_pp": 0
+    },
+    {
+      "id": "F",
+      "label": "経済と安全保障の交換",
+      "definition_version": 1,
+      "target": "同一合意で経済的譲歩と台湾供与または第一列島線軍事態勢の具体的制約を交換条件として両国が正式に公表する。並行する別々の協議や秘密取引の推測は除外。",
+      "p_final": 0.1,
+      "p_previous_final": null,
+      "p_web_before_github": 0.1,
+      "daily_delta_pp": null,
+      "github_delta_pp": 0,
+      "evidence_confidence": "低",
+      "reason": "10％据置。経済譲歩と台湾供与・第一列島線の軍事制約を交換する同一合意の双方公表は確認できない。",
+      "support": "本日の資料に明示的な安全保障との交換を示す証拠はない。",
+      "counter": "技術交流や外交会合のみでは判定条件を満たさない。",
+      "watch": "両国の公式文書における経済譲歩と具体的軍事制約の明示。",
+      "p_same_day_previous_final": 0.1,
+      "same_day_delta_pp": 0
+    },
+    {
+      "id": "G",
+      "label": "quasi-G2・大国協商",
+      "definition_version": 1,
+      "target": "台湾・西太平洋の勢力圏や同盟国の扱いを米中が相互に認める継続的な協商の枠組みを公式文書・実施で確認する。首脳会談の開催、経済合意、通常の危機管理対話だけは除外。",
+      "p_final": 0.05,
+      "p_previous_final": null,
+      "p_web_before_github": 0.05,
+      "daily_delta_pp": null,
+      "github_delta_pp": 0,
+      "evidence_confidence": "低",
+      "reason": "5％据置。米中の継続的な勢力圏協商を示す公式枠組みは確認できない。",
+      "support": "首脳交流の調整は対話の継続を示す。",
+      "counter": "BRICS声明は米中二国間の勢力圏協定ではない。",
+      "watch": "台湾・西太平洋の扱いを定めた公式枠組みとその実施。",
+      "p_same_day_previous_final": 0.05,
+      "same_day_delta_pp": 0
+    },
+    {
+      "id": "H",
+      "label": "日本が緩和から取り残される",
+      "definition_version": 1,
+      "target": "米中の経済条件改善と対照的に、日本の同等品目・業務では規制または追加負担が残る・強化されることを公式条件や企業開示で確認する。比較不能な別品目、資料未取得だけは根拠にしない。",
+      "p_final": 0.55,
+      "p_previous_final": null,
+      "p_web_before_github": 0.55,
+      "daily_delta_pp": null,
+      "github_delta_pp": 0,
+      "evidence_confidence": "低",
+      "reason": "55％据置。米国で生産する中国車への容認姿勢と対中品目別規制が併存するため条件差は監視対象。",
+      "support": "生産地・原産地による条件差と日本産DCSへの措置。",
+      "counter": "同じ商品・同じ取引条件で米中改善と日本の不利を比較できる新しい実施資料が不足。ALPS共同採取は日本関連協力の反証材料だが輸入条件改定ではない。",
+      "watch": "比較可能な同一品目・業務の国別条件、企業の実損。",
+      "p_same_day_previous_final": 0.55,
+      "same_day_delta_pp": 0
+    }
+  ],
+  "news": [
+    {
+      "id": "s1",
+      "title": "中国車の米国内生産に容認姿勢",
+      "countries": [
+        "米国",
+        "中国",
+        "日本"
+      ],
+      "summary": "米工場・米国人雇用には前向き、メキシコからの輸入には否定的。日本メーカーの競争条件に関わるが、規制変更の決定ではない。",
+      "source": "Reuters報道本文・MarketScreener転載",
+      "url": "https://au.marketscreener.com/news/trump-says-he-would-be-ok-with-china-building-cars-in-us-ce785bdfd088f120",
+      "category": "通商・自動車",
+      "scenarios": [
+        "E",
+        "H"
+      ],
+      "published_date": "2026-09-12",
+      "published_time": "2026-09-12T10:50:00+10:00／AEST、掲載サイト明示",
+      "event": "2026-09-11",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": false,
+      "updated_at": "2026-09-12T12:04:00+10:00",
+      "publication_note": "AEST、掲載サイト明示"
+    },
+    {
+      "id": "s2",
+      "title": "AI開発の速度調整を提言",
+      "countries": [
+        "米国",
+        "中国"
+      ],
+      "summary": "Amodei氏は常駐第三者評価と限定的な米中協力を提案し、対中技術規制強化も主張。日本のAI・半導体政策の論点だが政府決定ではない。",
+      "source": "本人論考・一次資料、Reuters補助",
+      "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+      "category": "AI・安全・輸出規制提案",
+      "scenarios": [
+        "E",
+        "H"
+      ],
+      "published_date": "2026-09-12",
+      "published_time": "2026-09-12／本人ページは月まで。日付は同日のReuters本文で補助確認、時刻不明。",
+      "event": "2026-09-12",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false,
+      "updated_at": null,
+      "publication_note": "本人ページは月まで。日付は同日のReuters本文で補助確認、時刻不明。"
+    },
+    {
+      "id": "s3",
+      "title": "BRICS宣言とAI協力構想",
+      "countries": [
+        "中国",
+        "インド",
+        "BRICS"
+      ],
+      "summary": "Reutersは中東での自制を求める宣言採択を報道。習氏はAI・供給網協力を提案。日本の通商環境に関わるが停戦や予算実施とは別。",
+      "source": "共同宣言はReuters報道、習主席演説は中国政府掲載一次本文",
+      "url": "https://gvwire.com/2026/09/12/brics-adopts-joint-declaration-urges-maximum-restraint-in-mideast/",
+      "category": "外交・通商・AI",
+      "scenarios": [
+        "E",
+        "G"
+      ],
+      "published_date": "2026-09-12",
+      "published_time": "2026-09-12／Reuters転載日は9/12、時刻不明。中国掲載演説は9/13 07:07、TZ表示なし。",
+      "event": "2026-09-12",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true,
+      "updated_at": null,
+      "publication_note": "Reuters転載日は9/12、時刻不明。中国掲載演説は9/13 07:07、TZ表示なし。",
+      "supporting_urls": [
+        "https://www.mofcom.gov.cn/xwfb/ldrhd/art/2026/art_10c09efa337d4374b0b84c6c43b35dae.html"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "中国商務部が諜報発言に反発",
+      "countries": [
+        "中国",
+        "米国"
+      ],
+      "summary": "AI・半導体等への諜報発言として紹介した内容に抗議。中国側声明を確認し、CIA原発言は未取得。在中日本企業への新措置は未確認。",
+      "source": "中国商務部・政府一次声明",
+      "url": "https://www.mofcom.gov.cn/xwfb/xwfyrth/art/2026/art_09c2bc98f6994d509fea184c4cbf603c.html",
+      "category": "外交・技術・企業活動",
+      "scenarios": [
+        "E",
+        "H"
+      ],
+      "published_date": "2026-09-11",
+      "published_time": "2026-09-11 18:56／ページTZ明示なし、北京時間と推定可能だが換算しない",
+      "event": "2026-09-11",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": false,
+      "updated_at": null,
+      "publication_note": "ページTZ明示なし、北京時間と推定可能だが換算しない"
+    },
+    {
+      "id": "s5",
+      "title": "中国ブリキに66.61％の予備判定",
+      "countries": [
+        "米国",
+        "中国"
+      ],
+      "summary": "米商務省の相殺関税調査。最終判定は延期がなければ12/1予定。包装材・鉄鋼の競争条件に関わるが、最終関税命令とは分ける。",
+      "source": "米商務省ITA・政府一次発表",
+      "url": "https://www.trade.gov/preliminary-affirmative-countervailing-duty-determination-tin-mill-products-china",
+      "category": "通商・貿易救済",
+      "scenarios": [
+        "E",
+        "H"
+      ],
+      "published_date": "2026-09-10",
+      "published_time": "2026-09-10／時刻・TZ表示なし",
+      "event": "2026-09-10",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": false,
+      "updated_at": null,
+      "publication_note": "時刻・TZ表示なし"
+    },
+    {
+      "id": "s6",
+      "title": "首脳交流へ意思疎通を継続",
+      "countries": [
+        "中国",
+        "米国"
+      ],
+      "summary": "中国外交部は年内の米中首脳交流について連絡中と説明。場所・日程・議題は示さず、日本外交の前提となる確定合意は未確認。",
+      "source": "中国外務省・政府一次会見",
+      "url": "https://www.fmprc.gov.cn/fyrbt_673021/jzhsl_673025/202609/t20260910_12019908.shtml",
+      "category": "外交・首脳交流",
+      "scenarios": [
+        "E",
+        "F",
+        "G"
+      ],
+      "published_date": "2026-09-10",
+      "published_time": "2026-09-10 17:43／ページTZ明示なし、換算しない",
+      "event": "2026-09-10",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": false,
+      "updated_at": null,
+      "publication_note": "ページTZ明示なし、換算しない"
+    },
+    {
+      "id": "s7",
+      "title": "台湾周辺で軍機5架次等を探知",
+      "countries": [
+        "台湾",
+        "中国"
+      ],
+      "summary": "軍機5架次・艦艇5隻・公務船2隻、うち軍機3架次が南西・東側ADIZへ。日本周辺の監視材料。ADIZは領空ではなく単日で緊張の趨勢は測れない。",
+      "source": "台湾国防部",
+      "url": "https://www.mnd.gov.tw/news/plaact/87745",
+      "category": "台湾・安全保障",
+      "scenarios": [
+        "A",
+        "D"
+      ],
+      "published_date": "2026-09-13",
+      "published_time": "時刻不明",
+      "event": "9/12 06:00〜9/13 06:00 台湾時間",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "s8",
+      "title": "日米韓演習の終了を確認",
+      "countries": [
+        "日本",
+        "米国",
+        "韓国"
+      ],
+      "summary": "海空・医療・サイバー等の実務連携を訓練。日本の同盟協力を支えるが、予測開始前の行事を今後の新規増強の達成とは数えない。",
+      "source": "米第7艦隊",
+      "url": "https://www.c7f.navy.mil/Media/News/Display/Article/4596657/freedom-edge-26-concludes-advancing-trilateral-readiness-across-the-indo-pacific/",
+      "category": "台湾・安全保障",
+      "scenarios": [
+        "A",
+        "D"
+      ],
+      "published_date": "2026-09-11",
+      "published_time": "時刻不明",
+      "event": "9/7〜9/11",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "s9",
+      "title": "北朝鮮が短距離弾道ミサイル発射",
+      "countries": [
+        "北朝鮮",
+        "韓国",
+        "米国",
+        "日本"
+      ],
+      "summary": "APによると韓国軍は元山付近から複数発射、各約250kmの飛行を探知。日米韓は情報共有。日本の警戒材料だが、米軍の後退を示す事実ではない。",
+      "source": "AP",
+      "url": "https://apnews.com/article/north-south-korea-projectile-fired-ccf51bb9cd9abfda6c0b0f36c4b639e1",
+      "category": "台湾・安全保障",
+      "scenarios": [
+        "A",
+        "D"
+      ],
+      "published_date": "2026-09-12",
+      "published_time": "配信記録9/11 22:47 UTC（9/12 07:47 JST）",
+      "event": "9/12、韓国軍による探知",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "s10",
+      "title": "IAEA枠組みで共同採水",
+      "countries": [
+        "日本",
+        "中国",
+        "韓国",
+        "スイス"
+      ],
+      "summary": "中国・韓国・スイスの専門家らが福島第一の希釈前ALPS処理水を採取。日本関連の技術協力を確認。輸入規制の解除や検査結果とは別。",
+      "source": "日本外務省",
+      "url": "https://www.mofa.go.jp/press/release/pressite_000001_02649.html",
+      "category": "米中・通商",
+      "scenarios": [
+        "H"
+      ],
+      "published_date": "2026-09-11",
+      "published_time": "時刻不明",
+      "event": "9/11",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "s11",
+      "title": "米8月CPIは前年比3.4％",
+      "countries": [
+        "米国"
+      ],
+      "summary": "前月比0.4％、コア前年比2.4％。ガソリンは前月比3.9％。日本企業の米国販売・為替の前提となるが、FOMCの決定を意味しない。",
+      "source": "米労働統計局・政府一次統計",
+      "url": "https://www.bls.gov/news.release/cpi.nr0.htm",
+      "category": "マクロ・物価",
+      "scenarios": [
+        "B",
+        "C"
+      ],
+      "published_date": "2026-09-11",
+      "published_time": "2026-09-11T08:30:00-04:00／ET、9月はEDTとしてUTC-4に換算",
+      "event": "2026-08",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": true,
+      "updated_at": null,
+      "publication_note": "ET、9月はEDTとしてUTC-4に換算"
+    },
+    {
+      "id": "s12",
+      "title": "米消費者心理47.8へ低下",
+      "countries": [
+        "米国"
+      ],
+      "summary": "8月51.7から3.9ポイント低下。1年先期待インフレは4.0％から4.6％へ。日本企業の米需要見通しに関わる期待調査で、将来物価の実測ではない。",
+      "source": "ミシガン大学調査・一次集計表",
+      "url": "https://www.sca.isr.umich.edu/",
+      "category": "マクロ・消費者心理",
+      "scenarios": [
+        "B",
+        "C"
+      ],
+      "published_date": "2026-09-11",
+      "published_time": "2026-09-11／時刻不明。公式添付図の9月11日付を確認。",
+      "event": "2026-09",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": true,
+      "updated_at": null,
+      "publication_note": "時刻不明。公式添付図の9月11日付を確認。",
+      "supporting_urls": [
+        "https://www.sca.isr.umich.edu/files/tbcics.pdf",
+        "https://www.sca.isr.umich.edu/files/tbcpx1px5.pdf",
+        "https://www.sca.isr.umich.edu/files/featured-chart.pdf"
+      ]
+    },
+    {
+      "id": "s13",
+      "title": "共和党の選挙戦略に温度差",
+      "countries": [
+        "米国"
+      ],
+      "summary": "Reutersの取材ではトランプ中心戦略への支持と無党派への訴求懸念が併存。15人の取材は世論調査ではなく、日本が見る議会情勢の確率には転用しない。",
+      "source": "Reuters取材・分析記事、Investing.com転載",
+      "url": "https://www.investing.com/news/politics-news/analysisat-dallas-convention-some-loyalists-question-trumpcentric-midterms-strategy-4897511",
+      "category": "中間選挙・共和党戦略",
+      "scenarios": [
+        "B",
+        "C"
+      ],
+      "published_date": "2026-09-11",
+      "published_time": "2026-09-11 06:02／掲載ページにTZ明示なし、UTC換算しない",
+      "event": "2026-09-09/2026-09-10",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": false,
+      "updated_at": "2026-09-11 06:08",
+      "publication_note": "掲載ページにTZ明示なし、UTC換算しない"
+    },
+    {
+      "id": "s14",
+      "title": "激戦区の広告枠予約が拡大",
+      "countries": [
+        "米国"
+      ],
+      "summary": "ReutersはPACの7400万ドル超の予約を報道。下院15区・上院6州が対象。予約と実支出、支出と議席獲得を分け、日本関連政策の行方を追う。",
+      "source": "Reuters報道本文・GV Wire転載",
+      "url": "https://gvwire.com/2026/09/11/trump-and-musk-super-pacs-unleash-millions-to-boost-republicans-in-battleground-races/",
+      "category": "中間選挙・政治資金",
+      "scenarios": [
+        "B",
+        "C"
+      ],
+      "published_date": "2026-09-11",
+      "published_time": "2026-09-11／掲載日あり、正確な時刻・TZは未確認。相対時刻表示は換算しない。",
+      "event": "2026-09-07/2026-09-11",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": false,
+      "updated_at": null,
+      "publication_note": "掲載日あり、正確な時刻・TZは未確認。相対時刻表示は換算しない。"
+    },
+    {
+      "id": "s15",
+      "title": "FEMA職員半減方針に違法判断",
+      "countries": [
+        "米国"
+      ],
+      "summary": "Reutersによると9/11の司法判断は削減方針を違法とし、救済措置は別判断へ。米国拠点の災害対応に関わるが、人員復元が完了したとはいえない。",
+      "source": "Reuters報道本文・GV Wire転載",
+      "url": "https://gvwire.com/2026/09/12/us-judge-rules-that-trump-plan-to-halve-fema-workforce-violated-law/",
+      "category": "国内政治・司法・防災行政",
+      "scenarios": [
+        "C"
+      ],
+      "published_date": "2026-09-12",
+      "published_time": "2026-09-12／時刻・TZ未確認、相対時刻表示は換算しない",
+      "event": "2026-09-11",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": false,
+      "updated_at": null,
+      "publication_note": "時刻・TZ未確認、相対時刻表示は換算しない"
+    },
+    {
+      "id": "s16",
+      "title": "紅海入口と迂回供給経路に圧力",
+      "countries": [
+        "イエメン",
+        "サウジアラビア",
+        "イラン"
+      ],
+      "summary": "Reuters更新版はサウジ東西パイプラインの予防停止とPerim島掌握を報道。日本の原油調達・保険費用に影響し得るが、海峡の全面閉鎖は未確認。",
+      "source": "報道（ReutersのMarketScreener転載。政府発言・匿名筋を区別）",
+      "url": "https://au.marketscreener.com/news/saudis-shut-down-oil-pipeline-as-houthis-tighten-grip-on-red-sea-shipping-ce785bdfd088f12c",
+      "category": "世界の物流",
+      "scenarios": [],
+      "published_date": "2026-09-12",
+      "published_time": "2026-09-12T10:55:00+10:00",
+      "event": "9/11島掌握と報道／停止時刻不明",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [],
+      "publication_note": "2026-09-12T10:55:00+10:00",
+      "updated_at": "2026-09-13T05:32:00+10:00"
+    },
+    {
+      "id": "s17",
+      "title": "スンダ・ロンボク南部に高波予報",
+      "countries": [
+        "インドネシア"
+      ],
+      "summary": "BMKGは2.5〜4mを予報。Weathernewsの9/8までのAIS分析はスンダ通航維持を示す。日本関連の代替航路でも、過去の通航と今日の海況を分ける。",
+      "source": "Weathernews自身のAIS分析（分析方法と観測期間あり）＋BMKG公式予報",
+      "url": "https://sea.weathernews.com/resources/202609/237",
+      "category": "世界の物流",
+      "scenarios": [],
+      "published_date": "2026-09-12",
+      "published_time": "Weathernews:2026-09-12（時刻・TZ表示なし）。BMKGの公表時刻は未確認。",
+      "event": "スンダ9/13〜16／ロンボク9/12〜15",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://www.bmkg.go.id/cuaca/maritim/peringatan-gelombang-tinggi",
+        "https://magma.esdm.go.id/v1/vona?code=KRA"
+      ],
+      "publication_note": "Weathernews:2026-09-12（時刻・TZ表示なし）。BMKGの公表時刻は未確認。",
+      "updated_at": null
+    },
+    {
+      "id": "s18",
+      "title": "PTP港はサイバー障害から段階復旧",
+      "countries": [
+        "マレーシア"
+      ],
+      "summary": "9/11記事でMaersk広報がシステム復旧・段階的再開を説明。日本発着の積替便も遅延追跡の対象。9/13の完全復旧や海峡閉鎖を意味しない。",
+      "source": "業界報道（The Loadstar。Maersk広報への直接取材とPTP通達の閲覧）",
+      "url": "https://theloadstar.com/cyber-attack-halts-operations-at-malaysias-tanjung-pelepas-port/",
+      "category": "世界の物流",
+      "scenarios": [],
+      "published_date": "2026-09-11",
+      "published_time": "2026-09-11（時刻・TZ表示なし）",
+      "event": "障害9/9夜／9/11記事時点の復旧説明",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [],
+      "publication_note": "2026-09-11（時刻・TZ表示なし）",
+      "updated_at": null
+    },
+    {
+      "id": "s19",
+      "title": "喜望峰回りと追加料金の継続",
+      "countries": [
+        "南アフリカ",
+        "アジア",
+        "欧州"
+      ],
+      "summary": "Dimerco見通しを引用した報道はアジア欧州便の迂回と燃料・戦争リスク料金の高止まりを指摘。日本欧州間の納期材料で、追加日数・金額は未取得。",
+      "source": "報道（BusinessMirror、Dimerco見通しを引用）",
+      "url": "https://businessmirror.com.ph/2026/09/12/september-freight-faces-familiar-disruptions-but-301-looms-larger/",
+      "category": "世界の物流",
+      "scenarios": [],
+      "published_date": "2026-09-12",
+      "published_time": "2026-09-12（時刻・TZ表示なし）",
+      "event": "9月見通し／観測締切不明",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [],
+      "publication_note": "2026-09-12（時刻・TZ表示なし）",
+      "updated_at": null
+    },
+    {
+      "id": "s20",
+      "title": "パナマ予約の対象日到来、喫水維持",
+      "countries": [
+        "パナマ"
+      ],
+      "summary": "9/13以降の予約日にNeopanamax週63枠を配分。10/1予定の喫水引下げは延期し14.63mを維持。日本米東岸航路の材料で、63隻の実通航ではない。",
+      "source": "一次資料（パナマ運河庁通達PDF）",
+      "url": "https://pancanal.com/wp-content/uploads/2026/04/ADV-31-2026-Transit-Reservation-Booking-System-Rule-modifications.pdf",
+      "category": "世界の物流",
+      "scenarios": [],
+      "published_date": "2026-09-04",
+      "published_time": "A-31:2026-08-28、A-33:2026-09-04。両通達とも時刻・TZなし。",
+      "event": "予約規則8/30発効・9/13以降対象",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://pancanal.com/wp-content/uploads/2026/09/ADV-33-2026-Postponement-of-Maximum-Authorized-Draft-Adjustment-in-the-Neopanamax-Locks.pdf"
+      ],
+      "publication_note": "A-31:2026-08-28、A-33:2026-09-04。両通達とも時刻・TZなし。",
+      "updated_at": null
+    },
+    {
+      "id": "s21",
+      "title": "黒海・アゾフ海の勧告を継続確認",
+      "countries": [
+        "ウクライナ",
+        "ロシア",
+        "米国"
+      ],
+      "summary": "米MARADの米国籍商船向け戦闘・機雷リスク勧告はActive表示、9/15失効予定。日本向け穀物等の輸送条件を点検する材料で、今日の新攻撃を示さない。",
+      "source": "一次資料（米MARADの現役勧告）",
+      "url": "https://www.maritime.dot.gov/msci/2026-005-black-sea-and-sea-azov-military-combat-operations",
+      "category": "世界の物流",
+      "scenarios": [],
+      "published_date": null,
+      "published_time": "MARAD2026-005。開いた本文に公表日表示なし。",
+      "event": "旧勧告の有効性を9/13確認",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [],
+      "publication_note": "MARAD2026-005。開いた本文に公表日表示なし。",
+      "updated_at": null,
+      "published_date_precision": "unknown"
+    },
+    {
+      "id": "s22",
+      "title": "OFACの個別許可方針を再確認",
+      "countries": [
+        "米国",
+        "イラン"
+      ],
+      "summary": "9/10更新はイラン関連の個別許可申請を即時に原則不許可扱いとし、法令・生命・環境安全等の例外を残す。日本の物流判断にも許可・決済の条件確認が必要。",
+      "source": "OFAC",
+      "url": "https://ofac.treasury.gov/recent-actions/20260910",
+      "category": "制度・物流",
+      "scenarios": [],
+      "published_date": "2026-09-10",
+      "published_time": "時刻不明",
+      "event": "9/10から即時",
+      "status": "追加確認",
+      "phase": 2,
+      "cross_cutting": true
+    },
+    {
+      "id": "s23",
+      "title": "日本産DCSの暫定保証金を再確認",
+      "countries": [
+        "日本",
+        "中国"
+      ],
+      "summary": "9/7公告、9/8開始の反ダンピング保証金率は企業別80.8％・99.2％。半導体材料の対中輸出条件に関わるが、米中取引と連動した対日報復とは立証できない。",
+      "source": "中国商務部",
+      "url": "https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_01c15948864a45d186abb146fe30a42b.html",
+      "category": "通商・貿易救済",
+      "scenarios": [
+        "H"
+      ],
+      "published_date": "2026-09-07",
+      "published_time": "9/7 15:05（TZ不明）",
+      "event": "9/8開始",
+      "status": "追加確認",
+      "phase": 2,
+      "cross_cutting": false
+    }
+  ],
+  "comparison": [
+    {
+      "ids": "A・D",
+      "before": "A70％ / D10％",
+      "after": "A70％ / D10％、0pt",
+      "reason": "既存演習の重複。新しい配置・任務縮小の証拠は増えず。"
+    },
+    {
+      "ids": "B・C",
+      "before": "B55％ / C40％",
+      "after": "B55％ / C40％、0pt",
+      "reason": "国内圧力と具体的な対日要求・海外資源削減を区別。"
+    },
+    {
+      "ids": "E",
+      "before": "60％",
+      "after": "60％、0pt",
+      "reason": "国内生産発言は重複確認。対象・税率・実施日の双方一致は未確認。"
+    },
+    {
+      "ids": "F・G",
+      "before": "F10％ / G5％",
+      "after": "F10％ / G5％、0pt",
+      "reason": "軍事制約を交換する同一合意・勢力圏協商の裏付け不足。"
+    },
+    {
+      "ids": "H",
+      "before": "55％",
+      "after": "55％、0pt",
+      "reason": "DCS制度を再確認。通常の貿易救済という別解釈と同条件比較の不足を残す。"
+    },
+    {
+      "ids": "世界の横断変数",
+      "before": "紅海・供給・海況・物流回復を点検",
+      "after": "安全と取引許可・保険・決済を分解",
+      "reason": "OFAC原文を再確認。通航可能と日本向け輸送の実再開を分ける。"
+    }
+  ],
+  "corrections": [
+    {
+      "date": "2026-09-13",
+      "text": "15:30開始の新規追補。朝の本文・確率・観測記録を保持し、訂正ではなく別の分析として追加。"
+    }
+  ],
+  "forecast_start": "2026-09-13T11:36:53.980623+09:00",
+  "numeric_recorded_at": "2026-09-13T15:52:57+09:00",
+  "news_window_label": "9/12〜13の新着と9/10〜11の重要継続を中心に、対象日が重要な既公表制度・有効勧告を含む。②の2件は既存制度の再確認。公表時刻不明は不明のまま記録。",
+  "comparison_summary": "研究の最新保存版は朝と同一。新しい完成結果がない範囲を明示し、公開原文で制度と実装の違いを点検。主観確率は全て据置。",
+  "pre_post_note": "朝の同日資料への既接触はある。今回のWeb値を15:45に先に固定し、15:46以降の研究再確認後と比較。朝の初回読前値や前日値を遡って作成していない。",
+  "edition_kind": "supplement",
+  "edition_id": "2026-09-13/155257",
+  "run_started_at": "2026-09-13T15:30:05+09:00",
+  "github_read_at": "2026-09-13T15:46:11+09:00",
+  "previous_day_reference": null,
+  "same_day_reference": {
+    "path": "reports/2026-09-13/data.json",
+    "sha256": "cce844c6c7e877ad3d5c6958f3cc340eefd1f45a76bfd25e8362df9f7b9bb2c8",
+    "prepared_at": "2026-09-13T12:28:17+09:00"
+  },
+  "movement_summary": "A〜Hは同日当初比・今回①→②ともに0pt。前日の記録はなく前日差は比較不能。"
+}

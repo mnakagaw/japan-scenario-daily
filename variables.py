@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from urllib.parse import urlsplit
 from zoneinfo import ZoneInfo
+from editions import load_editions, route as edition_route
 
 def esc(value): return html.escape(str(value),quote=True)
 def number(value): return f'{value:g}' if isinstance(value,(int,float)) else str(value)
@@ -18,9 +19,11 @@ def render_bottleneck_guide(root):
 
 def load_variables(root):
     records={}
-    for path in sorted((root/'content').glob('????-??-??/variables.json')):
+    for folder,edition in load_editions(root):
+        path=folder/'variables.json'
+        if not path.exists(): continue
         data=json.loads(path.read_text(encoding='utf-8'))
-        assert data['date']==path.parent.name,'Variable record date mismatch'
+        assert data['date']==edition['date'],'Variable record date mismatch'
         assert dt.datetime.fromisoformat(data['recorded_at']).utcoffset() is not None,'Variable timestamp needs timezone'
         ids=set()
         for v in data['items']:
@@ -32,11 +35,11 @@ def load_variables(root):
             assert isinstance(v.get('show_on_page',True),bool),'show_on_page must be a boolean'
             if 'show_on_page' in v: assert v.get('selection_reason','').strip(),'Explain the publication selection'
             if v['previous_value'] is not None: assert isinstance(v['value'],(int,float)),'Comparison needs numeric values'
-        records[data['date']]=data
+        records[edition_route(edition)]=data
     return records
 
 def render_variables(d,records,url):
-    record=records.get(d['date'])
+    record=records.get(edition_route(d))
     if record is None:
         return '<section id="variables"><h2>世界の横断変数</h2><p class="empty-state">この号の横断変数は未収録です。未収録は、平常・変化なしを意味しません。</p></section>'
     visible=[v for v in record['items'] if v.get('show_on_page',True)]
@@ -61,7 +64,7 @@ def render_variables(d,records,url):
             cards.append(f'''<article class="variable-card" id="variable-{esc(v['id'])}"><div class="variable-meta"><span>{esc(v['kind'])}</span><span>公表 {esc(v['published'])}</span></div><h4>{esc(v['label'])}</h4><div class="variable-reading"><strong class="variable-value {'numeric' if numeric else 'state'}">{esc(value)}</strong><span>{esc(v['unit'])}</span></div><p class="variable-date">対象：{esc(v['observed'])}</p><div class="variable-comparison">{change}<span>{prior}</span></div><p class="variable-change-note">{esc(v['change_note'])}</p><p>{esc(v['note'])}</p><details><summary>日本への影響・次に見る変化</summary><p>{esc(v['implication'])}</p><p><strong>次の観測：</strong>{esc(v['watch'])}</p></details><div class="variable-sources">{links}</div></article>''')
         rendered.append(f'<div class="variable-group"><h3>{esc(group)}</h3><div class="variable-grid">{"".join(cards)}</div></div>')
     when=dt.datetime.fromisoformat(record['recorded_at']).astimezone(ZoneInfo('Asia/Tokyo')).strftime('%m/%d %H:%M JST')
-    download=url('reports/'+d['date']+'/variables.json')
+    download=url(edition_route(d)+'variables.json')
     coverage=f'<p class="note">{esc(record["coverage_note"])}</p>' if record.get('coverage_note') else ''
     empty='<p class="empty-state">この号に掲載する横断変数はありません。掲載がないことは、全地点の確認完了や異常なしを意味しません。</p>' if not visible else ''
     return f'''<section id="variables" class="world-variables"><span id="cross-risk" class="anchor-alias"></span><div class="section-heading"><div><p class="eyebrow">GLOBAL VARIABLES</p><h2>世界の横断変数と、その変化</h2></div><a class="small" href="{url('method/')}#variable-guide">主シナリオとの違い →</a></div><p class="section-lead">海峡・運河、供給、エネルギー、物価・金融など、A〜Hに共通して影響し得る条件を追います。数値で測る項目と、通航・制度などの状態を確認する項目を分けて表示します。</p><p class="small">海上物流は世界の主要ボトルネックを確認対象とし、重要なニュース・変化のある地点を掲載します。掲載のない地点を異常なしとは扱いません。<a href="{url('method/')}#bottleneck-guide">確認対象と掲載基準 →</a></p><p class="small muted">掲載 {len(visible)}項目 ／ 記録 {when} ／ <a href="{download}" download>横断変数のデータを保存</a></p><p class="note">{esc(record['basis_note'])} 各変数の対象日と公表日は異なります。比較は資料に記載された前回値などとの比較で、すべてが前日比ではありません。色や数値差は日本への利害を自動判定するものではありません。</p>{coverage}{''.join(rendered)}{empty}</section>'''

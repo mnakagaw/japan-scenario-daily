@@ -1,0 +1,280 @@
+{
+  "date": "2026-09-13",
+  "recorded_at": "2026-09-13T15:52:57+09:00",
+  "basis_note": "15:30開始の追補。①の公開資料確認は15:37まで、判断は15:45に固定。OFACのみ②で原文を再確認した既存制度。朝の観測記録を変更しない。",
+  "coverage_note": "8地域28リスト項目の記録を点検したが、入口や複数地点の一括項目を含み全地点の実況確認ではない。15項目は現行内容取得不能、2項目は未確認。UKMTO・日本周辺・北極圏等の確認不足を残す。",
+  "items": [
+    {
+      "id": "red-sea-supply",
+      "label": "紅海入口・サウジ迂回供給",
+      "group": "海上交通・供給",
+      "value": "圧力が重なると報道",
+      "unit": "状態",
+      "observed": "Perim島掌握9/11と報道、停止時刻不明",
+      "published": "9/12公表・9/13 04:32JST更新",
+      "kind": "報道",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "新しい再開確認は未取得。全面閉鎖を意味しない。",
+      "note": "Reutersの9/13更新版は、サウジ東西パイプラインの予防的停止と、イエメン政府筋4人によるフーシ派のPerim島掌握を報じた。ホルムズを迂回して紅海へ出す供給経路への圧力が重なっている。",
+      "implication": "日本向け原油の調達経路と保険費用へ波及し得る。",
+      "watch": "パイプライン再開、船社の運航通知、当局発表。",
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://au.marketscreener.com/news/saudis-shut-down-oil-pipeline-as-houthis-tighten-grip-on-red-sea-shipping-ce785bdfd088f12c"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "輸送・供給または日本への波及判断に重要な変化・継続条件として選定。"
+    },
+    {
+      "id": "sunda-wave",
+      "label": "スンダ・ロンボク南部の波高",
+      "group": "海上交通・供給",
+      "value": "2.5〜4",
+      "unit": "m（予報）",
+      "observed": "スンダ9/13 07:00WIB〜9/16 07:00WIB、ロンボク9/12 08:00WITA〜9/15 08:00WITA",
+      "published": "公表時刻不明／9/13取得",
+      "kind": "公式予報",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "前回予報値未取得、比較不能。",
+      "note": "高波予報であり実測波高や海峡閉鎖ではない。AIS分析は9/8までの過去観測。",
+      "implication": "東南アジア代替航路の運航条件へ波及。",
+      "watch": "予報更新と船社の通航可否。",
+      "sources": [
+        {
+          "label": "BMKG",
+          "url": "https://www.bmkg.go.id/cuaca/maritim/peringatan-gelombang-tinggi"
+        },
+        {
+          "label": "Weathernews",
+          "url": "https://sea.weathernews.com/resources/202609/237"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "輸送・供給または日本への波及判断に重要な変化・継続条件として選定。"
+    },
+    {
+      "id": "ptp-recovery",
+      "label": "タンジュン・ペレパス港",
+      "group": "海上交通・供給",
+      "value": "段階的再開と報道",
+      "unit": "状態",
+      "observed": "障害9/9夜、9/11記事時点の復旧説明",
+      "published": "9/11・時刻不明",
+      "kind": "広報への取材報道",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "停止から再開への説明を確認。9/13完全復旧は未確認。",
+      "note": "The LoadstarはPTP港がサイバー障害で数時間作業を停止したと報道。Maersk広報は影響したシステムの復旧と作業の段階的再開を説明し、一部船舶の遅延可能性に言及した。",
+      "implication": "日本発着の積替便・接続遅延を点検。",
+      "watch": "港湾・船社の実運航更新。",
+      "sources": [
+        {
+          "label": "The Loadstar",
+          "url": "https://theloadstar.com/cyber-attack-halts-operations-at-malaysias-tanjung-pelepas-port/"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "輸送・供給または日本への波及判断に重要な変化・継続条件として選定。"
+    },
+    {
+      "id": "cape-routing",
+      "label": "喜望峰回りの迂回",
+      "group": "海上交通・供給",
+      "value": "迂回・追加料金の継続",
+      "unit": "状態",
+      "observed": "Dimerco9月見通し、観測締切不明",
+      "published": "9/12・時刻不明",
+      "kind": "見通しを引用する報道",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "前日差ではなく継続報道。",
+      "note": "喜望峰自体の閉鎖ではない。追加日数・日本発着の具体料金は未取得。",
+      "implication": "日本欧州間の納期と燃料・保険費用へ波及。",
+      "watch": "船社の航路復帰とサーチャージ改定。",
+      "sources": [
+        {
+          "label": "BusinessMirror",
+          "url": "https://businessmirror.com.ph/2026/09/12/september-freight-faces-familiar-disruptions-but-301-looms-larger/"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "輸送・供給または日本への波及判断に重要な変化・継続条件として選定。"
+    },
+    {
+      "id": "panama-booking",
+      "label": "パナマNeopanamax予約",
+      "group": "海上交通・供給",
+      "value": 63,
+      "unit": "予約枠／週",
+      "observed": "8/30発効、9/13以降の予約日が対象",
+      "published": "8/28・時刻不明",
+      "kind": "公式制度",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "既公表制度の対象日が到来。前の週の配分値は未収録。",
+      "note": "同一日・連続日予約条件等の変更。予約枠は実通航数ではない。",
+      "implication": "日本米東岸航路の予約・配船計画へ波及。",
+      "watch": "予約充足、待ち時間、実通航。",
+      "sources": [
+        {
+          "label": "パナマ運河庁A-31",
+          "url": "https://pancanal.com/wp-content/uploads/2026/04/ADV-31-2026-Transit-Reservation-Booking-System-Rule-modifications.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "輸送・供給または日本への波及判断に重要な変化・継続条件として選定。"
+    },
+    {
+      "id": "panama-draft",
+      "label": "パナマNeopanamax最大喫水",
+      "group": "海上交通・供給",
+      "value": 14.63,
+      "unit": "m TFW",
+      "observed": "10/1予定の引下げを延期し当面維持",
+      "published": "9/4・時刻不明",
+      "kind": "公式制度",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "予定14.48mへの変更を延期。予定と実測の差は計算しない。",
+      "note": "48ft相当。現行最大値は各船の実喫水ではない。",
+      "implication": "積載能力の悪化を回避する条件で、日本向け全便の通航保証ではない。",
+      "watch": "水位、後続通達、船社積載条件。",
+      "sources": [
+        {
+          "label": "パナマ運河庁A-33",
+          "url": "https://pancanal.com/wp-content/uploads/2026/09/ADV-33-2026-Postponement-of-Maximum-Authorized-Draft-Adjustment-in-the-Neopanamax-Locks.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "輸送・供給または日本への波及判断に重要な変化・継続条件として選定。"
+    },
+    {
+      "id": "black-sea-advisory",
+      "label": "黒海・アゾフ海の商船リスク",
+      "group": "海上交通・供給",
+      "value": "勧告Active・9/15失効予定",
+      "unit": "状態",
+      "observed": "9/13有効表示確認、過去攻撃を扱う勧告",
+      "published": "公表日不明",
+      "kind": "公式勧告の状態",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "新規攻撃やケルチ海峡の通航停止ではない。",
+      "note": "直接対象は米国籍商船。失効の時刻・TZ不明。",
+      "implication": "穀物・資源輸送の船社・保険条件を点検する材料。",
+      "watch": "9/15前後の後継勧告。",
+      "sources": [
+        {
+          "label": "米MARAD",
+          "url": "https://www.maritime.dot.gov/msci/2026-005-black-sea-and-sea-azov-military-combat-operations"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "輸送・供給または日本への波及判断に重要な変化・継続条件として選定。"
+    },
+    {
+      "id": "us-cpi",
+      "label": "米CPI総合・前年比",
+      "group": "物価・金融",
+      "value": 3.4,
+      "unit": "％",
+      "observed": "2026年8月",
+      "published": "9/11 08:30EDT",
+      "kind": "一次統計",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "前年比の観測値。前月公表の前年比はここでは未収録。",
+      "note": "総合前月比0.4％、コア前年比2.4％。利上げ決定ではない。",
+      "implication": "米需要・為替・調達環境を通じ日本企業へ波及。",
+      "watch": "次の統計とFOMCの実決定。",
+      "sources": [
+        {
+          "label": "BLS",
+          "url": "https://www.bls.gov/news.release/cpi.nr0.htm"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "輸送・供給または日本への波及判断に重要な変化・継続条件として選定。"
+    },
+    {
+      "id": "us-sentiment",
+      "label": "米消費者態度指数",
+      "group": "物価・金融",
+      "value": 47.8,
+      "unit": "指数",
+      "observed": "2026年9月速報／比較元8月",
+      "published": "9/11・時刻不明",
+      "kind": "一次調査",
+      "previous_value": 51.7,
+      "delta_unit": "ポイント",
+      "change_note": "8月確報との月次比較。日報前日差ではない。",
+      "note": "速報は確報で改定され得る。",
+      "implication": "米家計需要と日本企業の販売見通しへ波及。",
+      "watch": "9月確報と実消費。",
+      "sources": [
+        {
+          "label": "ミシガン大学",
+          "url": "https://www.sca.isr.umich.edu/"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "輸送・供給または日本への波及判断に重要な変化・継続条件として選定。"
+    },
+    {
+      "id": "us-inflation-expectation",
+      "label": "米1年先期待インフレ",
+      "group": "物価・金融",
+      "value": 4.6,
+      "unit": "％",
+      "observed": "2026年9月速報／比較元8月",
+      "published": "9/11・時刻不明",
+      "kind": "一次調査・期待値",
+      "previous_value": 4.0,
+      "delta_unit": "pt",
+      "change_note": "8月4.0％との比較。将来インフレの実績ではない。",
+      "note": "消費者の期待であり日報の主観確率とは別。",
+      "implication": "価格設定や米需要を通じて日本へ波及し得る。",
+      "watch": "確報と実際の物価指標。",
+      "sources": [
+        {
+          "label": "ミシガン大学",
+          "url": "https://www.sca.isr.umich.edu/"
+        },
+        {
+          "label": "期待インフレ公式表",
+          "url": "https://www.sca.isr.umich.edu/files/tbcpx1px5.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "輸送・供給または日本への波及判断に重要な変化・継続条件として選定。"
+    },
+    {
+      "id": "iran-licensing",
+      "label": "イラン関連の個別許可申請",
+      "group": "エネルギー・制度",
+      "value": "原則不許可、例外あり",
+      "unit": "制度",
+      "observed": "9/10即時適用",
+      "published": "9/10・時刻不明／今回②で再確認",
+      "kind": "政府公表",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "本日新規の措置ではない。",
+      "note": "法令上必要な場合、生命・環境安全等の例外を明記。許可と実取引は別。",
+      "implication": "海上安全が改善しても取引・決済の制約が残り得る。",
+      "watch": "後続の方針改定・例外・実運航。",
+      "sources": [
+        {
+          "label": "OFAC",
+          "url": "https://ofac.treasury.gov/recent-actions/20260910"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "輸送・供給または日本への波及判断に重要な変化・継続条件として選定。"
+    }
+  ]
+}

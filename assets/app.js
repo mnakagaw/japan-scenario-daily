@@ -5,7 +5,7 @@ const $$ = (s) => [...document.querySelectorAll(s)];
 const escapeHTML = (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const formatP = v => v == null ? '未設定' : `${Math.round(v * 100)}%`;
 function difference(a, b, from, to) {
-  if (!a || !b || a.p_final == null || b.p_final == null || a.definition_version !== b.definition_version || from.series_id !== to.series_id || from.deadline !== to.deadline || from.forecast_start !== to.forecast_start) return null;
+  if (!a || !b || a.p_final == null || b.p_final == null || a.definition_version !== b.definition_version || a.target !== b.target || from.series_id !== to.series_id || Date.parse(from.deadline) !== Date.parse(to.deadline) || Date.parse(from.forecast_start) !== Date.parse(to.forecast_start)) return null;
   return Math.round((b.p_final - a.p_final) * 1000) / 10;
 }
 function changeMarkup(v) {
@@ -52,7 +52,7 @@ if (fromInput && toInput) {
       const a = from.scenarios.find(s => s.id === b.id), diff = difference(a,b,from,to);
       return `<tr><th scope="row">${escapeHTML(b.id+' '+b.label)}</th><td>${formatP(a?.p_final)}</td><td>${formatP(b.p_final)}</td><td>${changeMarkup(diff)}</td><td>${escapeHTML(a?.reason || '記録なし')}<span class="compare-reason-arrow">↓</span>${escapeHTML(b.reason)}</td></tr>`;
     }).join('');
-    $('#date-comparison').innerHTML = `<h2>${escapeHTML(from.date)} → ${escapeHTML(to.date)}</h2><div class="table-scroll"><table><thead><tr><th>シナリオ</th><th>比較元の最終</th><th>比較先の最終</th><th>指定日間の差</th><th>判断の理由：比較元 → 比較先</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    $('#date-comparison').innerHTML = `<h2>${escapeHTML(from.date)} → ${escapeHTML(to.date)}</h2><p>比較元 ${escapeHTML(from.prepared_at)} 作成版 → 比較先 ${escapeHTML(to.prepared_at)} 作成版</p><div class="table-scroll"><table><thead><tr><th>シナリオ</th><th>比較元の最終</th><th>比較先の最終</th><th>指定日間の差</th><th>判断の理由：比較元 → 比較先</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   };
   if (history.length > 1) fromInput.value = history.at(-2).date;
   else {fromInput.disabled = true; toInput.disabled = true;}

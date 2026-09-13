@@ -27,6 +27,7 @@ jobs:
       - name: Validate publication and client logic
         run: |
           python validate.py --check-history
+          python test-editions.py
           node --check assets/app.js
           node test-client.cjs
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5

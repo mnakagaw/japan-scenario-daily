@@ -21,3 +21,6 @@ Every news item must display its main countries/regions. New daily news records 
 Before publication, run build.py, validate.py, node --check assets/app.js, and node test-client.cjs. Preserve existing content and publications.json records; append daily entries. Corrections are new records in corrections/ and keep the original text intact. Review the exact staged file list before push. Never add internal receipts, private source material, credentials, user paths, or execution logs.
 
 The user's selected destination is this repository's GitHub Pages. Do not create a separate hosting provider project. Daily content generation runs in the daily task; Actions only validates and publishes static files.
+
+
+Supplement publication details: use editions.py's timestamped format and pin the same-day and previous-day comparison editions by public path, file hash and preparation time. The three deltas are distinct. Append all three public supplement file hashes to supplement-publications.json and validate --check-history. Never mutate published supplement entries. If a publication date is unavailable, keep it null with an explanatory publication note instead of assigning the retrieval date. Add supporting_urls for multiple distinct supporting documents. Normal future editions should pin previous_day_reference to the adopted last available edition of the preceding date.

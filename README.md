@@ -62,3 +62,14 @@ python preview.py
 mainへのpushで `.github/workflows/pages.yml` が実行されます。Pagesの公開元はGitHub Actions。公式アクションは確認したコミットに固定しています。
 
 参考: [GitHub Pagesのカスタムワークフロー](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)
+
+
+## 同じ日の追補
+
+当初版の3ファイルを保持し、`supplements/YYYY-MM-DD/HHmmss/` に新しい `report.md`・`data.json`・`variables.json` を追加します。`edition_kind: supplement`、一意な `edition_id`、実際の開始・Web固定・研究確認・数値記録・作成時刻を入れます。時刻名は版の作成開始を識別し、データの `prepared_at` が最終的な公開版作成時刻です。
+
+`same_day_reference` と `previous_day_reference` は比較元の公開パス・SHA-256・作成時刻を固定します。締切までに存在する対象日の最後の版を使い、前日が欠測なら前日参照はnull。各シナリオには `p_same_day_previous_final` と `same_day_delta_pp` を追加し、前日差・同日内の差・今回Web→研究確認後の差を分けます。定義変更には版番号を更新し、異なる条件の差はnullにします。次の日の通常号でも `previous_day_reference` に採用版を記録してください。
+
+追補の3ファイルのハッシュを `supplement-publications.json` に追記します。既存行の変更・削除は禁止。`python validate.py --check-history` は当初版と追補の保存履歴、参照版、順序、各差分を検査します。追補はトップ・アーカイブ・RSSへ追加し、当初版との相互リンクを生成します。日付比較と日次推移にはその日の最後の版を使い、同日内の差は追補ページで読めます。
+
+公表日が不明な新規ニュースは `published_date: null` とし、`published_time` または `publication_note` に不明と記します。取得日を公表日へ代入しません。観測と公表に別の原資料を使う場合は `supporting_urls` に直接リンクを追加します。

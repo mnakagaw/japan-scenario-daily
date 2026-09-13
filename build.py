@@ -1,4 +1,4 @@
-"""Dependency-free static publisher. Reads only this repository's content/."""
+"""Dependency-free static publisher. Reads only this repository's public edition records."""
 from __future__ import annotations
 import argparse, datetime as dt, html, json, re, shutil
 from pathlib import Path
@@ -6,6 +6,7 @@ from email.utils import format_datetime
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 from variables import load_variables, render_variables, render_bottleneck_guide
+from editions import route as edition_route, load_editions, latest_per_day
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / 'dist'
@@ -88,10 +89,11 @@ def display_chars(text):
     return len(re.sub(r'[\s*`#|\-]','',text))
 
 def spark(history, s):
+    history=latest_per_day(history)
     points=[]; target=history[-1]
     for d in history:
         row=next((r for r in d['scenarios'] if r['id']==s['id']),None)
-        comparable=row and row['definition_version']==s['definition_version'] and d['series_id']==target['series_id'] and d['deadline']==target['deadline'] and d['forecast_start']==target['forecast_start']
+        comparable=row and row['definition_version']==s['definition_version'] and row['target']==s['target'] and d['series_id']==target['series_id'] and dt.datetime.fromisoformat(d['deadline'])==dt.datetime.fromisoformat(target['deadline']) and dt.datetime.fromisoformat(d['forecast_start'])==dt.datetime.fromisoformat(target['forecast_start'])
         points.append((d['date'],row['p_final'] if comparable else None))
     valid=[(date,p) for date,p in points if p is not None]
     if not valid: return '<span class="history-empty">— 記録なし</span>'
@@ -116,20 +118,36 @@ def scenario_table(d,history,items=None,rows_id='scenario-rows'):
     rows=[]
     for s in (d['scenarios'] if items is None else items):
         value=s['p_final']; width=0 if value is None else value*100
-        rows.append(f'''<tr data-scenario="{s['id']}" data-probability="{width if value is not None else -1}"><th scope="row"><a class="scenario-link" href="{url('reports/'+d['date']+'/scenarios/'+s['id'].lower()+'/')}"><span class="scenario-id">{s['id']}</span><span>{e(s['label'])}<small>{e(s['reason'])}</small></span><span class="row-arrow" aria-hidden="true">↗</span></a></th><td><span class="probability {band(value)}">{pct(value)}</span><span class="bar-track" aria-hidden="true"><span class="bar {band(value)}" style="width:{width}%"></span></span></td><td>{delta(s['daily_delta_pp'],'未定義' if value is None else '初回' if d['initial'] else '比較不可')}</td><td><span class="confidence">{e(s['evidence_confidence'])}</span></td><td>{spark(history,s)}</td></tr>''')
+        rows.append(f'''<tr data-scenario="{s['id']}" data-probability="{width if value is not None else -1}"><th scope="row"><a class="scenario-link" href="{url(edition_route(d)+'scenarios/'+s['id'].lower()+'/')}"><span class="scenario-id">{s['id']}</span><span>{e(s['label'])}<small>{e(s['reason'])}</small></span><span class="row-arrow" aria-hidden="true">↗</span></a></th><td><span class="probability {band(value)}">{pct(value)}</span><span class="bar-track" aria-hidden="true"><span class="bar {band(value)}" style="width:{width}%"></span></span></td><td>{delta(s['daily_delta_pp'],'未定義' if value is None else '初回' if d['initial'] else '比較不可')}</td><td><span class="confidence">{e(s['evidence_confidence'])}</span></td><td>{spark(history,s)}</td></tr>''')
     return '<div class="table-scroll scenario-scroll"><table class="scenario-table"><caption class="sr-only">最終主観確率、前日最終との差、根拠の確度、実際の記録推移</caption><thead><tr><th scope="col">判定対象・判断の理由</th><th scope="col">最終主観確率</th><th scope="col">前日最終比</th><th scope="col">根拠の確度</th><th scope="col">記録の推移</th></tr></thead><tbody id="'+e(rows_id)+'">'+''.join(rows)+'</tbody></table></div>'
+
+def edition_notice(d):
+    if d.get('edition_kind')!='supplement': return ''
+    prior=d['same_day_reference']
+    link=url(prior['path'].removesuffix('data.json'))
+    return f'<aside class="edition-notice"><strong>{date_label(d["run_started_at"])}開始の追補版</strong><p>{date_label(d["prepared_at"])}作成。当初版を保持した新しい分析です。前日差と同日内の差を分けて表示します。</p><a href="{url("reports/"+d["date"]+"/")}">当初版を読む →</a> ／ <a href="{link}">同日比較元（{date_label(prior["prepared_at"])}作成）→</a> ／ <a href="{url(edition_route(d))}">この追補の固定ページ →</a></aside>'
+
+
+def supplement_table(d):
+    rows=[]
+    for s in d['scenarios']:
+        value=s['p_final']; width=0 if value is None else value*100
+        link=url(edition_route(d)+'scenarios/'+s['id'].lower()+'/')
+        rows.append(f'<tr data-scenario="{s["id"]}" data-probability="{width if value is not None else -1}"><th scope="row"><a class="scenario-link" href="{link}"><span class="scenario-id">{s["id"]}</span><span>{e(s["label"])}<small>{e(s["reason"])}</small></span></a></th><td><span class="probability {band(value)}">{pct(value)}</span><span class="bar-track" aria-hidden="true"><span class="bar {band(value)}" style="width:{width}%"></span></span></td><td>{delta(s["daily_delta_pp"],"前日なし")}</td><td>{delta(s["same_day_delta_pp"],"比較不可")}</td><td>{pct(s["p_web_before_github"])}</td><td>{delta(s["github_delta_pp"],"読前なし")}</td><td>{e(s["evidence_confidence"])}</td></tr>')
+    return '<div class="table-scroll scenario-scroll"><table class="scenario-table supplement-table"><caption>同日比較元：'+e(date_label(d['same_day_reference']['prepared_at']))+'作成版。前日差・同日内の差・研究確認による差は別の値です。</caption><thead><tr><th scope="col">判定対象・理由</th><th scope="col">最終主観確率</th><th scope="col">前日最終比</th><th scope="col">同日比較元比</th><th scope="col">今回Web判断</th><th scope="col">今回①→②</th><th scope="col">確度</th></tr></thead><tbody id="scenario-rows">'+''.join(rows)+'</tbody></table></div>'
+
 
 def observation_label(identifier):
     return '旧I・中東物流の参考見通し' if identifier=='I' else '予備枠 J' if identifier=='J' else 'シナリオ '+identifier
 
 def reserve_note(d):
     item=next((s for s in d['scenarios'] if s['id']=='J'),None)
-    if item is None: return ''
-    link=url('reports/'+d['date']+'/scenarios/j/')
+    if item is None: return '<aside class="reserve-note"><strong>予備枠 J：対象未定義・確率未設定</strong><a href="'+url('method/')+'#guide-j">説明を見る →</a></aside>'
+    link=url(edition_route(d)+'scenarios/j/')
     return f'<aside class="reserve-note"><strong>予備枠 J：{e(item["label"])}</strong><span>{e(item["target"])}</span><a href="{link}">説明を見る →</a></aside>'
 
-def news_card(n, date=None):
-    prefix='reports/'+date+'/' if date else ''
+def news_card(n, date=None, path=None):
+    prefix=path if path is not None else 'reports/'+date+'/' if date else ''
     countries=n.get('countries') or NEWS_LABELS.get(date,{}).get(n['id'],[])
     country_tags='<div class="news-countries"><span class="country-caption">国・地域</span>'+''.join(f'<span class="country-tag">{e(country)}</span>' for country in countries)+'</div>'
     tags=''
@@ -137,36 +155,44 @@ def news_card(n, date=None):
         target=url(prefix)+'#variables' if s=='I' else url(prefix+'scenarios/'+s.lower()+'/')
         label='世界の横断変数' if s=='I' else observation_label(s)
         tags+=f'<a class="tag" href="{target}" aria-label="{label}の詳細">{"横断" if s=="I" else s}</a>'
-    return f'''<article class="news-item" id="{e(n['id'])}" data-category="{e(n['category'])}" data-status="{e(n['status'])}" data-scenarios="{''.join(n['scenarios'])}"><div class="news-meta"><span class="status">{e(n['status'])}</span><span>{e(n['category'])}</span><span>公表・更新 {e(n['published_date'])}</span></div>{country_tags}<h3>{e(n['title'])}</h3><p>{e(n['summary'])}</p><div class="news-bottom"><span class="event">発生・対象：{e(n['event'])}</span><span class="tags">{tags}</span><a class="source" href="{e(n['url'])}" target="_blank" rel="noopener noreferrer">{e(n['source'])} ↗<span class="sr-only">（新しいタブ）</span></a></div></article>'''
+    if n.get('cross_cutting'): tags+=f'<a class="tag" href="{url(prefix)}#variables">横断</a>'
+    filter_ids=''.join(n['scenarios'])+('V' if n.get('cross_cutting') or 'I' in n['scenarios'] else '')
+    published=n.get('publication_note') or n.get('published_time') or n.get('published_date') or '公表日不明'
+    if n.get('published_date') and n['published_date'] not in published: published=n['published_date']+'／'+published
+    if n.get('updated_at'): published+='／更新 '+n['updated_at']
+    extras=''.join(f'<a class="source" href="{e(href)}" target="_blank" rel="noopener noreferrer">補足原資料 {i+1} ↗</a>' for i,href in enumerate(n.get('supporting_urls',[])))
+    return f'''<article class="news-item" id="{e(n['id'])}" data-category="{e(n['category'])}" data-status="{e(n['status'])}" data-scenarios="{filter_ids}"><div class="news-meta"><span class="status">{e(n['status'])}</span><span>{e(n['category'])}</span><span>公表・更新 {e(published)}</span></div>{country_tags}<h3>{e(n['title'])}</h3><p>{e(n['summary'])}</p><div class="news-bottom"><span class="event">発生・対象：{e(n['event'])}</span><span class="tags">{tags}</span><a class="source" href="{e(n['url'])}" target="_blank" rel="noopener noreferrer">{e(n['source'])} ↗<span class="sr-only">（新しいタブ）</span></a>{extras}</div></article>'''
 
 def report_dashboard(d,history,md,path=''):
     date=d['date']; summaries=''.join(f'<li>{e(x)}</li>' for x in d['summary'])
     highlights=''
     for h in d['highlights']:
-        target=url('reports/'+d['date']+'/')+'#variables' if h['scenario']=='I' else url('reports/'+d['date']+'/scenarios/'+h['scenario'].lower()+'/')
+        target=url(edition_route(d))+'#variables' if h['scenario']=='I' else url(edition_route(d)+'scenarios/'+h['scenario'].lower()+'/')
         label='世界の横断変数' if h['scenario']=='I' else observation_label(h['scenario'])
         highlights+=f'<a class="highlight" href="{target}"><span class="eyebrow">{e(h["label"])}</span><p>{e(h["text"])}</p><span>{label} <span aria-hidden="true">↗</span></span></a>'
     cats=sorted({n['category'] for n in d['news']}); categories=''.join(f'<option>{e(c)}</option>' for c in cats)
-    select_s=''.join(f'<option value="{s["id"]}">{"世界の横断変数" if s["id"]=="I" else observation_label(s["id"])+" "+e(s["label"])}</option>' for s in d['scenarios'] if s['p_final'] is not None)
+    select_s=''.join(f'<option value="{s["id"]}">{"世界の横断変数" if s["id"]=="I" else observation_label(s["id"])+" "+e(s["label"])}</option>' for s in d['scenarios'] if s['p_final'] is not None and s['id'] not in ('I','J'))
     news_scope=f'①の{sum(n["phase"]==1 for n in d["news"])}件＋②で追加確認した{sum(n["phase"]==2 for n in d["news"])}件。背景資料を含む。'
     comp=''.join(f'<tr><th scope="row">{e(c["ids"])}</th><td>{e(c["before"])}</td><td>{e(c["after"])}</td><td>{e(c["reason"])}</td></tr>' for c in d['comparison'])
     defined=[s for s in d['scenarios'] if s['id'] not in ('I','J') and s['p_final'] is not None]
     changes=[s for s in defined if s['daily_delta_pp'] is not None and s['daily_delta_pp'] != 0]
     comparable=[s for s in defined if s['daily_delta_pp'] is not None]
     moves='初回の確率記録です。前日差と上昇・低下は、比較可能な次回の記録から表示します。' if d['initial'] else '前日の比較可能な記録がないため、上昇・低下は判定しません。' if not comparable else '本日の比較可能なシナリオに確率の変更はありません。' if not changes else ' / '.join(f'{s["id"]} {s["daily_delta_pp"]:+g} pt：{s["reason"]}' for s in sorted(changes,key=lambda s:abs(s['daily_delta_pp']),reverse=True)[:3])
-    return f'''<div class="edition"><span>DAILY BRIEF <b>No. {e(d['edition'])}</b></span><time datetime="{date}">{date.replace('-','.')}</time><span>日本への影響を読む</span></div>
+    legacy_notice='<p class="small muted">当初の本文にあるIは、過去の参考見通しとして保持しています。</p>' if any(s['id']=='I' for s in d['scenarios']) else ''
+    if d.get('edition_kind')=='supplement': moves=d['movement_summary']
+    return edition_notice(d)+f'''<div class="edition"><span>DAILY BRIEF <b>No. {e(d['edition'])}</b></span><time datetime="{date}">{date.replace('-','.')}</time><span>日本への影響を読む</span></div>
 <a class="scenario-guide-link" href="{url('method/')}#scenario-guide"><span class="guide-link-label">はじめて読む方へ</span><span class="guide-link-copy"><strong>主シナリオと世界の横断変数を読む</strong><span>想定している展開と、可能性を判断する条件を確認する</span></span><span class="guide-link-arrow" aria-hidden="true">→</span></a>
-<div class="intro"><div><p class="eyebrow">TODAY’S OUTLOOK</p><h1>{e(d['title'])}</h1><ul class="summary-list">{summaries}</ul></div><aside class="edition-meta"><span class="label">本日の記録</span><strong>{date[5:].replace('-',' / ')}</strong><p>①情報固定 {date_label(d['cutoff_at'])}<br>公開版作成 {date_label(d['prepared_at'])}</p><a class="button" href="#full-report">日報全文を読む ↓</a><a href="{url('reports/'+date+'/report.md')}" download>Markdownを保存 ↗</a></aside></div>
+<div class="intro"><div><p class="eyebrow">TODAY’S OUTLOOK</p><h1>{e(d['title'])}</h1><ul class="summary-list">{summaries}</ul></div><aside class="edition-meta"><span class="label">本日の記録</span><strong>{date[5:].replace('-',' / ')}</strong><p>①情報固定 {date_label(d['cutoff_at'])}<br>公開版作成 {date_label(d['prepared_at'])}</p><a class="button" href="#full-report">日報全文を読む ↓</a><a href="{url(edition_route(d)+'report.md')}" download>Markdownを保存 ↗</a></aside></div>
 <nav class="jump-nav" aria-label="日報内"><a href="#scenarios">主シナリオ A〜H</a><a href="#variables">世界の横断変数</a><a href="#news">ニュース <span>{len(d['news'])}</span></a><a href="#comparison">Web → 研究確認後</a><a href="#full-report">4段階の分析</a></nav>
 <section class="highlights" aria-label="本日の焦点">{highlights}</section>
 <div class="movement"><span class="movement-label">今日の動き</span><p>{e(moves)}</p></div>
-<section id="scenarios">{section_title('MAIN SCENARIOS / A–H','主シナリオの可能性と、その動き','各行から判定条件・根拠・次の注目点へ')}<div class="section-toolbar"><p>期限：{deadline_label(d)}<br><span class="muted">併存可能な事象の主観推定。文字順は深刻さ・発生確率の順位ではありません。</span></p><label class="js-only">並び順 <select id="scenario-sort"><option value="id">分類順</option><option value="probability">確率の高い順</option></select></label></div>{scenario_table(d,history,[s for s in d['scenarios'] if s['id'] not in ('I','J')])}
+<section id="scenarios">{section_title('MAIN SCENARIOS / A–H','主シナリオの可能性と、その動き','各行から判定条件・根拠・次の注目点へ')}<div class="section-toolbar"><p>期限：{deadline_label(d)}<br><span class="muted">併存可能な事象の主観推定。文字順は深刻さ・発生確率の順位ではありません。</span></p><label class="js-only">並び順 <select id="scenario-sort"><option value="id">分類順</option><option value="probability">確率の高い順</option></select></label></div>{supplement_table(d) if d.get('edition_kind')=='supplement' else scenario_table(d,history,[s for s in d['scenarios'] if s['id'] not in ('I','J')])}
 <div class="legend"><span><i class="dot high"></i>60%以上</span><span><i class="dot medium"></i>30%以上60%未満</span><span><i class="dot low"></i>30%未満</span><span class="up">▲ 上昇</span><span class="down">▼ 低下</span><span>→ 据置 / — 比較不可</span></div><p class="small muted">色は日本への良悪を表しません。根拠の確度と確率は別です。初回は読後に数値化し、読前値を遡って作成していません。<a href="{url('method/')}">確率の読み方 →</a></p></section>
 {render_variables(d,WORLD_VARIABLES,url)}
 {reserve_note(d)}
-<section id="news">{section_title('NEWS DESK','今日のニュースをたどる',news_scope)}<form class="filters js-only" id="news-filters" role="search"><label class="search-label">キーワード<input id="news-search" type="search" placeholder="例：関税、保険、台湾" autocomplete="off"></label><label>分野<select id="news-category"><option value="">すべての分野</option>{categories}</select></label><label>シナリオ・リスク<select id="news-scenario"><option value="">すべて</option>{select_s}</select></label><label>種別<select id="news-status"><option value="">すべて</option><option>新着</option><option>継続</option><option>追加確認</option><option>背景</option></select></label><button class="text-button" type="reset">解除</button></form><p class="small muted">{e(d['news_window_label'])}</p><p id="news-count" class="result-count" aria-live="polite">{len(d['news'])}件を表示</p><div id="news-list" class="news-list">{''.join(news_card(n,d['date']) for n in d['news'])}</div><p id="news-empty" class="empty-state" hidden>条件に合うニュースがありません。「解除」で全件に戻せます。</p></section>
+<section id="news">{section_title('NEWS DESK','今日のニュースをたどる',news_scope)}<form class="filters js-only" id="news-filters" role="search"><label class="search-label">キーワード<input id="news-search" type="search" placeholder="例：関税、保険、台湾" autocomplete="off"></label><label>分野<select id="news-category"><option value="">すべての分野</option>{categories}</select></label><label>シナリオ・リスク<select id="news-scenario"><option value="">すべて</option>{select_s}<option value="V">世界の横断変数</option></select></label><label>種別<select id="news-status"><option value="">すべて</option><option>新着</option><option>継続</option><option>追加確認</option><option>背景</option></select></label><button class="text-button" type="reset">解除</button></form><p class="small muted">{e(d['news_window_label'])}</p><p id="news-count" class="result-count" aria-live="polite">{len(d['news'])}件を表示</p><div id="news-list" class="news-list">{''.join(news_card(n,d['date'],edition_route(d)) for n in d['news'])}</div><p id="news-empty" class="empty-state" hidden>条件に合うニュースがありません。「解除」で全件に戻せます。</p></section>
 <section id="comparison">{section_title('SECOND LOOK','研究を読んで、判断はどう変わったか','今日のWeb判断 → 今日の研究確認後。前日差とは別の比較。')}<p class="section-lead">{e(d['comparison_summary'])}</p><div class="table-scroll"><table class="comparison-table"><thead><tr><th scope="col">対象</th><th scope="col">① Web判断</th><th scope="col">② 研究確認後</th><th scope="col">③ 変化・不変の理由</th></tr></thead><tbody>{comp}</tbody></table></div><p class="note">{e(d['pre_post_note'])}</p></section>
-<section id="full-report">{section_title('THE DAILY REPORT','本日の日報を読む',f'サマリーから総合判断まで、{display_chars(md):,}字（空白・URL・装飾を除く）。')}<p class="small muted">当初の本文にあるIは、現在の一覧では世界の横断変数と区別した過去の参考見通しとして扱っています。</p><div class="report-layout"><aside class="report-index"><p class="eyebrow">CONTENTS</p><a href="#phase-1">① Web分析・ニュース</a><a href="#phase-2">② 研究確認・追加分析</a><a href="#phase-3">③ 判断の違い</a><a href="#phase-4">④ 総合判断</a><button type="button" class="button print-button js-only">印刷 / PDFに保存</button><a href="{url('reports/'+date+'/data.json')}" download>公開データ JSON ↗</a></aside><article class="report-prose">{markdown(md)}</article></div></section>'''
+<section id="full-report">{section_title('THE DAILY REPORT','本日の日報を読む',f'サマリーから総合判断まで、{display_chars(md):,}字（空白・URL・装飾を除く）。')}{legacy_notice}<div class="report-layout"><aside class="report-index"><p class="eyebrow">CONTENTS</p><a href="#phase-1">① Web分析・ニュース</a><a href="#phase-2">② 研究確認・追加分析</a><a href="#phase-3">③ 判断の違い</a><a href="#phase-4">④ 総合判断</a><button type="button" class="button print-button js-only">印刷 / PDFに保存</button><a href="{url(edition_route(d)+'data.json')}" download>公開データ JSON ↗</a></aside><article class="report-prose">{markdown(md)}</article></div></section>'''
 
 def scenario_page(s,d,history):
     related=[n for n in d['news'] if s['id'] in n['scenarios']]
@@ -177,11 +203,11 @@ def scenario_page(s,d,history):
     for h in reversed(history):
         r=next((r for r in h['scenarios'] if r['id']==s['id']),None)
         if not r: continue
-        href=url('reports/'+h['date']+'/scenarios/'+s['id'].lower()+'/')
+        href=url(edition_route(h)+'scenarios/'+s['id'].lower()+'/')
         condition=f"v{r['definition_version']} / {h['series_id']} / {deadline_label(h)}"
-        rows+=f'<tr><th scope="row"><a href="{href}">{h["date"]}</a></th><td>{pct(r["p_web_before_github"])}</td><td>{pct(r["p_final"])}</td><td>{delta(r["daily_delta_pp"],"初回" if h["initial"] else "比較不可")}</td><td>{delta(r["github_delta_pp"],"読前未設定")}</td><td><details><summary>{e(condition)}</summary>{e(r["target"])}</details></td></tr>'
+        rows+=f'<tr><th scope="row"><a href="{href}">{h["date"]} / {date_label(h["prepared_at"])}作成</a></th><td>{pct(r["p_web_before_github"])}</td><td>{pct(r["p_final"])}</td><td>{delta(r["daily_delta_pp"],"初回" if h["initial"] else "比較不可")}</td><td>{delta(r["github_delta_pp"],"読前未設定")}</td><td><details><summary>{e(condition)}</summary>{e(r["target"])}</details></td></tr>'
 
-    return f'''<a class="back-link" href="{url("reports/"+d["date"]+"/")}#{back_anchor}">← 日報の一覧へ</a><div class="detail-heading"><div><p class="eyebrow">{page_group} / {d['date']}</p><h1>{e(s['label'])}</h1><p>{e(s['reason'])}</p></div><div class="detail-value"><span class="probability {band(s['p_final'])}">{pct(s['p_final'])}</span><span>最終主観確率 / 根拠の確度：{e(s['evidence_confidence'])}</span>{delta(s['daily_delta_pp'],'未定義' if s['p_final'] is None else '初回' if d['initial'] else '比較不可')}</div></div>{role_note}<div class="definition"><p class="eyebrow">WHAT COUNTS / 判定条件 v{s['definition_version']}</p><p>{e(s['target'])}</p><small>予測開始：{date_label(d['forecast_start'])}。期限：{deadline_label(d)}。Iは期限時点での残存を判断。</small></div><div class="evidence-grid"><section><p class="eyebrow">観測・支持材料</p><p>{e(s['support'])}</p></section><section><p class="eyebrow">反証・留保</p><p>{e(s['counter'])}</p></section><section><p class="eyebrow">次の注目点</p><p>{e(s['watch'])}</p></section></div><section>{section_title('RECORD','確率と判断の履歴')}<p>読前が未設定なら数値差を計算しません。定義・期限が変わる場合は比較を区切ります。</p><div class="table-scroll"><table><thead><tr><th>日付</th><th>今日Web判断</th><th>最終確率</th><th>前日最終比</th><th>今日①→②</th><th>当時の判定条件</th></tr></thead><tbody>{rows}</tbody></table></div></section><section>{section_title('RELATED NEWS','この項目に関係するニュース')}<div class="news-list">{''.join(news_card(n,d['date']) for n in related) or '<p class="empty-state">本日のニュースに該当する項目はありません。</p>'}</div></section>'''
+    return f'''<a class="back-link" href="{url(edition_route(d))}#{back_anchor}">← 日報の一覧へ</a><div class="detail-heading"><div><p class="eyebrow">{page_group} / {d['date']}</p><h1>{e(s['label'])}</h1><p>{e(s['reason'])}</p></div><div class="detail-value"><span class="probability {band(s['p_final'])}">{pct(s['p_final'])}</span><span>最終主観確率 / 根拠の確度：{e(s['evidence_confidence'])}</span>{delta(s['daily_delta_pp'],'未定義' if s['p_final'] is None else '初回' if d['initial'] else '比較不可')}</div></div>{role_note}<div class="definition"><p class="eyebrow">WHAT COUNTS / 判定条件 v{s['definition_version']}</p><p>{e(s['target'])}</p><small>予測開始：{date_label(d['forecast_start'])}。期限：{deadline_label(d)}。Iは期限時点での残存を判断。</small></div><div class="evidence-grid"><section><p class="eyebrow">観測・支持材料</p><p>{e(s['support'])}</p></section><section><p class="eyebrow">反証・留保</p><p>{e(s['counter'])}</p></section><section><p class="eyebrow">次の注目点</p><p>{e(s['watch'])}</p></section></div><section>{section_title('RECORD','確率と判断の履歴')}<p>読前が未設定なら数値差を計算しません。定義・期限が変わる場合は比較を区切ります。</p><div class="table-scroll"><table><thead><tr><th>日付</th><th>今日Web判断</th><th>最終確率</th><th>前日最終比</th><th>今日①→②</th><th>当時の判定条件</th></tr></thead><tbody>{rows}</tbody></table></div></section><section>{section_title('RELATED NEWS','この項目に関係するニュース')}<div class="news-list">{''.join(news_card(n,d['date'],edition_route(d)) for n in related) or '<p class="empty-state">本日のニュースに該当する項目はありません。</p>'}</div></section>'''
 
 def scenario_guide(d):
     # Plain-language introductions supplement the recorded definitions, which
@@ -208,7 +234,7 @@ def scenario_guide(d):
         for s in items:
             description=descriptions.get((s['id'],s['definition_version']),s['target'])
             if s['id']=='I': description='当初はIとして確率を置きましたが、現在は主シナリオの一覧から分離しています。以下は当初の判定対象の説明で、物流変数の現在値ではありません。'+description
-            detail=url('reports/'+d['date']+'/scenarios/'+s['id'].lower()+'/')
+            detail=url(s.get('guide_route',edition_route(d)+'scenarios/'+s['id'].lower()+'/'))
             cards.append(f'''<article class="guide-scenario" id="guide-{e(s['id'].lower())}"><h4><span class="scenario-id">{e(s['id'])}</span>{e(s['label'])}</h4><p>{e(description)}</p><details><summary>この日報での判定条件</summary><p>{e(s['target'])}</p></details><a class="guide-detail-link" href="{detail}">{e(d['date'])}の確率・根拠を見る →</a></article>''')
     return f'''<section class="method-prose scenario-guide" id="scenario-guide" aria-labelledby="scenario-guide-title"><p class="eyebrow">SCENARIO GUIDE</p><h2 id="scenario-guide-title">主シナリオと世界の横断変数の違い</h2><p><strong>A〜Hは主シナリオ</strong>として、米国の安全保障・同盟、米中の取引と日本への波及を見ます。<strong>世界の横断変数</strong>では、海峡・運河の通航、供給、エネルギー、制度、物価・金融などの条件と変化を別枠で追います。旧Iは過去の参考見通し、Jは未設定の予備枠として保持します。</p><p>横断変数はA〜Hのどの展開でも変化し得ます。例えば米中関係が改善しても、バブ・エル・マンデブ海峡の航行妨害や、パナマ運河の予約枠・喫水制限が残れば、輸送条件は改善しない場合があります。別枠の表示は、互いに無関係という意味ではありません。</p><p class="note">日本への影響の深刻さと、事象が起こる確率は別の軸です。A〜Hの文字順も、深刻さや発生確率の順位ではありません。複数が併存するため、確率の合計を100％にはしません。</p><p class="small muted">{e(d['date'])}号の定義に基づく説明です。評価期限：{deadline_label(d)}。Iは期限時点での制約の残存、主シナリオは開始後から期限までの確認を見ます。</p><nav class="guide-index" aria-label="主シナリオと過去の参考見通しの説明へ">{links}</nav><div class="guide-scenarios">{''.join(cards)}</div><a class="guide-return" href="{url()}#scenarios">最新の日報の一覧へ戻る →</a></section>'''
 
@@ -220,7 +246,7 @@ def method(d):
 <h2>％は未校正の主観推定です</h2><p>確率は統計モデルや市場の価格から自動算出した値ではありません。原則5ポイント刻みで、定義した事象の可能性を見積もります。根拠の確度「中・低」は材料の強さや不確かさを表す別の評価です。未取得の資料や不明な値を0％に変換しません。</p>
 <p>主シナリオA〜Hは同時に起こり得るため、合計100％にはなりません。世界の横断変数には実測値・公式ルール・報道された状態・市場期待などを、その種類を明記して載せます。Jは残りの確率ではなく、対象未定義の予備枠です。</p>
 <h2>期限・判定対象を揃えます</h2><p>初期の予測開始は2026年9月13日11:36 JST、期限は2026年11月3日23:59米東部時間です。Aなどは開始後から期限までに条件を満たす事象を公式確認する見通し。Iは、停戦の有無を問わず期限時点で日本向け中東輸送の制約が残る見通しです。過去の演習や措置は判断材料であり、将来の条件達成そのものとしません。</p>
-<h2>二つの差を分けます</h2><p><strong>前日差</strong>は今日の最終確率−前日の比較可能な最終確率。<strong>今日①→②</strong>は研究確認後の最終確率−今日のWeb分析時点の確率。単位はパーセントポイント（pt）です。40％から45％なら+5ptです。定義・評価期限・系列が違う場合や値が欠ける場合は「比較不可」とします。</p>
+<h2>前日・同日内・研究確認の差を分けます</h2><p><strong>同日当初比</strong>は追補版の最終確率−明示した同日比較元の最終確率。同じ日の差を前日差にはしません。同日比較元の版・作成時刻を各追補に記録します。日付比較では各日の最後の公開版を選び、版の時刻を表示します。</p><p><strong>前日差</strong>は今日の最終確率−前日の比較可能な最終確率。<strong>今日①→②</strong>は研究確認後の最終確率−今日のWeb分析時点の確率。単位はパーセントポイント（pt）です。40％から45％なら+5ptです。定義・評価期限・系列が違う場合や値が欠ける場合は「比較不可」とします。</p>
 <p>初回9月13日は日報の読後に初めて数値化しました。過去日の値と当日の読前確率は存在せず、差や推移を遡って作っていません。同日の研究に先に触れた履歴もあるため、完全な初見・独立した盲検分析とは扱いません。今後も過去に読んだ知識は残ります。</p>
 <h2>色は利害や危険度ではありません</h2><p>橙は60％以上、黄は30％以上60％未満、青は30％未満。動きは赤の▲上昇、青の▼低下、→据置、—初回・比較不可です。色だけに頼らず、数値・文字・矢印を併記します。Aの同盟強化とIの物流制約が同じ色でも、日本への意味は異なります。</p>
 <h2>ニュースの範囲と出典</h2><p>直近24時間を中心に、影響が続く数日前の発表や背景資料も含めます。新着・継続・追加確認・背景を表示し、公表日と発生日を分けます。件数はニュース項目数で、同じ事象に関する転載は独立の証拠として重複加算しません。発言、予定、暫定措置、実施済みの決定を区別します。</p><p>初回のWeb分析固定は9月13日11:20 JSTごろ。研究確認後に追加した2件は②の段階の確認です。リンク先は更新・削除されることがあり、ライブページと大学指標ページの表示内容は日報掲載時点から変わる場合があります。原文転載はせず短い要約と直接リンクを掲載します。</p>
@@ -230,7 +256,7 @@ def method(d):
 
 
 def correction_notice(d, records):
-    matching=[c for c in records if c['report_date']==d['date']]
+    matching=[c for c in records if c['report_date']==d['date'] and c.get('edition_id')==d.get('edition_id')]
     if not matching: return ''
     return '<aside class="note" aria-label="訂正注記"><strong>この号の訂正・追記</strong><ul>'+''.join(f'<li>{e(c["date"])}：{e(c["text"])}</li>' for c in matching)+'</ul><p>以下の本文と数値は当初の公開記録を保持しています。</p></aside>'
 
@@ -248,25 +274,27 @@ def build(base='/japan-scenario-daily'):
         shutil.rmtree(OUT)
     OUT.mkdir()
     history=[]; reports={}
-    for path in sorted((ROOT/'content').glob('????-??-??/data.json')):
-        d=json.loads(path.read_text(encoding='utf-8')); history.append(d)
-        labels=NEWS_LABELS.get(d['date'],{})
+    for folder,d in load_editions(ROOT):
+        history.append(d)
+        labels=NEWS_LABELS.get(d['date'],{}) if d.get('edition_kind')!='supplement' else {}
         if not set(labels)<=set(n['id'] for n in d['news']): raise ValueError('Unknown news label ID')
         for n in d['news']:
             countries=n.get('countries') or labels.get(n['id'],[])
             if not isinstance(countries,list) or not countries or not all(isinstance(c,str) and c.strip() for c in countries):
                 raise ValueError('Missing country/region labels: '+d['date']+'/'+n['id'])
-        reports[d['date']]=(path.parent/'report.md').read_text(encoding='utf-8')
+        reports[edition_route(d)]=(folder/'report.md').read_text(encoding='utf-8')
     if not history: raise ValueError('No public report records')
     latest=history[-1]
     corrections_data=[json.loads(p.read_text(encoding='utf-8')) for p in sorted((ROOT/'corrections').glob('*.json'))]
-    write('index.html',page(latest['title'],correction_notice(latest,corrections_data)+report_dashboard(latest,history,reports[latest['date']]),data={'history':history}))
+    write('index.html',page(latest['title'],correction_notice(latest,corrections_data)+report_dashboard(latest,history,reports[edition_route(latest)]),data={'history':history}))
     for i,d in enumerate(history):
-        route='reports/'+d['date']+'/'
-        write(route+'index.html',page(d['date']+'の日報',correction_notice(d,corrections_data)+report_dashboard(d,history[:i+1],reports[d['date']],route),route,data={'history':history[:i+1]}))
-        write(route+'report.md',reports[d['date']]); write(route+'data.json',json.dumps(d,ensure_ascii=False,indent=2)+'\n')
-        if d['date'] in WORLD_VARIABLES: write(route+'variables.json',json.dumps(WORLD_VARIABLES[d['date']],ensure_ascii=False,indent=2)+'\n')
-        if d['date'] in NEWS_LABELS: write(route+'news-labels.json',json.dumps(NEWS_LABELS[d['date']],ensure_ascii=False,indent=2)+'\n')
+        route=edition_route(d)
+        later=[x for x in history[i+1:] if x['date']==d['date']]
+        updates='<aside class="edition-notice"><strong>この日の追補版</strong><p>'+ ' / '.join('<a href="'+url(edition_route(x))+'">'+date_label(x['prepared_at'])+'作成版</a>' for x in later)+'</p></aside>' if later else ''
+        write(route+'index.html',page(d['date']+'の日報',updates+correction_notice(d,corrections_data)+report_dashboard(d,history[:i+1],reports[edition_route(d)],route),route,data={'history':history[:i+1]}))
+        write(route+'report.md',reports[edition_route(d)]); write(route+'data.json',json.dumps(d,ensure_ascii=False,indent=2)+'\n')
+        if edition_route(d) in WORLD_VARIABLES: write(route+'variables.json',json.dumps(WORLD_VARIABLES[edition_route(d)],ensure_ascii=False,indent=2)+'\n')
+        if d.get('edition_kind')!='supplement' and d['date'] in NEWS_LABELS: write(route+'news-labels.json',json.dumps(NEWS_LABELS[d['date']],ensure_ascii=False,indent=2)+'\n')
         for s in d['scenarios']:
             detail=route+'scenarios/'+s['id'].lower()+'/'
             write(detail+'index.html',page(d['date']+' '+s['label'],correction_notice(d,corrections_data)+scenario_page(s,d,history[:i+1]),detail))
@@ -276,24 +304,26 @@ def build(base='/japan-scenario-daily'):
     for i,d,s in last_seen.values():
         route='scenarios/'+s['id'].lower()+'/'
         write(route+'index.html',page(s['label'],scenario_page(s,d,history[:i+1]),route))
-    archive='<div class="page-heading"><p class="eyebrow">ARCHIVE</p><h1>毎日の判断を、記録に残す。</h1><p>公開済み '+str(len(history))+' 日分。元の判断と根拠を日付でたどれます。</p></div><div class="archive-list">'
+    archive='<div class="page-heading"><p class="eyebrow">ARCHIVE</p><h1>毎日の判断を、記録に残す。</h1><p>公開済み '+str(len(latest_per_day(history)))+' 日分（'+str(len(history))+' 版）。元の判断と根拠を日付でたどれます。</p></div><div class="archive-list">'
     for d in reversed(history):
-        archive+=f'<a class="archive-item" href="{url("reports/"+d["date"]+"/")}"><time>{d["date"]}</time><div><h2>{e(d["title"])}</h2><p>{e(d["summary"][0])}</p></div><span>読む ↗</span></a>'
+        archive+=f'<a class="archive-item" href="{url(edition_route(d))}"><time>{d["date"]}<br><small>{date_label(d["prepared_at"])}作成</small></time><div><h2>{e(d["title"])}</h2><p>{e(d["summary"][0])}</p></div><span>読む ↗</span></a>'
     archive+='</div>'
     write('archive/index.html',page('アーカイブ',archive,'archive/','archive'))
-    options=''.join(f'<option value="{d["date"]}">{d["date"]}</option>' for d in reversed(history))
-    compare=f'''<div class="page-heading"><p class="eyebrow">COMPARE DATES</p><h1>昨日から変わったことを確かめる。</h1><p>前日の最終判断と、今日の最終判断を比較します。研究確認前後の違いは、各日報の「研究を読んで、判断はどう変わったか」で読めます。</p></div><div class="compare-controls js-only"><label>比較元<select id="compare-from">{options}</select></label><span aria-hidden="true">→</span><label>比較先<select id="compare-to">{options}</select></label></div><div id="date-comparison" aria-live="polite"><p class="empty-state">{'初回の公開です。2日目から日付を選んで確率と判断の変化を比較できます。' if len(history)<2 else '日付を選ぶと比較できます。JavaScriptが無効の場合はアーカイブから各日報をご覧ください。'}</p></div><p class="note">欠測は0ではありません。日付が連続しない場合は指定日間の比較であり、前日差とは表示しません。判定条件や期限の変更をまたぐ差は算出しません。</p><a class="button" href="{url('archive/')}">過去の日報へ →</a>'''
-    write('compare/index.html',page('日付で比較',compare,'compare/','compare',{'history':history}))
+    daily_history=latest_per_day(history)
+    options=''.join(f'<option value="{d["date"]}">{d["date"]} / {date_label(d["prepared_at"])}作成版</option>' for d in reversed(daily_history))
+    compare=f'''<div class="page-heading"><p class="eyebrow">COMPARE DATES</p><h1>昨日から変わったことを確かめる。</h1><p>前日の最終判断と、今日の最終判断を比較します。研究確認前後の違いは、各日報の「研究を読んで、判断はどう変わったか」で読めます。</p></div><div class="compare-controls js-only"><label>比較元<select id="compare-from">{options}</select></label><span aria-hidden="true">→</span><label>比較先<select id="compare-to">{options}</select></label></div><div id="date-comparison" aria-live="polite"><p class="empty-state">{'初回の公開です。2日目から日付を選んで確率と判断の変化を比較できます。' if len(daily_history)<2 else '日付を選ぶと比較できます。JavaScriptが無効の場合はアーカイブから各日報をご覧ください。'}</p></div><p class="note">欠測は0ではありません。日付が連続しない場合は指定日間の比較であり、前日差とは表示しません。判定条件や期限の変更をまたぐ差は算出しません。</p><a class="button" href="{url('archive/')}">過去の日報へ →</a>'''
+    write('compare/index.html',page('日付で比較',compare,'compare/','compare',{'history':daily_history}))
     corrections='<section class="method-prose"><h2>訂正・公開履歴</h2><ul>'+''.join(f'<li><time>{e(c["date"])}</time> — {e(c["text"])}</li>' for d in reversed(history) for c in d['corrections'])+'</ul></section>'
     corrections+='<ul class="method-prose">'+''.join(f'<li>{e(c["date"])} / {e(c["report_date"])}号の訂正：{e(c["text"])}</li>' for c in corrections_data)+'</ul>'
-    write('method/index.html',page('読み方・シナリオ・手法',method(latest)+corrections,'method/','method'))
+    guide=dict(latest); guide['scenarios']=[dict(s,guide_route=edition_route(d)+'scenarios/'+s['id'].lower()+'/') for i,d,s in last_seen.values()]
+    write('method/index.html',page('読み方・シナリオ・手法',method(guide)+corrections,'method/','method'))
     write('404.html',page('ページが見つかりません',f'<div class="page-heading"><p class="eyebrow">404</p><h1>このページは見つかりません。</h1><a class="button" href="{url()}">最新の日報へ →</a></div>','404.html'))
     feed='<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>'+TITLE+'</title><link>'+SITE+'/</link><description>米中関係と米中間選挙の日報</description><language>ja</language><atom:link href="'+SITE+'/feed.xml" rel="self" type="application/rss+xml"/>'
     for d in reversed(history):
-        link=SITE+'/reports/'+d['date']+'/'
-        feed+=f'<item><title>{e(d["date"]+" "+d["title"])}</title><link>{link}</link><guid isPermaLink="true">{link}</guid><pubDate>{format_datetime(dt.datetime.fromisoformat(d["prepared_at"]))}</pubDate><description>{e(" ".join(d["summary"]))}</description></item>'
+        link=SITE+'/'+edition_route(d)
+        feed+=f'<item><title>{e(d["date"]+" "+d.get("edition","")+" "+d["title"])}</title><link>{link}</link><guid isPermaLink="true">{link}</guid><pubDate>{format_datetime(dt.datetime.fromisoformat(d["prepared_at"]))}</pubDate><description>{e(" ".join(d["summary"]))}</description></item>'
     write('feed.xml',feed+'</channel></rss>')
-    paths=['','archive/','compare/','method/']+['reports/'+d['date']+'/' for d in history]+['scenarios/'+s['id'].lower()+'/' for s in latest['scenarios']]
+    paths=['','archive/','compare/','method/']+[edition_route(d) for d in history]+['scenarios/'+s['id'].lower()+'/' for s in latest['scenarios']]
     write('sitemap.xml','<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(f'<url><loc>{SITE}/{p}</loc></url>' for p in paths)+'</urlset>')
     shutil.copytree(ROOT/'assets',OUT/'assets')
     write('.nojekyll','')
