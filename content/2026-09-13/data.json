@@ -1,0 +1,579 @@
+{
+  "date": "2026-09-13",
+  "edition": "01",
+  "title": "経済協議と抑止が併存。日本は条件差と物流を見る。",
+  "cutoff_at": "2026-09-13T11:20:00+09:00",
+  "prepared_at": "2026-09-13T12:28:17+09:00",
+  "series_id": "daily_reference_scenarios_v1",
+  "deadline": "2026-11-03T23:59:59-05:00",
+  "model": "GPT-6 Astra / Ultra",
+  "initial": true,
+  "strict_blind": false,
+  "summary": [
+    "米中は部分的な経済緩和を模索。軍事協力・技術対立・品目別規制は続く。",
+    "日本の重点は中東の燃料・物流費用と、米中緩和の利益が届かないリスク。",
+    "研究確認後も方向は維持。国・品目・生産拠点ごとの条件差を具体化した。"
+  ],
+  "highlights": [
+    {
+      "label": "安全保障",
+      "text": "第一列島線の同盟協力を重視。実質後退を示す証拠は不足。",
+      "scenario": "A"
+    },
+    {
+      "label": "経済・通商",
+      "text": "緩和協議と個別規制が併存。合意の対象・税率・実施日が焦点。",
+      "scenario": "E"
+    },
+    {
+      "label": "日本への影響",
+      "text": "輸送・保険・制裁・決済を分けて点検。物流の実回復を待つ。",
+      "scenario": "I"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "A",
+      "label": "第一列島線・同盟の強化",
+      "definition_version": 1,
+      "target": "開始時点後、第一列島線に関わる新規・拡充された共同演習、基地運用、共同対処・兵站の合意または実施を少なくとも一つ公式に確認する。既存行事の単純な再掲載だけは除外。",
+      "p_final": 0.7,
+      "p_previous_final": null,
+      "p_web_before_github": null,
+      "daily_delta_pp": null,
+      "github_delta_pp": null,
+      "evidence_confidence": "中",
+      "reason": "演習の実施は支持材料。恒久的な増強は未確認。",
+      "support": "日米韓演習の実施が同盟協力の継続を裏付ける。",
+      "counter": "既存演習の実施であり、開始時点後の新たな増強は未確認。",
+      "watch": "新規演習・基地運用・兵站合意の公式発表。"
+    },
+    {
+      "id": "B",
+      "label": "同盟維持・負担増の具体化",
+      "definition_version": 1,
+      "target": "米国の同盟維持を前提に、対日負担の具体額・比率・任務・期限のいずれかを伴う新たな公式要求または合意を確認する。一般的な公平負担の言説だけは除外。",
+      "p_final": 0.55,
+      "p_previous_final": null,
+      "p_web_before_github": null,
+      "daily_delta_pp": null,
+      "github_delta_pp": null,
+      "evidence_confidence": "低",
+      "reason": "負担移転の方向は想定するが、新たな条件は不足。",
+      "support": "国内の負担軽減を求める政策動機は想定できる。",
+      "counter": "具体額・比率・任務・期限の新しい裏付けが足りない。",
+      "watch": "対日要求や共同声明の金額・対象任務・履行期限。"
+    },
+    {
+      "id": "C",
+      "label": "本土・西半球優先への転換",
+      "definition_version": 1,
+      "target": "米本土・西半球への資源優先が、他地域の任務・配置・予算の具体的縮小を伴う新しい公式決定または実施として確認される。国内重視の発言だけは除外。",
+      "p_final": 0.4,
+      "p_previous_final": null,
+      "p_web_before_github": null,
+      "daily_delta_pp": null,
+      "github_delta_pp": null,
+      "evidence_confidence": "低",
+      "reason": "国内優先の動機はあっても、資源再配分は未確認。",
+      "support": "物価と家計心理は国内優先の圧力になる。",
+      "counter": "国内優先の発言と海外資源の実際の削減は別。",
+      "watch": "予算配分、部隊配置、他地域任務の縮小を伴う決定。"
+    },
+    {
+      "id": "D",
+      "label": "第二列島線への実質後退",
+      "definition_version": 1,
+      "target": "第一列島線から第二列島線への重心移転として、配置・任務・同盟義務の具体的縮小を伴う方針変更または実施を確認する。通常の交代、第二列島線の増強だけは除外。",
+      "p_final": 0.1,
+      "p_previous_final": null,
+      "p_web_before_github": null,
+      "daily_delta_pp": null,
+      "github_delta_pp": null,
+      "evidence_confidence": "低",
+      "reason": "具体的な後退の証拠が乏しく、演習継続は反証。",
+      "support": "本日の公開資料では具体的な後退を確認できない。",
+      "counter": "第一列島線に関わる演習の継続は単純な撤退論への反証。",
+      "watch": "通常の交代と区別できる配置・任務・同盟義務の縮小。"
+    },
+    {
+      "id": "E",
+      "label": "米中経済緩和の具体化",
+      "definition_version": 1,
+      "target": "相互減税等の新たな経済緩和について、両国が同じ措置の対象・税率・実施日のいずれかを具体的に公表する。限定合意を含み、経済関係全体の正常化とは区別。協議継続だけは除外。",
+      "p_final": 0.6,
+      "p_previous_final": null,
+      "p_web_before_github": null,
+      "daily_delta_pp": null,
+      "github_delta_pp": null,
+      "evidence_confidence": "中",
+      "reason": "関税協議は進むが、対象・実施条件が残る。",
+      "support": "相互関税緩和の協議と米国内生産に関する発言。",
+      "counter": "協議や発言だけでは措置の実施は確定しない。品目別摩擦も続く。",
+      "watch": "米中双方が示す同一措置の対象品目・税率・実施日。"
+    },
+    {
+      "id": "F",
+      "label": "経済と安全保障の交換",
+      "definition_version": 1,
+      "target": "同一合意で経済的譲歩と台湾供与または第一列島線軍事態勢の具体的制約を交換条件として両国が正式に公表する。並行する別々の協議や秘密取引の推測は除外。",
+      "p_final": 0.1,
+      "p_previous_final": null,
+      "p_web_before_github": null,
+      "daily_delta_pp": null,
+      "github_delta_pp": null,
+      "evidence_confidence": "低",
+      "reason": "具体的な軍事制約との交換を示す資料は不足。",
+      "support": "本日の資料に明示的な安全保障との交換を示す証拠はない。",
+      "counter": "経済協議と軍事活動の並行は交換条件の証明にならない。",
+      "watch": "両国の公式文書における経済譲歩と具体的軍事制約の明示。"
+    },
+    {
+      "id": "G",
+      "label": "quasi-G2・大国協商",
+      "definition_version": 1,
+      "target": "台湾・西太平洋の勢力圏や同盟国の扱いを米中が相互に認める継続的な協商の枠組みを公式文書・実施で確認する。首脳会談の開催、経済合意、通常の危機管理対話だけは除外。",
+      "p_final": 0.05,
+      "p_previous_final": null,
+      "p_web_before_github": null,
+      "daily_delta_pp": null,
+      "github_delta_pp": null,
+      "evidence_confidence": "低",
+      "reason": "相互の勢力圏承認や継続的協商の証拠は不足。",
+      "support": "首脳交流の調整は対話の継続を示す。",
+      "counter": "通常の会談と、勢力圏を相互承認する継続的協商は別。",
+      "watch": "台湾・西太平洋の扱いを定めた公式枠組みとその実施。"
+    },
+    {
+      "id": "H",
+      "label": "日本が緩和から取り残される",
+      "definition_version": 1,
+      "target": "米中の経済条件改善と対照的に、日本の同等品目・業務では規制または追加負担が残る・強化されることを公式条件や企業開示で確認する。比較不能な別品目、資料未取得だけは根拠にしない。",
+      "p_final": 0.55,
+      "p_previous_final": null,
+      "p_web_before_github": null,
+      "daily_delta_pp": null,
+      "github_delta_pp": null,
+      "evidence_confidence": "低",
+      "reason": "国別の条件差を警戒。実損の比較はまだ限定的。",
+      "support": "生産地・原産地による条件差と日本産DCSへの措置。",
+      "counter": "別品目の比較や通常の貿易救済措置だけで対日排除とは断定できない。",
+      "watch": "比較可能な同一品目・業務の国別条件、企業の実損。"
+    },
+    {
+      "id": "I",
+      "label": "中東物流・制度制約の残存",
+      "definition_version": 1,
+      "target": "期限時点でも、日本向け中東輸送の回復を妨げる保険・制裁・決済・通航条件を少なくとも一つ確認する。停戦成立の確率ではなく、停戦の有無を問わず制約が残る確率。単日の原油高だけでは確定しない。",
+      "p_final": 0.7,
+      "p_previous_final": null,
+      "p_web_before_github": null,
+      "daily_delta_pp": null,
+      "github_delta_pp": null,
+      "evidence_confidence": "中",
+      "reason": "供給障害と制度制約が重なる。実回復を要確認。",
+      "support": "パイプライン停止、航行制約、制裁が同時に残る。",
+      "counter": "今の障害が期限まで続くとは限らない。実回復を確認すれば再評価。",
+      "watch": "供給再開、船社の運航、保険引受、制裁許可、決済条件。"
+    },
+    {
+      "id": "J",
+      "label": "その他",
+      "definition_version": 1,
+      "target": "新しい対象を明示するまで未設定。",
+      "p_final": null,
+      "p_previous_final": null,
+      "p_web_before_github": null,
+      "daily_delta_pp": null,
+      "github_delta_pp": null,
+      "evidence_confidence": "未設定",
+      "reason": "対象が未定義のため数値を付けない。",
+      "support": "対象未設定。",
+      "counter": "新しい判定対象が定まるまで確率を付けない。",
+      "watch": "既存枠で捉えられない変化の有無。"
+    }
+  ],
+  "news": [
+    {
+      "id": "n1",
+      "title": "9/13：台湾周辺の中国軍活動",
+      "summary": "台湾国防部は、12日朝〜13日朝に軍機5架次、艦艇5隻、公務船2隻を探知したと発表。単日の減少だけでは緊張緩和を判断できない。",
+      "source": "台湾国防部",
+      "url": "https://www.mnd.gov.tw/news/plaact/87744",
+      "category": "台湾・安全保障",
+      "scenarios": [
+        "A",
+        "D"
+      ],
+      "published_date": "2026-09-13",
+      "event": "09-12〜09-13",
+      "status": "新着",
+      "phase": 1
+    },
+    {
+      "id": "n2",
+      "title": "9/13掲載・12日演説：BRICSでAI協力提案",
+      "summary": "習近平氏がAI活用と産業供給網の協力を提唱。中国の技術連携拡大の方向を示すが、予算・参加国・工程は未確認。",
+      "source": "演説全文",
+      "url": "https://www.mofcom.gov.cn/xwfb/ldrhd/art/2026/art_10c09efa337d4374b0b84c6c43b35dae.html",
+      "category": "米中・通商",
+      "scenarios": [
+        "C",
+        "E"
+      ],
+      "published_date": "2026-09-13",
+      "event": "09-12",
+      "status": "新着",
+      "phase": 1
+    },
+    {
+      "id": "n3",
+      "title": "9/11継続：中国が対中企業諜報発言に抗議",
+      "summary": "商務部はAI・半導体等への諜報活動に反発し、必要措置に言及。米側の発言原文と新たな取締り実施は未確認。在中企業の情報管理リスクに関わる。",
+      "source": "中国商務部",
+      "url": "https://www.mofcom.gov.cn/xwfb/xwfyrth/art/2026/art_09c2bc98f6994d509fea184c4cbf603c.html",
+      "category": "米中・通商",
+      "scenarios": [
+        "E",
+        "F",
+        "H"
+      ],
+      "published_date": "2026-09-11",
+      "event": "09-11",
+      "status": "継続",
+      "phase": 1
+    },
+    {
+      "id": "n4",
+      "title": "9/11継続：日米韓演習が終了",
+      "summary": "Freedom Edge26は海空・医療・サイバーを含む5日間の訓練を実施。協力の具体的な継続材料だが、恒久的な戦力増強とは別。",
+      "source": "米第7艦隊",
+      "url": "https://www.c7f.navy.mil/Media/News/Display/Article/4596657/freedom-edge-26-concludes-advancing-trilateral-readiness-across-the-indo-pacific/",
+      "category": "台湾・安全保障",
+      "scenarios": [
+        "A",
+        "D"
+      ],
+      "published_date": "2026-09-11",
+      "event": "09-07〜09-11",
+      "status": "継続",
+      "phase": 1
+    },
+    {
+      "id": "n5",
+      "title": "9/10継続：米中の各300億ドル関税緩和枠は協議中",
+      "summary": "中国側は早期実施を目指すと説明。実施済みの相互減税とは確認できず、日本企業への波及も対象品目次第。",
+      "source": "中国商務部会見",
+      "url": "https://www.mofcom.gov.cn/xwfbzt/2026/swbzklxxwfbh2026n9y10r/index.html",
+      "category": "米中・通商",
+      "scenarios": [
+        "E",
+        "H"
+      ],
+      "published_date": "2026-09-10",
+      "event": "協議継続",
+      "status": "継続",
+      "phase": 1
+    },
+    {
+      "id": "n6",
+      "title": "9/10継続：首脳交流の調整は続く",
+      "summary": "中国外務省は年内の首脳交流について意思疎通を継続と説明。この発表だけでは訪問日・開催場所・議題は確定できない。",
+      "source": "中国外務省",
+      "url": "https://www.fmprc.gov.cn/fyrbt_673021/jzhsl_673025/202609/t20260910_12019908.shtml",
+      "category": "米中・通商",
+      "scenarios": [
+        "E",
+        "F",
+        "G"
+      ],
+      "published_date": "2026-09-10",
+      "event": "日程未確定",
+      "status": "継続",
+      "phase": 1
+    },
+    {
+      "id": "n7",
+      "title": "9/10継続：中国製ブリキに相殺関税の予備判定",
+      "summary": "米商務省の補助金率は66.61%。最終的な関税命令とは区別する必要があり、関税協議と個別分野の摩擦は併存している。",
+      "source": "米商務省",
+      "url": "https://www.trade.gov/preliminary-affirmative-countervailing-duty-determination-tin-mill-products-china",
+      "category": "米中・通商",
+      "scenarios": [
+        "E",
+        "H"
+      ],
+      "published_date": "2026-09-10",
+      "event": "予備判定",
+      "status": "継続",
+      "phase": 1
+    },
+    {
+      "id": "n8",
+      "title": "9/12報道・10日攻撃：サウジの東西パイプライン停止",
+      "summary": "サウジ当局によれば、イラクからのドローン攻撃を受け予防的に停止。復旧日・損傷規模は未確定で、輸送の代替経路にも不安が残る。",
+      "source": "ABC",
+      "url": "https://www.abc.net.au/news/2026-09-12/drone-attack-on-saudi-oil-pipeline-from-iraq/107146218",
+      "category": "中東・エネルギー",
+      "scenarios": [
+        "I"
+      ],
+      "published_date": "2026-09-12",
+      "event": "09-10",
+      "status": "新着",
+      "phase": 1
+    },
+    {
+      "id": "n9",
+      "title": "9/12報道：オマーン協議で即時合意は見込まず",
+      "summary": "Reutersは匿名イラン高官の説明として14日の協議見通しを報道。記事時点で開催国の正式発表はなく、参加国・開催・成果を分けて確認する必要がある。",
+      "source": "Reuters転載",
+      "url": "https://theprint.in/world/no-signed-hormuz-deal-expected-yet-from-oman-meeting-on-monday-iranian-official-says/3041305/",
+      "category": "中東・エネルギー",
+      "scenarios": [
+        "I"
+      ],
+      "published_date": "2026-09-12",
+      "event": "09-14予定・未確認",
+      "status": "新着",
+      "phase": 1
+    },
+    {
+      "id": "n10",
+      "title": "9/12報道：ホルムズの米軍防護を1日2枠へ限定",
+      "summary": "変更は9月初めとの情報。FTを引用したReuters転載で、軍の原通知は未確認。運航待ち時間や保険条件への影響を調べる手掛かりに留める。",
+      "source": "Reuters転載",
+      "url": "https://www.brecorder.com/live/iran-israel-war",
+      "category": "中東・エネルギー",
+      "scenarios": [
+        "I"
+      ],
+      "published_date": "2026-09-12",
+      "event": "09月初めとの報道",
+      "status": "新着",
+      "phase": 1
+    },
+    {
+      "id": "n11",
+      "title": "9/12：日本がフーシ派の攻撃を非難",
+      "summary": "外務省は民間施設への攻撃と航行阻害を非難し、バブ・エル・マンデブ海峡の安全を重視。ホルムズだけでなく紅海側も日本のエネルギー安全保障の対象となる。",
+      "source": "日本外務省",
+      "url": "https://www.mofa.go.jp/press/statement/pageite_000001_01811.html",
+      "category": "中東・エネルギー",
+      "scenarios": [
+        "I"
+      ],
+      "published_date": "2026-09-12",
+      "event": "09-12声明",
+      "status": "新着",
+      "phase": 1
+    },
+    {
+      "id": "n12",
+      "title": "9/11市場・12日更新：原油は下落しても100ドル超",
+      "summary": "Brentは104.61ドル、WTIは100.05ドルで終了。前日比では下落したが、これを輸送・供給の正常化と読むのは早い。",
+      "source": "Reuters転載",
+      "url": "https://in.marketscreener.com/news/oil-prices-set-to-end-week-over-100-for-first-time-in-nearly-4-months-ce785bdfd88af122",
+      "category": "中東・エネルギー",
+      "scenarios": [
+        "I"
+      ],
+      "published_date": "2026-09-12",
+      "event": "09-11終値",
+      "status": "新着",
+      "phase": 1
+    },
+    {
+      "id": "n13",
+      "title": "9/10継続：米財務省がイラン系組織の支援網を制裁",
+      "summary": "個人・企業への措置と対イラン許可方針の変更を発表。外交協議が進んでも、実取引の適法性や決済の条件が別途残る。",
+      "source": "米財務省",
+      "url": "https://home.treasury.gov/news/press-releases/sb0626/",
+      "category": "経済・市場",
+      "scenarios": [
+        "I"
+      ],
+      "published_date": "2026-09-10",
+      "event": "09-10措置",
+      "status": "継続",
+      "phase": 1
+    },
+    {
+      "id": "n14",
+      "title": "9/11公表：8月CPIは前月比0.4%、前年比3.4%",
+      "summary": "ガソリンは前月比3.9%上昇。一方、コア前年比は2.5%から2.4%へ低下し、全項目が一様に加速しているわけではない。",
+      "source": "BLS",
+      "url": "https://www.bls.gov/news.release/archives/cpi_09112026.htm",
+      "category": "経済・市場",
+      "scenarios": [
+        "B",
+        "C",
+        "I"
+      ],
+      "published_date": "2026-09-11",
+      "event": "08月統計",
+      "status": "継続",
+      "phase": 1
+    },
+    {
+      "id": "n15",
+      "title": "9/11公表：家計心理が悪化",
+      "summary": "ミシガン大学の9月速報は51.7から47.8へ低下。1年先の物価期待は4.0%から4.6%へ上昇。家計の圧迫感を示すが、CPI公表後の反応とは断定しない。",
+      "source": "大学一次公表",
+      "url": "https://www.sca.isr.umich.edu/",
+      "category": "経済・市場",
+      "scenarios": [
+        "B",
+        "C"
+      ],
+      "published_date": "2026-09-11",
+      "event": "09月速報",
+      "status": "継続",
+      "phase": 1
+    },
+    {
+      "id": "n16",
+      "title": "9/11市場：次回FOMCの利上げ織込み約85%",
+      "summary": "Reutersによる記事時点の市場価格で、Fedの決定でも、この日報の予測確率でもない。日本への波及は為替・資金調達費用を通じて確認する。",
+      "source": "Reuters転載",
+      "url": "https://ca.marketscreener.com/news/fed-rate-hike-case-builds-as-inflation-fails-to-cool-ce785bdfdf8af722",
+      "category": "経済・市場",
+      "scenarios": [
+        "B",
+        "C",
+        "I"
+      ],
+      "published_date": "2026-09-11",
+      "event": "記事時点の市場",
+      "status": "継続",
+      "phase": 1
+    },
+    {
+      "id": "n17",
+      "title": "9/13配信・11日判決：FEMA人員半減計画に違法判断",
+      "summary": "連邦地裁の判断で、実際に半減済みという意味ではない。政権の方針と執行可能性を分ける材料。救済内容・控訴は未確認。",
+      "source": "AP",
+      "url": "https://apnews.com/article/fema-staffing-cuts-half-ruling-homeland-security-e56494458ed43faacccebb3d62eeb30f",
+      "category": "米国内・選挙",
+      "scenarios": [
+        "C"
+      ],
+      "published_date": "2026-09-13",
+      "event": "09-11判決",
+      "status": "新着",
+      "phase": 1
+    },
+    {
+      "id": "n18",
+      "title": "9/12配信：ウィスコンシン激戦区の選挙戦",
+      "summary": "共和党Van Orden議員はTrumpとの一体化で動員を図る。現地ルポであり、新しい支持率調査や全国的な議席変化の証拠ではない。",
+      "source": "AP",
+      "url": "https://apnews.com/article/wisconsin-van-orden-cooke-trump-congress-bellwether-d75291117c50e36f252d84c18c32d293",
+      "category": "米国内・選挙",
+      "scenarios": [
+        "B",
+        "C"
+      ],
+      "published_date": "2026-09-12",
+      "event": "現地ルポ",
+      "status": "新着",
+      "phase": 1
+    },
+    {
+      "id": "n19",
+      "title": "9/11続報：5,000ドル給付案",
+      "summary": "議会手続を経るとの説明が出たが、支払は未確定。",
+      "source": "Axios",
+      "url": "https://www.axios.com/2026/09/11/trump-5000-5k-checks-white-house-plan",
+      "category": "米国内・選挙",
+      "scenarios": [
+        "B",
+        "C"
+      ],
+      "published_date": "2026-09-11",
+      "event": "給付未確定",
+      "status": "継続",
+      "phase": 1
+    },
+    {
+      "id": "n20",
+      "title": "中国メーカーの米国内生産に条件付き容認発言",
+      "summary": "米国内生産と米国の雇用を条件に容認する一方、メキシコ経由の輸入には否定的。規制撤廃や工場許可の決定ではない。",
+      "source": "Reuters転載",
+      "url": "https://ae.marketscreener.com/news/trump-says-he-would-be-ok-with-china-building-cars-in-us-ce785bdfd088f120",
+      "category": "米中・通商",
+      "scenarios": [
+        "E",
+        "H"
+      ],
+      "published_date": "2026-09-12",
+      "event": "09-11発言",
+      "status": "追加確認",
+      "phase": 2
+    },
+    {
+      "id": "n21",
+      "title": "日本産DCSに中国が暫定保証金",
+      "summary": "中国が日本産DCSの輸入に課す暫定措置。中国から日本への輸出規制と混同しない。通常の貿易救済手続という対抗仮説も点検する。",
+      "source": "中国商務部公告",
+      "url": "https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_01c15948864a45d186abb146fe30a42b.html",
+      "category": "米中・通商",
+      "scenarios": [
+        "H"
+      ],
+      "published_date": "2026-09-07",
+      "event": "09-08開始",
+      "status": "背景",
+      "phase": 2
+    }
+  ],
+  "comparison": [
+    {
+      "ids": "A・D",
+      "before": "同盟協力は継続。実質後退の裏付けは不足。",
+      "after": "判断維持。",
+      "reason": "同じ演習発表を独立した二つの証拠に数えない。"
+    },
+    {
+      "ids": "B・C",
+      "before": "負担増・資源再配分の新しい実装待ち。",
+      "after": "判断維持。",
+      "reason": "具体的条件の裏付けは増えず。"
+    },
+    {
+      "ids": "E",
+      "before": "部分緩和の協議段階。",
+      "after": "生産拠点・原産地ごとの条件を重視。",
+      "reason": "米国内生産と第三国経由輸入に対する発言の違いを追加確認。"
+    },
+    {
+      "ids": "F・G",
+      "before": "大取引・大国協商は未立証。",
+      "after": "判断維持。",
+      "reason": "双方の公式文書と具体的な制約の交換が必要。"
+    },
+    {
+      "ids": "H",
+      "before": "国別扱いの差を監視。",
+      "after": "同じ品目・業務・企業実損に対象を絞る。",
+      "reason": "通常の貿易救済という対抗仮説と取引方向を点検。"
+    },
+    {
+      "ids": "I",
+      "before": "物流と制度の制約を優先。",
+      "after": "重要度を維持し、条件を分解。",
+      "reason": "安全・許可・保険・決済・船社再開を別々に追う。"
+    }
+  ],
+  "corrections": [
+    {
+      "date": "2026-09-13",
+      "text": "初回公開。数値は読後に初期設定。過去日・読前の値は作成していない。"
+    }
+  ],
+  "forecast_start": "2026-09-13T11:36:53.980623+09:00",
+  "numeric_recorded_at": "2026-09-13T11:36:53.980623+09:00",
+  "news_window_label": "新着は9/12〜9/13掲載分。掲載日と発生日は別に表示。予定・報道・実施を区別します。",
+  "comparison_summary": "大筋は維持し、経済緩和の条件と日本への影響を具体化。同じ原資料を二重の証拠として数えません。",
+  "pre_post_note": "初回は①の確率を記録していないため、①→②の数値差は未設定です。今回の最終確率が比較の起点となります。"
+}
