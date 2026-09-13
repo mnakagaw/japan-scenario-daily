@@ -1,0 +1,23 @@
+{
+  "scope_note": "世界の主要な海峡・運河と代替航路を地域別に確認対象とします。以下を基幹リストとし、世界全体の障害情報から、リスト外の地点や重要港湾・河川の問題も追加します。",
+  "regions": [
+    {"region": "中東・紅海", "locations": ["ホルムズ海峡", "バブ・エル・マンデブ海峡", "紅海・スエズ運河"]},
+    {"region": "東南アジア", "locations": ["マラッカ・シンガポール海峡", "スンダ海峡", "ロンボク・マカッサル海峡"]},
+    {"region": "東アジア・日本周辺", "locations": ["台湾海峡", "ルソン海峡・バシー海峡", "宮古海峡", "対馬・津軽・宗谷海峡"]},
+    {"region": "欧州・地中海・黒海", "locations": ["ジブラルタル海峡", "ボスポラス・ダーダネルス海峡", "ケルチ海峡", "英仏海峡・ドーバー海峡", "デンマーク海峡群（大ベルト・小ベルト・エーレスンド）", "キール運河"]},
+    {"region": "アフリカ周辺・代替航路", "locations": ["喜望峰回り", "モザンビーク海峡"]},
+    {"region": "米州", "locations": ["パナマ運河", "マゼラン海峡", "ホーン岬回り・ドレーク海峡", "フロリダ・ユカタン・ウィンドワード海峡", "セントローレンス水路"]},
+    {"region": "オセアニア", "locations": ["トレス海峡", "バス海峡"]},
+    {"region": "北極圏", "locations": ["ベーリング海峡", "北極海航路", "北西航路"]}
+  ],
+  "sources": [
+    {"label": "IHO・世界の航行警報", "url": "https://iho.int/navigation-warnings-on-the-web"},
+    {"label": "EIA・主要海上要衝", "url": "https://www.eia.gov/international/analysis/special-topics/World_Oil_Transit_Chokepoints"},
+    {"label": "パナマ運河庁", "url": "https://pancanal.com/en/maritime-services/advisory-to-shipping/"},
+    {"label": "スエズ運河庁", "url": "https://www.suezcanal.gov.eg/English/Navigation/NavigationCirculars/Pages/default.aspx"},
+    {"label": "UKMTO・海上保安情報", "url": "https://www.ukmto.org/"},
+    {"label": "海上保安庁・NAVAREA XI", "url": "https://www1.kaiho.mlit.go.jp/TUHO/keiho/navarea11.html"},
+    {"label": "英国・航行警報", "url": "https://msi.admiralty.co.uk/RadioNavigationalWarnings"},
+    {"label": "豪州AMSA・海上安全情報", "url": "https://www.amsa.gov.au/safety-navigation/navigation-systems/maritime-safety-information"}
+  ]
+}

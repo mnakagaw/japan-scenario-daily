@@ -5,7 +5,7 @@ from pathlib import Path
 from email.utils import format_datetime
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
-from variables import load_variables, render_variables
+from variables import load_variables, render_variables, render_bottleneck_guide
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / 'dist'
@@ -214,7 +214,7 @@ def scenario_guide(d):
 
 
 def method(d):
-    return '<div class="page-heading"><p class="eyebrow">READING GUIDE</p><h1>確率を読み、判断の根拠を確かめる。</h1><p>毎日の見通しを同じ条件で比較するための、日報の作り方と読み方。</p></div>'+scenario_guide(d)+'''<section class="method-prose variable-method" id="variable-guide"><p class="eyebrow">GLOBAL VARIABLES</p><h2>横断変数は「世界の条件がどう変わったか」を見る</h2><p>シナリオは米中関係の展開、横断変数はその展開にも日本への影響にも関係する観測項目です。原油価格などの連続的な数値に加え、「予約枠に制限」「対象船への封鎖宣言」「通航再開」といった状態も記録します。</p><ul><li><strong>バブ・エル・マンデブ海峡／紅海：</strong>フーシ派の封鎖宣言の対象、攻撃、実通航、船社の回避、保険料。対象船を限定した措置と海峡の全面閉鎖を分けます。</li><li><strong>パナマ運河：</strong>水位、予約枠、実通航数、喫水、待ち時間、予約・輸送費用。予定された制限と施行済みのルールを分けます。</li><li><strong>その他の共通条件：</strong>ホルムズの通航・防護、パイプライン、原油価格、制裁・決済・保険、物価・金融。</li></ul><p>値・単位・対象日・公表日・情報の種類・比較元・変化・出典を示します。未取得は0や平常ではありません。更新周期は日次・月次・発表時などで異なり、日報の前日差と資料の前回値からの差を混同しません。</p><p>市場の利上げ織込みと日報の主観確率は別物です。横断変数の変化からA〜Hへ影響する経路は文章で説明し、機械的な点数や確率の加減算にはしません。旧Iの70％は当初の参考見通しとして過去号に残し、横断変数の実測値に置き換えていません。</p></section><article class="method-prose">
+    return '<div class="page-heading"><p class="eyebrow">READING GUIDE</p><h1>確率を読み、判断の根拠を確かめる。</h1><p>毎日の見通しを同じ条件で比較するための、日報の作り方と読み方。</p></div>'+scenario_guide(d)+'''<section class="method-prose variable-method" id="variable-guide"><p class="eyebrow">GLOBAL VARIABLES</p><h2>横断変数は「世界の条件がどう変わったか」を見る</h2><p>シナリオは米中関係の展開、横断変数はその展開にも日本への影響にも関係する観測項目です。原油価格などの連続的な数値に加え、「予約枠に制限」「対象船への封鎖宣言」「通航再開」といった状態も記録します。</p><ul><li><strong>バブ・エル・マンデブ海峡／紅海：</strong>フーシ派の封鎖宣言の対象、攻撃、実通航、船社の回避、保険料。対象船を限定した措置と海峡の全面閉鎖を分けます。</li><li><strong>パナマ運河：</strong>水位、予約枠、実通航数、喫水、待ち時間、予約・輸送費用。予定された制限と施行済みのルールを分けます。</li><li><strong>その他の共通条件：</strong>ホルムズの通航・防護、パイプライン、原油価格、制裁・決済・保険、物価・金融。</li></ul><p>値・単位・対象日・公表日・情報の種類・比較元・変化・出典を示します。未取得は0や平常ではありません。更新周期は日次・月次・発表時などで異なり、日報の前日差と資料の前回値からの差を混同しません。</p><p>市場の利上げ織込みと日報の主観確率は別物です。横断変数の変化からA〜Hへ影響する経路は文章で説明し、機械的な点数や確率の加減算にはしません。旧Iの70％は当初の参考見通しとして過去号に残し、横断変数の実測値に置き換えていません。</p></section>'''+render_bottleneck_guide(ROOT)+'''<article class="method-prose">
 <h2>4段階で判断を記録します</h2><ol><li><strong>Web分析：</strong>公開ニュースとデータを調べ、シナリオごとの判断・確率・根拠・情報締切を先に記録します。</li><li><strong>研究の確認：</strong>その後にGitHub上の参照研究を読み、公開原資料を確認して追加分析します。</li><li><strong>違いの説明：</strong>変わった判断、変わらない判断、追加事実、重複資料を区別します。</li><li><strong>総合判断：</strong>日本へのリスクと機会、次の観測、判断を変える条件をまとめます。</li></ol>
 <p>この日報は研究から情報を受け取る運用です。研究へ作業を依頼したり、日報の判断を書き戻したりしません。参照研究が非公開でも、公開版では読者が確認できる原資料へのリンクと日報自身の分析を示します。</p>
 <h2>％は未校正の主観推定です</h2><p>確率は統計モデルや市場の価格から自動算出した値ではありません。原則5ポイント刻みで、定義した事象の可能性を見積もります。根拠の確度「中・低」は材料の強さや不確かさを表す別の評価です。未取得の資料や不明な値を0％に変換しません。</p>
