@@ -133,6 +133,7 @@ def report_dashboard(d,history,md,path=''):
     comparable=[s for s in defined if s['daily_delta_pp'] is not None]
     moves='初回の確率記録です。前日差と上昇・低下は、比較可能な次回の記録から表示します。' if d['initial'] else '前日の比較可能な記録がないため、上昇・低下は判定しません。' if not comparable else '本日の比較可能なシナリオに確率の変更はありません。' if not changes else ' / '.join(f'{s["id"]} {s["daily_delta_pp"]:+g} pt：{s["reason"]}' for s in sorted(changes,key=lambda s:abs(s['daily_delta_pp']),reverse=True)[:3])
     return f'''<div class="edition"><span>DAILY BRIEF <b>No. {e(d['edition'])}</b></span><time datetime="{date}">{date.replace('-','.')}</time><span>日本への影響を読む</span></div>
+<a class="scenario-guide-link" href="{url('method/')}#scenario-guide"><span class="guide-link-label">はじめて読む方へ</span><span class="guide-link-copy"><strong>A〜Jは何を意味する？ 各シナリオの説明</strong><span>想定している展開と、可能性を判断する条件を確認する</span></span><span class="guide-link-arrow" aria-hidden="true">→</span></a>
 <div class="intro"><div><p class="eyebrow">TODAY’S OUTLOOK</p><h1>{e(d['title'])}</h1><ul class="summary-list">{summaries}</ul></div><aside class="edition-meta"><span class="label">本日の記録</span><strong>{date[5:].replace('-',' / ')}</strong><p>①情報固定 {date_label(d['cutoff_at'])}<br>公開版作成 {date_label(d['prepared_at'])}</p><a class="button" href="#full-report">日報全文を読む ↓</a><a href="{url('reports/'+date+'/report.md')}" download>Markdownを保存 ↗</a></aside></div>
 <nav class="jump-nav" aria-label="日報内"><a href="#scenarios">シナリオ</a><a href="#news">ニュース <span>{len(d['news'])}</span></a><a href="#comparison">Web → 研究確認後</a><a href="#full-report">4段階の分析</a></nav>
 <section class="highlights" aria-label="本日の焦点">{highlights}</section>
@@ -155,8 +156,31 @@ def scenario_page(s,d,history):
 
     return f'''<a class="back-link" href="{url("reports/"+d["date"]+"/")}#scenarios">← シナリオ一覧</a><div class="detail-heading"><div><p class="eyebrow">SCENARIO {s['id']} / {d['date']}</p><h1>{e(s['label'])}</h1><p>{e(s['reason'])}</p></div><div class="detail-value"><span class="probability {band(s['p_final'])}">{pct(s['p_final'])}</span><span>最終主観確率 / 根拠の確度：{e(s['evidence_confidence'])}</span>{delta(s['daily_delta_pp'],'未定義' if s['p_final'] is None else '初回' if d['initial'] else '比較不可')}</div></div><div class="definition"><p class="eyebrow">WHAT COUNTS / 判定条件 v{s['definition_version']}</p><p>{e(s['target'])}</p><small>予測開始：{date_label(d['forecast_start'])}。期限：{deadline_label(d)}。Iは期限時点での残存を判断。</small></div><div class="evidence-grid"><section><p class="eyebrow">観測・支持材料</p><p>{e(s['support'])}</p></section><section><p class="eyebrow">反証・留保</p><p>{e(s['counter'])}</p></section><section><p class="eyebrow">次の注目点</p><p>{e(s['watch'])}</p></section></div><section>{section_title('RECORD','確率と判断の履歴')}<p>読前が未設定なら数値差を計算しません。定義・期限が変わる場合は比較を区切ります。</p><div class="table-scroll"><table><thead><tr><th>日付</th><th>今日Web判断</th><th>最終確率</th><th>前日最終比</th><th>今日①→②</th><th>当時の判定条件</th></tr></thead><tbody>{rows}</tbody></table></div></section><section>{section_title('RELATED NEWS','このシナリオに関係するニュース')}<div class="news-list">{''.join(news_card(n,d['date']) for n in related) or '<p class="empty-state">本日のニュースに該当する項目はありません。</p>'}</div></section>'''
 
-def method():
-    return '''<div class="page-heading"><p class="eyebrow">READING GUIDE</p><h1>確率を読み、判断の根拠を確かめる。</h1><p>毎日の見通しを同じ条件で比較するための、日報の作り方と読み方。</p></div><article class="method-prose">
+def scenario_guide(d):
+    # Plain-language introductions supplement the recorded definitions, which
+    # remain the source of truth. New definition versions fall back to their text.
+    descriptions = {
+        ('A', 1): '米国と日本などの同盟国が、第一列島線に関わる演習・基地運用・共同対処・補給の協力を新たに進める展開です。前方で協力を強める方向を見ます。',
+        ('B', 1): '米国が同盟を維持しながら、日本に求める費用や役割を具体化する展開です。「もっと負担を」という発言に加え、金額・比率・任務・期限が示されるかを見ます。',
+        ('C', 1): '米国が本土・西半球を優先し、その分、他地域の任務・配置・予算を具体的に縮小する展開です。国内重視の姿勢だけでなく、資源の振り向け方が実際に変わるかを見ます。',
+        ('D', 1): '米国が第一列島線での配置・任務・同盟上の役割を縮め、より後方の第二列島線へ重心を移す展開です。後方の拠点を強化しただけでは、この後退に当たりません。',
+        ('E', 1): '米中が新たな関税緩和などの経済措置について、対象・税率・実施日のいずれかを双方から具体的に公表する展開です。一部の品目だけの限定合意も対象で、米中経済関係全体の正常化を意味するものではありません。',
+        ('F', 1): '経済的な譲歩と、台湾への供与や第一列島線の軍事態勢に対する具体的な制約を、米中が同じ合意の交換条件にする展開です。双方が正式に公表した条件を見ます。',
+        ('G', 1): '米中が台湾・西太平洋の勢力圏や同盟国の扱いについて、継続的に折り合う枠組みをつくる展開です。「quasi-G2」はこの大国間の協商を指し、通常の会談や経済合意だけでは成立としません。',
+        ('H', 1): '米中の経済条件が改善しても、日本の同等の品目・業務には規制や追加負担が残る、または強まる展開です。同じ条件で比べられる取引や企業への影響を確認します。',
+        ('I', 1): '中東から日本への輸送を妨げる保険・制裁・決済・通航などの制約が、評価期限の時点でも残る展開です。停戦が成立するかどうかとは別に、物流が実際に回復できるかを見ます。',
+        ('J', 1): '既存の枠で捉えきれない展開のための予備枠です。現在は判定対象を定めていないため確率も未設定で、A〜Iの「残りの確率」を表すものではありません。'
+    }
+    links=''.join(f'<a href="#guide-{e(s["id"].lower())}" aria-label="{e(s["id"]+" "+s["label"])}">{e(s["id"])}</a>' for s in d['scenarios'])
+    cards=[]
+    for s in d['scenarios']:
+        description=descriptions.get((s['id'],s['definition_version']),s['target'])
+        detail=url('reports/'+d['date']+'/scenarios/'+s['id'].lower()+'/')
+        cards.append(f'''<article class="guide-scenario" id="guide-{e(s['id'].lower())}"><h3><span class="scenario-id">{e(s['id'])}</span>{e(s['label'])}</h3><p>{e(description)}</p><details><summary>この日報での判定条件</summary><p>{e(s['target'])}</p></details><a class="guide-detail-link" href="{detail}">{e(d['date'])}の確率・根拠を見る →</a></article>''')
+    return f'''<section class="method-prose scenario-guide" id="scenario-guide" aria-labelledby="scenario-guide-title"><p class="eyebrow">SCENARIO GUIDE</p><h2 id="scenario-guide-title">各シナリオは、どんな展開を想定しているか</h2><p>A〜Dは米国の安全保障と同盟の方向、E〜Hは米中の取引と日本への波及、Iは中東物流の制約を扱います。Jは未設定の予備枠です。複数が同時に起こり得るため、一つだけを選ぶ分類ではありません。</p><p class="small muted">{e(d['date'])}号の定義に基づく説明です。評価期限：{deadline_label(d)}。Iは期限時点での制約の残存、それ以外の定義済みシナリオは開始後から期限までの確認を見ます。</p><nav class="guide-index" aria-label="各シナリオの説明へ">{links}</nav><div class="guide-scenarios">{''.join(cards)}</div><a class="guide-return" href="{url()}#scenarios">最新の日報のシナリオ一覧へ戻る →</a></section>'''
+
+def method(d):
+    return '<div class="page-heading"><p class="eyebrow">READING GUIDE</p><h1>確率を読み、判断の根拠を確かめる。</h1><p>毎日の見通しを同じ条件で比較するための、日報の作り方と読み方。</p></div>'+scenario_guide(d)+'''<article class="method-prose">
 <h2>4段階で判断を記録します</h2><ol><li><strong>Web分析：</strong>公開ニュースとデータを調べ、シナリオごとの判断・確率・根拠・情報締切を先に記録します。</li><li><strong>研究の確認：</strong>その後にGitHub上の参照研究を読み、公開原資料を確認して追加分析します。</li><li><strong>違いの説明：</strong>変わった判断、変わらない判断、追加事実、重複資料を区別します。</li><li><strong>総合判断：</strong>日本へのリスクと機会、次の観測、判断を変える条件をまとめます。</li></ol>
 <p>この日報は研究から情報を受け取る運用です。研究へ作業を依頼したり、日報の判断を書き戻したりしません。参照研究が非公開でも、公開版では読者が確認できる原資料へのリンクと日報自身の分析を示します。</p>
 <h2>％は未校正の主観推定です</h2><p>確率は統計モデルや市場の価格から自動算出した値ではありません。原則5ポイント刻みで、定義した事象の可能性を見積もります。根拠の確度「中・低」は材料の強さや不確かさを表す別の評価です。未取得の資料や不明な値を0％に変換しません。</p>
@@ -214,7 +238,7 @@ def build(base='/japan-scenario-daily'):
     write('compare/index.html',page('日付で比較',compare,'compare/','compare',{'history':history}))
     corrections='<section class="method-prose"><h2>訂正・公開履歴</h2><ul>'+''.join(f'<li><time>{e(c["date"])}</time> — {e(c["text"])}</li>' for d in reversed(history) for c in d['corrections'])+'</ul></section>'
     corrections+='<ul class="method-prose">'+''.join(f'<li>{e(c["date"])} / {e(c["report_date"])}号の訂正：{e(c["text"])}</li>' for c in corrections_data)+'</ul>'
-    write('method/index.html',page('読み方・方法',method()+corrections,'method/','method'))
+    write('method/index.html',page('読み方・方法',method(latest)+corrections,'method/','method'))
     write('404.html',page('ページが見つかりません',f'<div class="page-heading"><p class="eyebrow">404</p><h1>このページは見つかりません。</h1><a class="button" href="{url()}">最新の日報へ →</a></div>','404.html'))
     feed='<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>'+TITLE+'</title><link>'+SITE+'/</link><description>米中関係と米中間選挙の日報</description><language>ja</language><atom:link href="'+SITE+'/feed.xml" rel="self" type="application/rss+xml"/>'
     for d in reversed(history):
