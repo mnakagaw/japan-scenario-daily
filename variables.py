@@ -1,0 +1,55 @@
+"""Observation panel: public measurements and source-attributed states, not forecasts."""
+import datetime as dt
+import html
+import json
+from pathlib import Path
+from urllib.parse import urlsplit
+from zoneinfo import ZoneInfo
+
+def esc(value): return html.escape(str(value),quote=True)
+def number(value): return f'{value:g}' if isinstance(value,(int,float)) else str(value)
+
+def load_variables(root):
+    records={}
+    for path in sorted((root/'content').glob('????-??-??/variables.json')):
+        data=json.loads(path.read_text(encoding='utf-8'))
+        assert data['date']==path.parent.name,'Variable record date mismatch'
+        assert dt.datetime.fromisoformat(data['recorded_at']).utcoffset() is not None,'Variable timestamp needs timezone'
+        ids=set()
+        for v in data['items']:
+            assert v['id'] not in ids,'Duplicate variable ID'; ids.add(v['id'])
+            assert v['kind'] and v['observed'] and v['published'] and v['change_note']
+            assert v['previous_value'] is None or isinstance(v['previous_value'],(int,float))
+            assert v['sources'] and all(urlsplit(s['url']).scheme=='https' for s in v['sources'])
+            assert all(key in v for key in ['label','group','value','unit','note','implication','watch','delta_unit'])
+            if v['previous_value'] is not None: assert isinstance(v['value'],(int,float)),'Comparison needs numeric values'
+        records[data['date']]=data
+    return records
+
+def render_variables(d,records,url):
+    record=records.get(d['date'])
+    if record is None:
+        return '<section id="variables"><h2>世界の横断変数</h2><p class="empty-state">この号の横断変数は未収録です。未収録は、平常・変化なしを意味しません。</p></section>'
+    groups={}
+    for v in record['items']: groups.setdefault(v['group'],[]).append(v)
+    rendered=[]
+    for group,items in groups.items():
+        cards=[]
+        for v in items:
+            numeric=isinstance(v['value'],(int,float))
+            value='未取得' if v['value'] is None else number(v['value'])
+            if v['previous_value'] is not None:
+                difference=round(v['value']-v['previous_value'],6)
+                direction='up' if difference>0 else 'down' if difference<0 else 'flat'
+                arrow='▲' if difference>0 else '▼' if difference<0 else '→'
+                change=f'<span class="change {direction}">{arrow} {difference:+g} {esc(v["delta_unit"])}</span>'
+                prior=f'比較元 {number(v["previous_value"])} {esc(v["unit"])}'
+            else:
+                change='<span class="change unavailable">— 数値差は未算出</span>'
+                prior='比較元の数値は未収録'
+            links=''.join(f'<a href="{esc(s["url"])}" target="_blank" rel="noopener noreferrer">{esc(s["label"])} ↗<span class="sr-only">（新しいタブ）</span></a>' for s in v['sources'])
+            cards.append(f'''<article class="variable-card" id="variable-{esc(v['id'])}"><div class="variable-meta"><span>{esc(v['kind'])}</span><span>公表 {esc(v['published'])}</span></div><h4>{esc(v['label'])}</h4><div class="variable-reading"><strong class="variable-value {'numeric' if numeric else 'state'}">{esc(value)}</strong><span>{esc(v['unit'])}</span></div><p class="variable-date">対象：{esc(v['observed'])}</p><div class="variable-comparison">{change}<span>{prior}</span></div><p class="variable-change-note">{esc(v['change_note'])}</p><p>{esc(v['note'])}</p><details><summary>日本への影響・次に見る変化</summary><p>{esc(v['implication'])}</p><p><strong>次の観測：</strong>{esc(v['watch'])}</p></details><div class="variable-sources">{links}</div></article>''')
+        rendered.append(f'<div class="variable-group"><h3>{esc(group)}</h3><div class="variable-grid">{"".join(cards)}</div></div>')
+    when=dt.datetime.fromisoformat(record['recorded_at']).astimezone(ZoneInfo('Asia/Tokyo')).strftime('%m/%d %H:%M JST')
+    download=url('reports/'+d['date']+'/variables.json')
+    return f'''<section id="variables" class="world-variables"><span id="cross-risk" class="anchor-alias"></span><div class="section-heading"><div><p class="eyebrow">GLOBAL VARIABLES</p><h2>世界の横断変数と、その変化</h2></div><a class="small" href="{url('method/')}#variable-guide">主シナリオとの違い →</a></div><p class="section-lead">海峡・運河、供給、エネルギー、物価・金融など、A〜Hに共通して影響し得る条件を追います。数値で測る項目と、通航・制度などの状態を確認する項目を分けて表示します。</p><p class="small muted">{len(record['items'])}項目 ／ 記録 {when} ／ <a href="{download}" download>横断変数のデータを保存</a></p><p class="note">{esc(record['basis_note'])} 各変数の対象日と公表日は異なります。比較は資料に記載された前回値などとの比較で、すべてが前日比ではありません。色や数値差は日本への利害を自動判定するものではありません。</p>{''.join(rendered)}</section>'''

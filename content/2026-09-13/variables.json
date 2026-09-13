@@ -1,0 +1,279 @@
+{
+  "date": "2026-09-13",
+  "recorded_at": "2026-09-13T14:05:56+09:00",
+  "basis_note": "朝の日報で確認した公開資料を変数として整理し、午後にバブ・エル・マンデブ海峡とパナマ運河の一次資料を追加点検。元の日報本文・予測を遡って変更していない。",
+  "items": [
+    {
+      "id": "bab-el-mandeb",
+      "label": "バブ・エル・マンデブ海峡／紅海",
+      "group": "海上交通・供給",
+      "value": "対サウジ封鎖宣言・航行妨害",
+      "unit": "",
+      "kind": "当局声明",
+      "observed": "7/20の封鎖宣言に言及する9/12声明",
+      "published": "2026-09-12",
+      "sources": [
+        {
+          "label": "日本外務省",
+          "url": "https://www.mofa.go.jp/press/statement/pageite_000001_01811.html"
+        }
+      ],
+      "note": "日本外務省はフーシ派の対サウジ海上封鎖宣言と攻撃を非難。海峡全体の全面封鎖や全船舶の通航停止を確認した資料ではない。",
+      "implication": "日本や他国の輸送では、対象船・船社ごとの通航可否と迂回による日数・費用を確認する。",
+      "watch": "対象船の範囲、通航実績、攻撃件数、船社の運航・回避、保険料。",
+      "previous_value": null,
+      "change_note": "宣言・攻撃と、実際の通航停止を分けて追う",
+      "delta_unit": "pt"
+    },
+    {
+      "id": "panama-canal",
+      "label": "パナマ運河",
+      "group": "海上交通・供給",
+      "value": "予約枠・喫水に制限",
+      "unit": "",
+      "kind": "公式ルール",
+      "observed": "9/13対象分の予約ルール／9/4喫水通告",
+      "published": "2026-08-20・08-28・09-04",
+      "sources": [
+        {
+          "label": "パナマ運河庁 A-29（8/20）",
+          "url": "https://pancanal.com/wp-content/uploads/2026/08/ADV-29-2026-Additional-Measures-to-Address-Reduced-Precipitation-in-the-Canal-Watershed.pdf"
+        },
+        {
+          "label": "パナマ運河庁 A-31（8/28）",
+          "url": "https://pancanal.com/wp-content/uploads/2026/04/ADV-31-2026-Transit-Reservation-Booking-System-Rule-modifications.pdf"
+        },
+        {
+          "label": "パナマ運河庁 A-33（9/4）",
+          "url": "https://pancanal.com/wp-content/uploads/2026/09/ADV-33-2026-Postponement-of-Maximum-Authorized-Draft-Adjustment-in-the-Neopanamax-Locks.pdf"
+        }
+      ],
+      "note": "Neopanamaxは63枠/週。Panamaxは25枠/日で、9/15対象分から23枠の予定。喫水上限は14.63mを維持し、14.48mへの変更は延期。実通航数・待ち時間は未取得。",
+      "implication": "予約の取りやすさ、積載量、運賃・迂回日数を通じて、米中間・日本向けを含む貨物輸送に波及し得る。",
+      "watch": "実通航数、予約枠、最大喫水、湖水位、待ち時間、予約費用。",
+      "previous_value": null,
+      "change_note": "9/15からの枠減少は予定。喫水の追加制限は延期",
+      "delta_unit": "pt"
+    },
+    {
+      "id": "hormuz",
+      "label": "ホルムズ海峡の米軍防護",
+      "group": "海上交通・供給",
+      "value": 2,
+      "unit": "枠/日",
+      "kind": "報道・原通知未確認",
+      "observed": "9月初めの変更との報道",
+      "published": "2026-09-12",
+      "sources": [
+        {
+          "label": "Reuters転載",
+          "url": "https://www.brecorder.com/live/iran-israel-war"
+        }
+      ],
+      "note": "FTを引用したReuters転載。防護を提供する時間帯の数で、通航船数ではない。軍の原通知は未確認。",
+      "implication": "通航機会や船舶の待機、保険条件を確認する手掛かり。",
+      "watch": "軍の原通知、実際の防護時間・通航数、待機、保険条件。",
+      "previous_value": null,
+      "change_note": "比較値未収録",
+      "delta_unit": "pt"
+    },
+    {
+      "id": "saudi-pipeline",
+      "label": "サウジ東西パイプライン",
+      "group": "海上交通・供給",
+      "value": "予防停止との当局説明",
+      "unit": "",
+      "kind": "当局説明を伝える報道",
+      "observed": "9/10攻撃・9/12報道",
+      "published": "2026-09-12",
+      "sources": [
+        {
+          "label": "ABC",
+          "url": "https://www.abc.net.au/news/2026-09-12/drone-attack-on-saudi-oil-pipeline-from-iraq/107146218"
+        }
+      ],
+      "note": "ドローン攻撃後の停止を報道。復旧日と損傷規模は未確定で、9/13の停止継続を別途確認したわけではない。",
+      "implication": "海峡以外の代替輸送経路も、燃料調達・供給安定に関わる。",
+      "watch": "復旧発表、稼働量、損傷、代替輸送への切り替え。",
+      "previous_value": null,
+      "change_note": "停止の報道あり。復旧状況は未確認",
+      "delta_unit": "pt"
+    },
+    {
+      "id": "brent",
+      "label": "Brent原油先物",
+      "group": "エネルギー・制度",
+      "value": 104.61,
+      "unit": "米ドル/バレル",
+      "kind": "市場の観測値",
+      "observed": "2026-09-11 終値",
+      "published": "2026-09-12更新",
+      "sources": [
+        {
+          "label": "Reuters転載",
+          "url": "https://in.marketscreener.com/news/oil-prices-set-to-end-week-over-100-for-first-time-in-nearly-4-months-ce785bdfd88af122"
+        }
+      ],
+      "note": "記事に記載された終値。現在値ではない。前営業日比で下落したが、比較元価格・下落幅は今回の記録にない。",
+      "implication": "燃料費や輸入コストの圧力を確認する。単日の下落だけで輸送の正常化とは判断しない。",
+      "watch": "次の営業日の同じ系列・同じ終値基準。",
+      "previous_value": null,
+      "change_note": "前営業日比は下落。数値差は未収録",
+      "delta_unit": "米ドル/バレル"
+    },
+    {
+      "id": "wti",
+      "label": "WTI原油先物",
+      "group": "エネルギー・制度",
+      "value": 100.05,
+      "unit": "米ドル/バレル",
+      "kind": "市場の観測値",
+      "observed": "2026-09-11 終値",
+      "published": "2026-09-12更新",
+      "sources": [
+        {
+          "label": "Reuters転載",
+          "url": "https://in.marketscreener.com/news/oil-prices-set-to-end-week-over-100-for-first-time-in-nearly-4-months-ce785bdfd88af122"
+        }
+      ],
+      "note": "記事に記載された終値。現在値ではない。前営業日比で下落したが、比較元価格・下落幅は今回の記録にない。",
+      "implication": "燃料費や輸入コストの圧力を確認する。単日の下落だけで輸送の正常化とは判断しない。",
+      "watch": "次の営業日の同じ系列・同じ終値基準。",
+      "previous_value": null,
+      "change_note": "前営業日比は下落。数値差は未収録",
+      "delta_unit": "米ドル/バレル"
+    },
+    {
+      "id": "iran-sanctions",
+      "label": "対イラン制裁・許可条件",
+      "group": "エネルギー・制度",
+      "value": "制裁追加・許可方針変更",
+      "unit": "",
+      "kind": "当局発表",
+      "observed": "2026-09-10の措置",
+      "published": "2026-09-10",
+      "sources": [
+        {
+          "label": "米財務省",
+          "url": "https://home.treasury.gov/news/press-releases/sb0626/"
+        }
+      ],
+      "note": "個人・企業への措置と許可方針の変更を確認。制裁の強さを独自の点数には換算しない。",
+      "implication": "外交協議の進展とは別に、取引の適法性・決済・保険引受の条件が残り得る。",
+      "watch": "対象者・対象業務、一般/個別許可、銀行・船社・保険会社の取扱い。",
+      "previous_value": null,
+      "change_note": "9/10の新たな措置。影響量は未算定",
+      "delta_unit": "pt"
+    },
+    {
+      "id": "cpi",
+      "label": "米CPI・総合前年比",
+      "group": "物価・金融",
+      "value": 3.4,
+      "unit": "％",
+      "kind": "統計公表値",
+      "observed": "2026年8月",
+      "published": "2026-09-11",
+      "sources": [
+        {
+          "label": "BLS",
+          "url": "https://www.bls.gov/news.release/archives/cpi_09112026.htm"
+        }
+      ],
+      "note": "前年比上昇率。前月比+0.4％は別の指標であり、3.4％の前回差ではない。",
+      "implication": "家計負担や政策への圧力を見る。交渉成立・選挙結果へ直結させない。",
+      "watch": "同じ基準の次回CPI、内訳と家計の実感。",
+      "previous_value": null,
+      "change_note": "比較値未収録",
+      "delta_unit": "pt"
+    },
+    {
+      "id": "core-cpi",
+      "label": "米コアCPI・前年比",
+      "group": "物価・金融",
+      "value": 2.4,
+      "unit": "％",
+      "kind": "統計公表値",
+      "observed": "2026年8月",
+      "published": "2026-09-11",
+      "sources": [
+        {
+          "label": "BLS",
+          "url": "https://www.bls.gov/news.release/archives/cpi_09112026.htm"
+        }
+      ],
+      "note": "前年同月比の上昇率は前回値2.5％から低下。物価の水準自体が下がったことを意味しない。",
+      "implication": "総合とコアの動きを分け、燃料高と基調的な価格変化を点検する。",
+      "watch": "次回統計の対象月・季節調整・改定。",
+      "previous_value": 2.5,
+      "change_note": "資料記載の前回前年比との比較",
+      "delta_unit": "pt"
+    },
+    {
+      "id": "consumer-sentiment",
+      "label": "米消費者心理指数",
+      "group": "物価・金融",
+      "value": 47.8,
+      "unit": "指数",
+      "kind": "調査・速報値",
+      "observed": "2026年9月速報",
+      "published": "2026-09-11",
+      "sources": [
+        {
+          "label": "大学一次公表",
+          "url": "https://www.sca.isr.umich.edu/"
+        }
+      ],
+      "note": "ミシガン大学の速報値。前回値51.7との比較で、日報間の前日差ではない。",
+      "implication": "国内で早期の政策成果を求める圧力を点検する。全国の議席変化を直接示すものではない。",
+      "watch": "速報から確報への改定、次回調査、調査期間。",
+      "previous_value": 51.7,
+      "change_note": "資料記載の前回指数との比較",
+      "delta_unit": "pt"
+    },
+    {
+      "id": "inflation-expectations",
+      "label": "米家計の1年先物価期待",
+      "group": "物価・金融",
+      "value": 4.6,
+      "unit": "％",
+      "kind": "調査回答の期待値",
+      "observed": "2026年9月速報",
+      "published": "2026-09-11",
+      "sources": [
+        {
+          "label": "大学一次公表",
+          "url": "https://www.sca.isr.umich.edu/"
+        }
+      ],
+      "note": "前回値4.0％との比較。実現した物価上昇率や、本日報の主観予測ではない。",
+      "implication": "家計の不安や賃金・消費行動に関わる期待として追う。",
+      "watch": "同じ調査の次回値、調査対象と期間。",
+      "previous_value": 4.0,
+      "change_note": "資料記載の前回期待値との比較",
+      "delta_unit": "pt"
+    },
+    {
+      "id": "fed-pricing",
+      "label": "次回FOMC・25bp利上げ織込み",
+      "group": "物価・金融",
+      "value": 85,
+      "unit": "％（約）",
+      "kind": "市場価格に基づく期待",
+      "observed": "2026-09-11 記事時点",
+      "published": "2026-09-11",
+      "sources": [
+        {
+          "label": "Reuters転載",
+          "url": "https://ca.marketscreener.com/news/fed-rate-hike-case-builds-as-inflation-fails-to-cool-ce785bdfdf8af722"
+        }
+      ],
+      "note": "記事時点の市場織込み。Fedの決定でも日報の主観確率でもない。会合の具体日付は今回の記録に未収録。",
+      "implication": "為替・資金調達費用への波及を点検する。",
+      "watch": "対象会合の一致、算出時刻、実際の政策決定。",
+      "previous_value": null,
+      "change_note": "比較値未収録",
+      "delta_unit": "pt"
+    }
+  ]
+}

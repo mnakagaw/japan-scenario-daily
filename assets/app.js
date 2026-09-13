@@ -48,7 +48,7 @@ if (fromInput && toInput) {
     if (from.date > to.date) {
       $('#date-comparison').innerHTML = '<p class="empty-state">比較先には比較元より後の日付を選んでください。</p>'; return;
     }
-    const rows = to.scenarios.map(b => {
+    const rows = to.scenarios.filter(b => b.id !== 'I' && b.id !== 'J').map(b => {
       const a = from.scenarios.find(s => s.id === b.id), diff = difference(a,b,from,to);
       return `<tr><th scope="row">${escapeHTML(b.id+' '+b.label)}</th><td>${formatP(a?.p_final)}</td><td>${formatP(b.p_final)}</td><td>${changeMarkup(diff)}</td><td>${escapeHTML(a?.reason || '記録なし')}<span class="compare-reason-arrow">↓</span>${escapeHTML(b.reason)}</td></tr>`;
     }).join('');
