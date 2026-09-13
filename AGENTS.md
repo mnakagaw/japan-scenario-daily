@@ -1,5 +1,7 @@
 # Public daily site
 
+Start daily at 15:00 Asia/Tokyo from September 14 through November 4, 2026. Complete all four analysis phases, report creation, validation, scoped commit/push, successful Pages deployment and public-content verification in that run. This is the start time, not a guaranteed publication time. The November 4 run also produces the final review; do not schedule it twice. Keep the already published September 13 edition unchanged.
+
 This folder is a separate public repository. Only publish curated daily content and site assets. The research source is read-only and is never a deployment target. Do not contact research tasks or write back to research files, registries, workflows, or repositories.
 
 Keep the four analysis phases, a concise top summary, a 4000–5000 Japanese-character full report, sources, subjective scenario probabilities, and honest dates. Do not invent initial history or convert null to zero. Same-day Web-to-reference changes and previous-day changes are different measures.
