@@ -11,6 +11,7 @@ OUT = ROOT / 'dist'
 SITE = 'https://mnakagaw.github.io/japan-scenario-daily'
 BASE = '/japan-scenario-daily'
 TITLE = '米中・中間選挙 シナリオ日報'
+NEWS_LABELS = {}
 
 def e(value): return html.escape(str(value), quote=True)
 def url(path=''): return BASE + '/' + path.lstrip('/')
@@ -57,7 +58,7 @@ def markdown(text):
     return '\n'.join(result)
 
 def page(title, content, path='', active='today', data=None, description=None):
-    nav = [('today','今日の日報',''),('archive','アーカイブ','archive/'),('compare','日付で比較','compare/'),('method','読み方・方法','method/')]
+    nav = [('today','今日の日報',''),('archive','アーカイブ','archive/'),('compare','日付で比較','compare/'),('method','読み方・シナリオ・手法','method/')]
     navhtml = ''.join(f'<a href="{url(p)}"'+(' aria-current="page"' if key==active else '')+f'>{label}</a>' for key,label,p in nav)
     payload = '' if data is None else '<script id="page-data" type="application/json">'+json.dumps(data,ensure_ascii=False).replace('<','\\u003c')+'</script>'
     return f'''<!doctype html>
@@ -118,8 +119,10 @@ def scenario_table(d,history):
 
 def news_card(n, date=None):
     prefix='reports/'+date+'/' if date else ''
+    countries=n.get('countries') or NEWS_LABELS.get(date,{}).get(n['id'],[])
+    country_tags='<div class="news-countries"><span class="country-caption">国・地域</span>'+''.join(f'<span class="country-tag">{e(country)}</span>' for country in countries)+'</div>'
     tags=''.join(f'<a class="tag" href="{url(prefix+"scenarios/"+s.lower()+"/")}" aria-label="シナリオ{s}の詳細">{s}</a>' for s in n['scenarios'])
-    return f'''<article class="news-item" id="{e(n['id'])}" data-category="{e(n['category'])}" data-status="{e(n['status'])}" data-scenarios="{''.join(n['scenarios'])}"><div class="news-meta"><span class="status">{e(n['status'])}</span><span>{e(n['category'])}</span><span>公表・更新 {e(n['published_date'])}</span></div><h3>{e(n['title'])}</h3><p>{e(n['summary'])}</p><div class="news-bottom"><span class="event">発生・対象：{e(n['event'])}</span><span class="tags">{tags}</span><a class="source" href="{e(n['url'])}" target="_blank" rel="noopener noreferrer">{e(n['source'])} ↗<span class="sr-only">（新しいタブ）</span></a></div></article>'''
+    return f'''<article class="news-item" id="{e(n['id'])}" data-category="{e(n['category'])}" data-status="{e(n['status'])}" data-scenarios="{''.join(n['scenarios'])}"><div class="news-meta"><span class="status">{e(n['status'])}</span><span>{e(n['category'])}</span><span>公表・更新 {e(n['published_date'])}</span></div>{country_tags}<h3>{e(n['title'])}</h3><p>{e(n['summary'])}</p><div class="news-bottom"><span class="event">発生・対象：{e(n['event'])}</span><span class="tags">{tags}</span><a class="source" href="{e(n['url'])}" target="_blank" rel="noopener noreferrer">{e(n['source'])} ↗<span class="sr-only">（新しいタブ）</span></a></div></article>'''
 
 def report_dashboard(d,history,md,path=''):
     date=d['date']; summaries=''.join(f'<li>{e(x)}</li>' for x in d['summary'])
@@ -190,6 +193,7 @@ def method(d):
 <p>初回9月13日は日報の読後に初めて数値化しました。過去日の値と当日の読前確率は存在せず、差や推移を遡って作っていません。同日の研究に先に触れた履歴もあるため、完全な初見・独立した盲検分析とは扱いません。今後も過去に読んだ知識は残ります。</p>
 <h2>色は利害や危険度ではありません</h2><p>橙は60％以上、黄は30％以上60％未満、青は30％未満。動きは赤の▲上昇、青の▼低下、→据置、—初回・比較不可です。色だけに頼らず、数値・文字・矢印を併記します。Aの同盟強化とIの物流制約が同じ色でも、日本への意味は異なります。</p>
 <h2>ニュースの範囲と出典</h2><p>直近24時間を中心に、影響が続く数日前の発表や背景資料も含めます。新着・継続・追加確認・背景を表示し、公表日と発生日を分けます。件数はニュース項目数で、同じ事象に関する転載は独立の証拠として重複加算しません。発言、予定、暫定措置、実施済みの決定を区別します。</p><p>初回のWeb分析固定は9月13日11:20 JSTごろ。研究確認後に追加した2件は②の段階の確認です。リンク先は更新・削除されることがあり、ライブページと大学指標ページの表示内容は日報掲載時点から変わる場合があります。原文転載はせず短い要約と直接リンクを掲載します。</p>
+<p>各ニュースの「国・地域」ラベルは、記事が主に扱う国や地域を示します。複数国に関わる場合は併記し、特定国に絞れない市況は「国際市場」と表示します。ニュースのキーワード検索では国名でも絞り込めます。</p>
 <h2>公開・更新・訂正</h2><p>日本時間の毎朝に日報を作成し、確認後に公開版を更新する運用です。最新号へのリンクと、日付ごとの固定ページを用意します。画面の日付・情報固定時刻で、どの時点の判断かを確認してください。新しい日報が未公開の場合、前回号をその日の日報と表示しません。</p><p>過去の確率や本文は新しい予測で上書きせず保持します。誤記や出典の修正は対象の日報に訂正注記を追加し、日付・理由を訂正履歴に追記します。元の本文・数値はそのまま保持します。モデルの指定はGPT-6 Astra / Ultra。実行時に確認できたモデルを各号に記録します。</p>
 <p>印刷ボタンから日報部分を印刷・PDF保存できます。RSSは公開済みの日報へのリンクを配信します。ログイン、コメント、トラッキング用Cookieは設けていません。</p></article>'''
 
@@ -203,8 +207,9 @@ def write(path,text):
     target=OUT/path; target.parent.mkdir(parents=True,exist_ok=True); target.write_text(text,encoding='utf-8',newline='\n')
 
 def build(base='/japan-scenario-daily'):
-    global BASE
+    global BASE, NEWS_LABELS
     BASE=base.rstrip('/')
+    NEWS_LABELS={p.parent.name:json.loads(p.read_text(encoding='utf-8')) for p in (ROOT/'content').glob('????-??-??/news-labels.json')}
     # Never delete arbitrary paths. This fixed generated-output path is repo-local.
     if OUT.exists():
         assert OUT.resolve().parent == ROOT and not OUT.is_symlink()
@@ -213,6 +218,12 @@ def build(base='/japan-scenario-daily'):
     history=[]; reports={}
     for path in sorted((ROOT/'content').glob('????-??-??/data.json')):
         d=json.loads(path.read_text(encoding='utf-8')); history.append(d)
+        labels=NEWS_LABELS.get(d['date'],{})
+        if not set(labels)<=set(n['id'] for n in d['news']): raise ValueError('Unknown news label ID')
+        for n in d['news']:
+            countries=n.get('countries') or labels.get(n['id'],[])
+            if not isinstance(countries,list) or not countries or not all(isinstance(c,str) and c.strip() for c in countries):
+                raise ValueError('Missing country/region labels: '+d['date']+'/'+n['id'])
         reports[d['date']]=(path.parent/'report.md').read_text(encoding='utf-8')
     if not history: raise ValueError('No public report records')
     latest=history[-1]
@@ -222,6 +233,7 @@ def build(base='/japan-scenario-daily'):
         route='reports/'+d['date']+'/'
         write(route+'index.html',page(d['date']+'の日報',correction_notice(d,corrections_data)+report_dashboard(d,history[:i+1],reports[d['date']],route),route,data={'history':history[:i+1]}))
         write(route+'report.md',reports[d['date']]); write(route+'data.json',json.dumps(d,ensure_ascii=False,indent=2)+'\n')
+        if d['date'] in NEWS_LABELS: write(route+'news-labels.json',json.dumps(NEWS_LABELS[d['date']],ensure_ascii=False,indent=2)+'\n')
         for s in d['scenarios']:
             detail=route+'scenarios/'+s['id'].lower()+'/'
             write(detail+'index.html',page(d['date']+' '+s['label'],correction_notice(d,corrections_data)+scenario_page(s,d,history[:i+1]),detail))
@@ -238,7 +250,7 @@ def build(base='/japan-scenario-daily'):
     write('compare/index.html',page('日付で比較',compare,'compare/','compare',{'history':history}))
     corrections='<section class="method-prose"><h2>訂正・公開履歴</h2><ul>'+''.join(f'<li><time>{e(c["date"])}</time> — {e(c["text"])}</li>' for d in reversed(history) for c in d['corrections'])+'</ul></section>'
     corrections+='<ul class="method-prose">'+''.join(f'<li>{e(c["date"])} / {e(c["report_date"])}号の訂正：{e(c["text"])}</li>' for c in corrections_data)+'</ul>'
-    write('method/index.html',page('読み方・方法',method(latest)+corrections,'method/','method'))
+    write('method/index.html',page('読み方・シナリオ・手法',method(latest)+corrections,'method/','method'))
     write('404.html',page('ページが見つかりません',f'<div class="page-heading"><p class="eyebrow">404</p><h1>このページは見つかりません。</h1><a class="button" href="{url()}">最新の日報へ →</a></div>','404.html'))
     feed='<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>'+TITLE+'</title><link>'+SITE+'/</link><description>米中関係と米中間選挙の日報</description><language>ja</language><atom:link href="'+SITE+'/feed.xml" rel="self" type="application/rss+xml"/>'
     for d in reversed(history):
