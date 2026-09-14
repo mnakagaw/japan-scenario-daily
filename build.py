@@ -116,10 +116,17 @@ def spark(history, s):
 
 def scenario_table(d,history,items=None,rows_id='scenario-rows'):
     rows=[]
+    reference_note=''
+    prior=d.get('previous_day_reference')
+    if prior:
+        prepared=dt.datetime.fromisoformat(prior['prepared_at']).astimezone(ZoneInfo('Asia/Tokyo')).strftime('%Y/%m/%d %H:%M:%S JST')
+        kind='追補版' if prior['path'].startswith('supplements/') else '通常号'
+        link=url(prior['path'].removesuffix('data.json'))
+        reference_note=f'<p class="small muted">前日比較元：<a href="{e(link)}"><time datetime="{e(prior["prepared_at"])}">{e(prepared)}</time>作成の{kind}</a></p>'
     for s in (d['scenarios'] if items is None else items):
         value=s['p_final']; width=0 if value is None else value*100
         rows.append(f'''<tr data-scenario="{s['id']}" data-probability="{width if value is not None else -1}"><th scope="row"><a class="scenario-link" href="{url(edition_route(d)+'scenarios/'+s['id'].lower()+'/')}"><span class="scenario-id">{s['id']}</span><span>{e(s['label'])}<small>{e(s['reason'])}</small></span><span class="row-arrow" aria-hidden="true">↗</span></a></th><td><span class="probability {band(value)}">{pct(value)}</span><span class="bar-track" aria-hidden="true"><span class="bar {band(value)}" style="width:{width}%"></span></span></td><td>{delta(s['daily_delta_pp'],'未定義' if value is None else '初回' if d['initial'] else '比較不可')}</td><td><span class="confidence">{e(s['evidence_confidence'])}</span></td><td>{spark(history,s)}</td></tr>''')
-    return '<div class="table-scroll scenario-scroll"><table class="scenario-table"><caption class="sr-only">最終主観確率、前日最終との差、根拠の確度、実際の記録推移</caption><thead><tr><th scope="col">判定対象・判断の理由</th><th scope="col">最終主観確率</th><th scope="col">前日最終比</th><th scope="col">根拠の確度</th><th scope="col">記録の推移</th></tr></thead><tbody id="'+e(rows_id)+'">'+''.join(rows)+'</tbody></table></div>'
+    return reference_note+'<div class="table-scroll scenario-scroll"><table class="scenario-table"><caption class="sr-only">最終主観確率、前日最終との差、根拠の確度、実際の記録推移</caption><thead><tr><th scope="col">判定対象・判断の理由</th><th scope="col">最終主観確率</th><th scope="col">前日最終比</th><th scope="col">根拠の確度</th><th scope="col">記録の推移</th></tr></thead><tbody id="'+e(rows_id)+'">'+''.join(rows)+'</tbody></table></div>'
 
 def edition_notice(d):
     if d.get('edition_kind')!='supplement': return ''

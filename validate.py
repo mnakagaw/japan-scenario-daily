@@ -45,7 +45,7 @@ def validate():
         check(len({n['id'] for n in d['news']})==len(d['news']),'Duplicate news IDs')
         for n in d['news']:
             check(n['phase'] in [1,2],'Unknown news phase')
-            check(n['published_date']<=d['date'],'Future publication date presented as published')
+            check(n['published_date'] is None or n['published_date']<=d['date'],'Future publication date presented as published')
             check(urlsplit(n['url']).scheme=='https','Non-HTTPS source')
             check(set(n['scenarios'])<=set(s['id'] for s in d['scenarios']),'Unknown scenario tag')
         if not d['initial']: validate_references(records,d)

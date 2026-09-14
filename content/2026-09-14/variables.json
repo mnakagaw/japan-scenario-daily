@@ -1,0 +1,284 @@
+{
+  "date": "2026-09-14",
+  "recorded_at": "2026-09-14T15:50:44+09:00",
+  "basis_note": "9/14の日次。公開Webの物流資料確認は15:32:45〜15:37:06 JST、①の判断は15:43:54 JSTに固定。②後も物流判断は変更なし。このカードは固定した公開資料から作成。含意は推論であり、実績・予報・制度・報道上の推計を区別する。",
+  "coverage_note": "8地域28基幹項目を限定点検し、重要8・現行本文取得不能16・確認範囲で重要な新情報なし3・未確認1。基幹外7項目も別途記録したが、7地域を網羅した意味ではない。入口だけの確認や複数地点の一括項目を含み、全地域・全地点の実況を確認したものではない。取得不能・未確認を平常と判定しない。",
+  "items": [
+    {
+      "id": "hormuz-diplomacy",
+      "label": "ホルムズ協議・オマーン地域会合",
+      "group": "海上交通・供給",
+      "value": "延期",
+      "unit": "予定の状態",
+      "observed": "9/14予定会合の延期を9/13発表",
+      "published": "9/13。正確な時刻・TZ不明",
+      "kind": "政府公式掲載",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "延期発表を確認。前回カードに同じ予定の比較値は未収録。",
+      "note": "オマーン外務省サイト内の公式X投稿本文で確認。開催予定地はサラーラ。新日程・合意・通航再開は未確認。相対時刻11hから発表時刻を逆算しない。",
+      "implication": "推論：航行条件を話し合う日程が延び、原油・貨物の実再開には許可と実航行の確認が引き続き必要。",
+      "watch": "新日程、航行条件の公式合意、船社の実運航。",
+      "sources": [
+        {
+          "label": "オマーン外務省公式ページ内の公式X投稿",
+          "url": "https://www.fm.gov.om/en/"
+        },
+        {
+          "label": "AP・会合延期と船舶攻撃",
+          "url": "https://apnews.com/article/iran-us-war-hormuz-ship-struck-aa034da0d8226f5a3b4794b10afb8b3b"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "本日予定だった協議の延期を一次資料で確認したため。"
+    },
+    {
+      "id": "saudi-export-stocks",
+      "label": "サウジ・Yanbuの輸出維持在庫",
+      "group": "エネルギー・制度",
+      "value": "5〜7",
+      "unit": "日分（業界推計）",
+      "observed": "9/13時点の業界筋推計。停止は9/11と報道",
+      "published": "9/13公表、18:29更新（媒体表示TZ不明）",
+      "kind": "匿名業界筋の推計を伝える報道",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "前回の同一定義の推計は未収録。本日の残日数へ日数を差し引かない。",
+      "note": "Reutersが業界筋3人を引用。実在庫の計測値ではない。修復5〜6週間との1筋の見積りには、より早い部分再開も可能との別見解があり、政府の確定予定ではない。",
+      "implication": "推論：原油の調達経路・到着時期・保険費用へ波及し得る。日本向け不足量は未確定。",
+      "watch": "パイプラインの再開、政府発表、実際の積出量。",
+      "sources": [
+        {
+          "label": "Reuters／Business Recorder・停止の供給影響",
+          "url": "https://www.brecorder.com/news/amp/40439290"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "迂回供給停止の長期化が輸出へ及ぼす条件を示すため。"
+    },
+    {
+      "id": "brent-futures",
+      "label": "Brent原油先物",
+      "group": "エネルギー・価格",
+      "value": 107.82,
+      "unit": "USD/バレル",
+      "observed": "9/14 03:40 GMT（12:40 JST）の記事内日中値",
+      "published": "9/14公表、10:46更新（媒体表示TZ不明）",
+      "kind": "市場価格の報道・日中値",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "記事上は+3.21ドル（+3.1％）。限月を未取得のため、過去カードとの機械的比較は行わない。",
+      "note": "終値でも15:30現在値でもない。限月を同定しておらず、前回値・機械的差分は比較不能。",
+      "implication": "推論：原油調達価格や輸送燃料費へ波及し得る。日本向け費用は為替・契約条件・反映時期にも依存。",
+      "watch": "同じ限月・価格時点の確認、次の市場値と実調達条件。",
+      "sources": [
+        {
+          "label": "Reuters／Business Recorder・9/14原油日中値",
+          "url": "https://www.brecorder.com/news/40439372/oil-prices-up-over-3-following-new-strikes-on-saudi-strait-of-hormuz"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "本日の市場反応を時点付きで示すため。"
+    },
+    {
+      "id": "wti-futures",
+      "label": "WTI原油先物",
+      "group": "エネルギー・価格",
+      "value": 103.22,
+      "unit": "USD/バレル",
+      "observed": "9/14 03:40 GMT（12:40 JST）を基準とする同記事の日中値",
+      "published": "9/14公表、10:46更新（媒体表示TZ不明）",
+      "kind": "市場価格の報道・日中値",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "記事上は+3.17ドル（+3.2％）。限月を未取得のため、過去カードとの機械的比較は行わない。",
+      "note": "終値でも15:30現在値でもない。限月未同定につき前回値・機械的差分は比較不能。Brentと同じ記事の関連価格で、独立した事件ではない。",
+      "implication": "推論：国際燃料価格や調達環境を通じて日本の輸送費にも波及し得る。",
+      "watch": "同じ限月・価格時点の確認、燃料費への反映。",
+      "sources": [
+        {
+          "label": "Reuters／Business Recorder・9/14原油日中値",
+          "url": "https://www.brecorder.com/news/40439372/oil-prices-up-over-3-following-new-strikes-on-saudi-strait-of-hormuz"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "Brentとの価格指標の違いを保って市場反応を示すため。"
+    },
+    {
+      "id": "southeast-asia-waves",
+      "label": "マラッカ北部・スンダ西部・ロンボク南部の波高",
+      "group": "海上交通・供給",
+      "value": "2.5〜4",
+      "unit": "m（予報）",
+      "observed": "マラッカ北部・スンダ西部9/14 07:00 WIB〜9/17 07:00 WIB。ロンボク南部9/14 08:00 WITA〜9/17 08:00 WITA",
+      "published": "公表時刻未確認／9/14取得",
+      "kind": "公式予報",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "前回と海域・対象期間が完全には一致せず、厳密な数値差は比較しない。",
+      "note": "実測波高・海峡閉鎖ではない。スンダ西部はPandeglang。マカッサル北中南部は別に1.25〜2.5m予報。WIB=UTC+7、WITA=UTC+8。北部マラッカをシンガポール海峡全体へ拡張しない。",
+      "implication": "推論：東南アジア経由・代替ルートの船速、配船、到着見込みを点検する材料。",
+      "watch": "地域別予報の更新、船社の通航可否と実際の遅延。",
+      "sources": [
+        {
+          "label": "BMKG・高波予報",
+          "url": "https://www.bmkg.go.id/cuaca/maritim/peringatan-gelombang-tinggi"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "本日からの有効期間を持つ主要航路の海況予報のため。"
+    },
+    {
+      "id": "panama-panamax-booking",
+      "label": "パナマPanamax予約",
+      "group": "海上交通・供給",
+      "value": 23,
+      "unit": "予約枠/日",
+      "observed": "9/1発効、9/15以降の予約日が対象",
+      "published": "8/20公表（A-29）。時刻・TZ不明",
+      "kind": "公式制度・翌日以降の対象条件",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "9/15以降の対象日が近づいた既公表制度。前日カードの同じ区分の値は未収録。",
+      "note": "23枠は制度上の予約枠で当日の通航隻数ではない。A-34の9/14・3時間整備もTentativeの予定で、実施確認ではない。",
+      "implication": "推論：日本―米東岸などの予約確保や接続便計画に関わる。",
+      "watch": "後続通達、予約充足、待ち時間、実通航。",
+      "sources": [
+        {
+          "label": "パナマ運河庁A-29",
+          "url": "https://pancanal.com/wp-content/uploads/2026/08/ADV-29-2026-Additional-Measures-to-Address-Reduced-Precipitation-in-the-Canal-Watershed.pdf"
+        },
+        {
+          "label": "パナマ運河庁A-34・8月実績と整備予定",
+          "url": "https://pancanal.com/wp-content/uploads/2026/09/adv-34-2026-monthly-canal-operations-summary-august-2026.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "予約条件の対象日が9/15に迫るため。"
+    },
+    {
+      "id": "panama-booking",
+      "label": "パナマNeopanamax予約",
+      "group": "海上交通・供給",
+      "value": 63,
+      "unit": "予約枠/週",
+      "observed": "8/30発効、9/13以降の予約日が対象",
+      "published": "8/28公表（A-31）。時刻・TZ不明",
+      "kind": "公式制度",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "既公表の週63枠を今回再確認。前日差の数値表示は設けない。",
+      "note": "同一日・連続日予約条件等の変更。Panamax23枠/日とは閘門区分・単位が異なる。予約枠は実通航数ではない。",
+      "implication": "推論：日本―米東岸などの予約・配船計画を点検する材料。",
+      "watch": "予約取得条件、実通航、後続通達。",
+      "sources": [
+        {
+          "label": "パナマ運河庁A-31",
+          "url": "https://pancanal.com/wp-content/uploads/2026/04/ADV-31-2026-Transit-Reservation-Booking-System-Rule-modifications.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "異なる閘門区分の予約値を混同せず示すため。"
+    },
+    {
+      "id": "panama-draft",
+      "label": "パナマNeopanamax最大喫水",
+      "group": "海上交通・供給",
+      "value": 14.63,
+      "unit": "m TFW",
+      "observed": "10/1予定の引下げを延期し、追って通知するまで維持",
+      "published": "9/4公表（A-33）。時刻・TZ不明",
+      "kind": "公式制度",
+      "previous_value": 14.63,
+      "delta_unit": "m TFW",
+      "change_note": "前日9/13 15:52:57のカードと値14.63・単位m TFW・A-33のURLが一致。記録間の差は0。新しい実測ではない。",
+      "note": "48ft相当の最大許容喫水で各船の実喫水ではない。予定14.48mへの引下げとの0.15mを前日差として扱わない。",
+      "implication": "推論：積載能力の悪化を回避する条件だが、日本向け全便の通航を保証しない。",
+      "watch": "水位、後続通達、個船の積載条件。",
+      "sources": [
+        {
+          "label": "パナマ運河庁A-33",
+          "url": "https://pancanal.com/wp-content/uploads/2026/09/ADV-33-2026-Postponement-of-Maximum-Authorized-Draft-Adjustment-in-the-Neopanamax-Locks.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "前日との同一定義比較を確認できる継続制度値のため。"
+    },
+    {
+      "id": "ghent-terneuzen-draft",
+      "label": "Ghent–Terneuzen運河の最大喫水",
+      "group": "海上交通・供給",
+      "value": 12.35,
+      "unit": "m（最大許容）",
+      "observed": "9/10更新、喫水制限は追って通知まで",
+      "published": "9/10更新。時刻・TZ不明",
+      "kind": "港湾当局の運用条件",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "公式掲載の旧条件12.25mから12.35mへ緩和。これは記事内の条件変更で、日報前日差ではない。",
+      "note": "新閘門と東閘門は稼働、西閘門は整備で9月末まで閉鎖との9/10説明。運河全体の閉鎖ではない。9/14の水位・待ち時間は未観測。",
+      "implication": "推論：欧州港から内陸へ運ぶ原料・製品の積載量と接続時間に関わる。",
+      "watch": "後続の喫水条件、西閘門の復旧、実際の待機時間。",
+      "sources": [
+        {
+          "label": "North Sea Port・Ghent–Terneuzen運河",
+          "url": "https://www.northseaport.com/en/news/drought-and-water-availability-ghent-terneuzen-canal-updates"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "基幹リスト外の重要運河で緩和と制約が併存するため。"
+    },
+    {
+      "id": "rhine-low-water",
+      "label": "ライン川の内陸輸送条件",
+      "group": "海上交通・供給",
+      "value": "低水位による能力低下を説明",
+      "unit": "状態",
+      "observed": "9/9の欧州市場更新。料金条件は8/12公表、追って通知まで",
+      "published": "9/9・8/12。各時刻・TZ不明",
+      "kind": "船社一次情報・既公表条件",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "9/14に既公表資料を再取得したもの。9/14の実水位や日次変化は未確認。",
+      "note": "Maerskはバージ積載能力低下を説明。Kaub81cm未満、Duisburg-Ruhrort181cm未満は積載保証不能となる条件閾値で現在の測定値ではない。追加料金は水位・貨物条件ごと。",
+      "implication": "推論：日本企業の欧州内陸拠点向けの部品・原料で、積載量、納期、費用の点検材料となる。",
+      "watch": "最新の観測水位、船社の積載保証と適用料金。",
+      "sources": [
+        {
+          "label": "Maersk・欧州9月更新",
+          "url": "https://www.maersk.com/news/articles/2026/09/09/europe-market-update-september"
+        },
+        {
+          "label": "Maersk・ライン川低水位料金",
+          "url": "https://www.maersk.com/news/articles/2026/08/12/rhine-river-low-water-surcharge-benelux"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "海峡以外の内陸輸送のボトルネックも対象とするため。"
+    },
+    {
+      "id": "norway-navigation-warnings",
+      "label": "ノルウェー海・Andøya近傍の航行警報",
+      "group": "海上交通・供給",
+      "value": "局地的な危険域・訓練予定",
+      "unit": "警報の状態",
+      "observed": "GNSS訓練9/9〜18、06:00〜16:00 UTC。打上げ開始9/14、18:00〜03:00 UTC、終了日未確定",
+      "published": "打上げ警報9/13 18:30 UTC、GNSS警報9/8 18:30 UTC",
+      "kind": "公式警報・予定",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "新しい打上げ危険域の公示と既存GNSS訓練警報を確認。実施済み・被害発生の確認ではない。",
+      "note": "GNSS訓練の9/15・16は16:00〜20:00 UTCの追加表記あり。打上げ警報本文は終了日が欠落しており推測しない。北極海航路全体の閉鎖や障害ではない。",
+      "implication": "推論：当該区域を通る北欧向け船舶の航法・航路計画を点検する材料。",
+      "watch": "個別警報の更新、終了日の明記、航行区域と時間。",
+      "sources": [
+        {
+          "label": "ノルウェー沿岸庁・NAVAREA XIX",
+          "url": "https://kyvreports.kystverket.no/NavcoReport/navareaxixvarsler.aspx"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "基幹外の局地警報を対象地域・時刻付きで示すため。"
+    }
+  ]
+}
