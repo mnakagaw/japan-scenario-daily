@@ -1,0 +1,292 @@
+{
+  "date": "2026-09-15",
+  "recorded_at": "2026-09-15T16:10:21+09:00",
+  "basis_note": "①は16:00:08 JSTに固定。①の公開資料に基づく観測と、②で追加確認したDD・VTBを区別して掲載。差は各資料の比較元との差で、全てを前日差にはしない。",
+  "coverage_note": "世界８地域28基幹項目で現行情報の取得を試み、重要な材料６・限定した確認範囲で重要な新情報なし３・現行本文取得不能19。動的ページや接続失敗によるスエズ、黒海、日本周辺、アフリカ、北極圏等の不足が残る。１項目に複数地点を含み、全地点の実況確認ではない。基幹外の警報・港湾情報も探索したが、掲載なしを異常なしとは扱わない。",
+  "items": [
+    {
+      "id": "hormuz-transits",
+      "label": "ホルムズ海峡の追跡通航",
+      "group": "海上交通・供給",
+      "value": 5,
+      "unit": "隻／週末２日間",
+      "observed": "９/12〜13。比較元は前週末",
+      "published": "９/15 09:06（掲載表示・TZ不明）",
+      "kind": "Reutersが伝えるKpler追跡",
+      "previous_value": 31,
+      "delta_unit": "隻／同じ２日間",
+      "change_note": "前週末31→５、26隻減。日報の前日差ではない。",
+      "note": "コモディティ船の追跡集計。９/12が５、13が追跡ゼロ。AISを切った船の捕捉漏れがあり全船の実通航ゼロとはいえない。",
+      "implication": "推論：日本の原油・製品調達の到着日や費用に波及し得る。日本向け数量は未測定。",
+      "watch": "船種別の実通航・入港、保険・船社の運航判断。",
+      "sources": [
+        {
+          "label": "Reuters・海峡通航",
+          "url": "https://www.gulf-times.com/article/731298/business/shipping-slows-through-strait-of-hormuz-after-tanker-attacks"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本向けの輸送・調達・費用または政策判断に関わる重要な観測・制度条件のため。"
+    },
+    {
+      "id": "bab-transits",
+      "label": "バブ・エル・マンデブ海峡の追跡通航",
+      "group": "海上交通・供給",
+      "value": 49,
+      "unit": "隻／週末２日間",
+      "observed": "９/12〜13。比較元は前週末",
+      "published": "９/15 09:06（掲載表示・TZ不明）",
+      "kind": "Reutersが伝えるKpler追跡",
+      "previous_value": 55,
+      "delta_unit": "隻／同じ２日間",
+      "change_note": "前週末55→49、６隻減。前回公表値との比較。",
+      "note": "コモディティ船の追跡範囲であり、全面閉鎖の認定や日本向け輸送量ではない。",
+      "implication": "推論：紅海経由の輸送やホルムズ以外の経路にも不確実性が残る。",
+      "watch": "航行攻撃・船社運航・実入港。",
+      "sources": [
+        {
+          "label": "Reuters・海峡通航",
+          "url": "https://www.gulf-times.com/article/731298/business/shipping-slows-through-strait-of-hormuz-after-tanker-attacks"
+        },
+        {
+          "label": "紅海の軍事動向",
+          "url": "https://www.timesofisrael.com/houthis-seize-more-key-islands-in-red-sea-launch-attacks-into-saudi-arabia/"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本向けの輸送・調達・費用または政策判断に関わる重要な観測・制度条件のため。"
+    },
+    {
+      "id": "panamax-bookings",
+      "label": "パナマ運河・Panamax予約枠",
+      "group": "海上交通・供給",
+      "value": 23,
+      "unit": "予約枠／日",
+      "observed": "９/15適用。比較元は９/３以降の25枠",
+      "published": "発表の正確な公表日時は未確認",
+      "kind": "運河庁の制度・適用日",
+      "previous_value": 25,
+      "delta_unit": "予約枠／日",
+      "change_note": "25→23、２枠減。制度の変更であり実通航の前日差ではない。",
+      "note": "当日の実際の予約消化・通航数は未取得。９/10通知の９/15保守は暫定予定。８月日平均33.19隻を当日値にしない。",
+      "implication": "推論：予約確保や迂回・待機費用が日本向け貨物の条件に影響し得る。",
+      "watch": "当日実通航、予約待ち、運河庁の更新通知。",
+      "sources": [
+        {
+          "label": "運河庁・予約枠",
+          "url": "https://pancanal.com/en/panama-canal-adopts-additional-measures-to-address-reduced-precipitation-in-the-canal-watershed/"
+        },
+        {
+          "label": "９/10月次・保守通知",
+          "url": "https://pancanal.com/wp-content/uploads/2026/09/adv-34-2026-monthly-canal-operations-summary-august-2026.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本向けの輸送・調達・費用または政策判断に関わる重要な観測・制度条件のため。"
+    },
+    {
+      "id": "neopanamax-draft",
+      "label": "パナマ運河・Neopanamax許容喫水",
+      "group": "海上交通・供給",
+      "value": 14.63,
+      "unit": "m TFW",
+      "observed": "９/４通知による継続条件",
+      "published": "９/４付、時刻不明",
+      "kind": "運河庁の航行通知",
+      "previous_value": null,
+      "delta_unit": "m",
+      "change_note": "予定された14.48mへの引下げを延期。予定値を実績の比較元にしない。",
+      "note": "14.63mを次の通知まで維持。淡水基準TFW。Panamax予約枠の削減とは別の条件。",
+      "implication": "推論：喫水引下げ延期は積載面の制約を和らげる材料。全船で同じ便益とは限らない。",
+      "watch": "後続の喫水通知、適用する船型と実積載量。",
+      "sources": [
+        {
+          "label": "運河庁・A-33",
+          "url": "https://pancanal.com/wp-content/uploads/2026/09/ADV-33-2026-Postponement-of-Maximum-Authorized-Draft-Adjustment-in-the-Neopanamax-Locks.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本向けの輸送・調達・費用または政策判断に関わる重要な観測・制度条件のため。"
+    },
+    {
+      "id": "indonesia-waves",
+      "label": "東南アジア海峡の波浪予報",
+      "group": "海上交通・供給",
+      "value": "2.5〜4",
+      "unit": "m（予報波高）",
+      "observed": "９/15 07:00 WIB〜９/18 07:00 WIB",
+      "published": "公式公表時刻不明。報道９/15 04:34 WIB",
+      "kind": "BMKG予報・報道と不一致あり",
+      "previous_value": null,
+      "delta_unit": "m",
+      "change_note": "比較できる前回予報値は未収録。実測の変化率を計算しない。",
+      "note": "北部マラッカ、西・南部スンダ、南部ロンボクの公式予報。ロンボク4〜6mとするANTARA報道との差は未解消。マカッサルは1.25〜2.5mで同じ値ではない。",
+      "implication": "推論：船型・時間・海域によって遅延や迂回の要因となり得るが、実際の運休は未確認。",
+      "watch": "地点と有効時間をそろえた予報更新、港湾・船社の実運航。",
+      "sources": [
+        {
+          "label": "BMKG",
+          "url": "https://www.bmkg.go.id/cuaca/maritim/peringatan-gelombang-tinggi"
+        },
+        {
+          "label": "ANTARA",
+          "url": "https://mataram.antaranews.com/amp/berita/571024/bmkg-menerbitkan-peringatan-dini-gelombang-tinggi-di-selat-lombok"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本向けの輸送・調達・費用または政策判断に関わる重要な観測・制度条件のため。"
+    },
+    {
+      "id": "brent",
+      "label": "Brent原油の９/14終値",
+      "group": "エネルギー・制度",
+      "value": 105.68,
+      "unit": "米ドル／バレル",
+      "observed": "９/14米国市場の終値",
+      "published": "９/15 04:57更新（TZ不明）",
+      "kind": "Reuters市況",
+      "previous_value": null,
+      "delta_unit": "米ドル／バレル",
+      "change_note": "記事の前営業日比は＋1.07ドル、＋1.0％。前号の日中値との直接比較は行わない。",
+      "note": "本号で確認した記事に限月の明記なし。９/15日中価格や日本の輸入単価ではない。",
+      "implication": "推論：円換算の燃料・原材料費には為替と契約時期も作用する。",
+      "watch": "同一限月・同一時点の価格、実輸入単価。",
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://www.brecorder.com/news/40439510/oil-settles-about-1pc-higher"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本向けの輸送・調達・費用または政策判断に関わる重要な観測・制度条件のため。"
+    },
+    {
+      "id": "wti",
+      "label": "WTI原油の９/14終値",
+      "group": "エネルギー・制度",
+      "value": 101.39,
+      "unit": "米ドル／バレル",
+      "observed": "９/14米国市場の終値",
+      "published": "９/15 04:57更新（TZ不明）",
+      "kind": "Reuters市況",
+      "previous_value": null,
+      "delta_unit": "米ドル／バレル",
+      "change_note": "記事の前営業日比は＋1.34ドル、＋1.3％。前号の日中値とは比較しない。",
+      "note": "本号の参照本文に限月明記なし。一時の上昇からは縮小しており、場中高値と終値は異なる。",
+      "implication": "推論：世界の燃料価格環境をみる材料であり、日本の調達価格そのものではない。",
+      "watch": "同一条件の価格、供給・在庫・実輸送。",
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://www.brecorder.com/news/40439510/oil-settles-about-1pc-higher"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本向けの輸送・調達・費用または政策判断に関わる重要な観測・制度条件のため。"
+    },
+    {
+      "id": "iran-winddown",
+      "label": "イラン一般許可DDの終了処理期限",
+      "group": "エネルギー・制度",
+      "value": "９/23 13:01 JST",
+      "unit": "許可終了時刻",
+      "observed": "９/８付DDの９/23 00:01 EDT期限",
+      "published": "９/８付、時刻不明。個別許可方針は９/10付",
+      "kind": "②で公開法令原文を追加確認",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "新しい延長を確認したものではない。過去の対象区分を本日再確認。",
+      "note": "指定する上空通過料、燃料補給・緊急修理、一時滞在民間航空機等の既存取引の終了処理。新規取引全般の許可ではない。個別の安全例外とも異なる。",
+      "implication": "推論：日本への影響は実在する対象案件・米国法との接点・支払経路による。企業別の影響額は未確認。",
+      "watch": "原文の対象区分・期限の改定と、銀行処理・保険・運航の実行可能性。",
+      "sources": [
+        {
+          "label": "OFAC・DD",
+          "url": "https://ofac.treasury.gov/media/936901/download?inline="
+        },
+        {
+          "label": "OFAC・個別許可方針",
+          "url": "https://ofac.treasury.gov/media/936916/download?inline="
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本向けの輸送・調達・費用または政策判断に関わる重要な観測・制度条件のため。"
+    },
+    {
+      "id": "vtb-designation",
+      "label": "VTBへのイラン関連指定追加",
+      "group": "エネルギー・制度",
+      "value": "指定を追加",
+      "unit": "制裁指定の状態",
+      "observed": "９/14の公表・指定",
+      "published": "９/14、時刻不明",
+      "kind": "②でOFAC公表を追加確認",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "既存のロシア関連等の指定にイラン関連の指定を追加。新規制裁対象への初指定ではない。",
+      "note": "E.O.13902の指定追加を公式一覧で確認。決済が停止した実件数・金額は未取得。",
+      "implication": "推論：航路の回復と金融経路の回復は同時とは限らない。日本の具体的な取引露出は未確認。",
+      "watch": "関係金融機関の実務通知、許可・解除、支払実行。",
+      "sources": [
+        {
+          "label": "OFAC・９/14",
+          "url": "https://ofac.treasury.gov/recent-actions/20260914"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本向けの輸送・調達・費用または政策判断に関わる重要な観測・制度条件のため。"
+    },
+    {
+      "id": "usdjpy",
+      "label": "ドル円・９/14米国取引中",
+      "group": "物価・金融",
+      "value": 154.88,
+      "unit": "円／米ドル",
+      "observed": "９/14米国取引中。引用価格の正確な時刻は不明",
+      "published": "９/15 04:57更新（TZ不明）",
+      "kind": "Reuters市況",
+      "previous_value": null,
+      "delta_unit": "円／米ドル",
+      "change_note": "記事ではドルが対円で0.9％上昇。日報の前号価格との比較ではない。",
+      "note": "日米会合への期待は政策決定と別。本日の東京終値は未収録。",
+      "implication": "推論：原油高と円安の重なりは円建て輸入費用を押し上げ得る。",
+      "watch": "政策決定と市場予想の差、同時点の為替・原油。",
+      "sources": [
+        {
+          "label": "Reuters・ドル円",
+          "url": "https://www.brecorder.com/news/40439502/dollar-gains-as-me-conflict-lifts-oil"
+        },
+        {
+          "label": "Reuters・会合見通し",
+          "url": "https://in.marketscreener.com/news/yen-rally-faces-moment-of-truth-as-boj-risks-disappointing-markets-ce785bddd888f122"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本向けの輸送・調達・費用または政策判断に関わる重要な観測・制度条件のため。"
+    },
+    {
+      "id": "china-demand",
+      "label": "中国の８月生産と小売",
+      "group": "物価・金融",
+      "value": "生産＋5.2％／小売＋0.4％",
+      "unit": "前年比（実質／名目）",
+      "observed": "2026年８月",
+      "published": "９/15 10:00（原文表示、TZ明記なし）",
+      "kind": "中国国家統計局",
+      "previous_value": null,
+      "delta_unit": "pt",
+      "change_note": "工業生産の伸びは前月より0.7pt拡大。小売の前月比は−0.13％。実質と名目を混合して差を計算しない。",
+      "note": "１〜８月投資は7.2％減、不動産開発投資19.9％減。月次と累計を区別。",
+      "implication": "推論：日本の資本財・消費財需要の方向は一致しない。弱い需要は米中緩和の動機でも、双方合意の証拠ではない。",
+      "watch": "追加政策と実受注、同じ品目・条件での対日需要。",
+      "sources": [
+        {
+          "label": "国家統計局",
+          "url": "https://www.stats.gov.cn/sj/zxfb/202609/t20260915_1965307.html"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本向けの輸送・調達・費用または政策判断に関わる重要な観測・制度条件のため。"
+    }
+  ]
+}

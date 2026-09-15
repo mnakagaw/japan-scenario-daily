@@ -1,0 +1,599 @@
+{
+  "series_id": "daily_reference_scenarios_v1",
+  "deadline": "2026-11-03T23:59:59-05:00",
+  "forecast_start": "2026-09-13T11:36:53.980623+09:00",
+  "run_started_at": "2026-09-15T15:31:44.644+09:00",
+  "previous_day_reference": {
+    "path": "reports/2026-09-14/data.json",
+    "prepared_at": "2026-09-14T15:53:54+09:00",
+    "sha256": "508c3ec292e1915a68bb0e6c7214bec170fbe1b1b6e9c00093d85e915e6f4dcf"
+  },
+  "date": "2026-09-15",
+  "edition": "01・15:30開始号",
+  "title": "主シナリオは据置。海運・原油・決済の制約を分けて見る。",
+  "cutoff_at": "2026-09-15T16:00:08+09:00",
+  "prepared_at": "2026-09-15T16:10:21+09:00",
+  "numeric_recorded_at": "2026-09-15T16:10:21+09:00",
+  "model": "GPT-6 Astra / max（指定Ultraと相違）",
+  "initial": false,
+  "strict_blind": false,
+  "github_read_at": "2026-09-15T16:00:30+09:00",
+  "summary": [
+    "A〜Hは前日・研究確認前から据置。A「第一列島線・同盟の強化」75％、E「米中経済緩和」60％を維持。新しい具体的合意の証拠は不足。",
+    "中国の生産と内需は分岐。米国の生活費への不満は緩和・強硬化の両方の誘因となり、選挙の勝率へ変換しない。",
+    "日本には海運の停滞、原油高・円安、決済制約が重なる。９/14の研究完成版を確認し、対象取引の終了処理期限を追加。９/15完成日報は参照版に未収録。"
+  ],
+  "corrections": [],
+  "movement_summary": "前日最終→今日Web→研究確認後はA75・B55・C40・D10・E60・F10・G5・H55％。前日差も研究確認による差も全て0pt。",
+  "news_window_label": "９/14〜15公表分を中心に①16項目、②で追加確認２項目。過去の通知の本日適用・重要継続を含み、全18件が本日発生した新事件ではない。",
+  "comparison_summary": "９/14研究完成版を参照後、公開原文で許可期限とVTB指定を追加確認。日報のA〜H定義・期限で再評価し確率は維持。",
+  "pre_post_note": "過去日の研究への既接触あり。①を16:00:08 JSTに固定し、16:00:30以降のGitHub確認後と比較。９/15完成日報は参照版に未収録。",
+  "highlights": [
+    {
+      "label": "同盟・軍事",
+      "text": "A75％、前日差0pt。活動数や県政の方向と具体的な新運用を分ける。",
+      "scenario": "A"
+    },
+    {
+      "label": "経済合意の条件",
+      "text": "E60％、前日差0pt。中国内需と米世論は動機の材料。対象・税率・発効日の双方一致を待つ。",
+      "scenario": "E"
+    },
+    {
+      "label": "日本との相対条件",
+      "text": "H55％、前日差0pt。第三国の調達分散を日本と中国の同条件比較へ置き換えない。",
+      "scenario": "H"
+    }
+  ],
+  "comparison": [
+    {
+      "ids": "A・D",
+      "before": "A75％ / D10％",
+      "after": "A75％ / D10％、0pt",
+      "reason": "共同運用・恒常配置に新証拠が増えず。台湾の当日本文は取得不足。"
+    },
+    {
+      "ids": "B・C",
+      "before": "B55％ / C40％",
+      "after": "B55％ / C40％、0pt",
+      "reason": "国内圧力から具体的な対日負担要求や他地域縮小へ直結しない。"
+    },
+    {
+      "ids": "E",
+      "before": "60％",
+      "after": "60％、0pt",
+      "reason": "品目選定・法的発効・双方合意を区別。新統計は動機の材料で、合意の確認ではない。"
+    },
+    {
+      "ids": "F・G",
+      "before": "F10％ / G5％",
+      "after": "F10％ / G5％、0pt",
+      "reason": "経済と軍事の交換、公式な勢力圏合意の追加証拠はない。"
+    },
+    {
+      "ids": "H",
+      "before": "55％",
+      "after": "55％、0pt",
+      "reason": "カナダの対象変更は重複材料。日本と中国の同じ品目・条件の対比は不足。"
+    },
+    {
+      "ids": "世界の横断変数",
+      "before": "追跡通航・原油・為替・予約・波浪予報",
+      "after": "許可の対象区分・終了期限・決済制約を追加",
+      "reason": "DDと個別許可を区別。VTB指定を公表原文で確認。海上安全の回復と法的・決済面の回復は別。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "A",
+      "label": "第一列島線・同盟の強化",
+      "definition_version": 1,
+      "target": "開始時点後、第一列島線に関わる新規・拡充された共同演習、基地運用、共同対処・兵站の合意または実施を少なくとも一つ公式に確認する。既存行事の単純な再掲載だけは除外。",
+      "evidence_confidence": "中",
+      "p_previous_final": 0.75,
+      "p_web_before_github": 0.75,
+      "reason": "既存の同盟強化方向を維持するが、本日の台湾活動数は新たな共同運用合意ではない。追加の公式実装材料がないため75％を維持。",
+      "support": "前号で評価した沖縄県政転換を既知の背景として保持。",
+      "counter": "本日の台湾公表本文と日本の新規運用発表は取得不足。前日の活動数を拡充と読めない。",
+      "watch": "新規・拡充された演習、基地運用、兵站合意の両政府発表。",
+      "p_final": 0.75,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "B",
+      "label": "同盟維持・負担増の具体化",
+      "definition_version": 1,
+      "target": "米国の同盟維持を前提に、対日負担の具体額・比率・任務・期限のいずれかを伴う新たな公式要求または合意を確認する。一般的な公平負担の言説だけは除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.55,
+      "p_web_before_github": 0.55,
+      "reason": "米国の生活費・選挙圧力だけでは対日負担の具体化を判定できず55％を維持。",
+      "support": "物価への不満と短い議会日程は成果を求める政治的誘因。",
+      "counter": "本日確認分に新たな日本向け金額・割合・任務・期限の公式要求はない。",
+      "watch": "日本向けの具体的負担要求、合意文書、予算。",
+      "p_final": 0.55,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "C",
+      "label": "本土・西半球優先への転換",
+      "definition_version": 1,
+      "target": "米本土・西半球への資源優先が、他地域の任務・配置・予算の具体的縮小を伴う新しい公式決定または実施として確認される。国内重視の発言だけは除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.4,
+      "p_web_before_github": 0.4,
+      "reason": "選挙での国内重視を海外任務縮小に直結させず40％を維持。",
+      "support": "生活費重視と国内審議日程の制約。",
+      "counter": "他地域の任務・配備・予算削減の具体的な同時証拠は得られない。",
+      "watch": "本土・西半球優先方針と他地域の具体的縮小措置がそろうか。",
+      "p_final": 0.4,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "D",
+      "label": "第二列島線への実質後退",
+      "definition_version": 1,
+      "target": "第一列島線から第二列島線への重心移転として、配置・任務・同盟義務の具体的縮小を伴う方針変更または実施を確認する。通常の交代、第二列島線の増強だけは除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.1,
+      "p_web_before_github": 0.1,
+      "reason": "台湾周辺の前日活動は配置転換を示さず10％を維持。",
+      "support": "戦域・財政上の制約という既存の可能性は残る。",
+      "counter": "第一列島線での実際の縮小と第二列島線への移動の組合せは未確認。",
+      "watch": "任務・部隊・基地ごとの恒常的な配置変更。",
+      "p_final": 0.1,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "E",
+      "label": "米中経済緩和の具体化",
+      "definition_version": 1,
+      "target": "相互減税等の新たな経済緩和について、両国が同じ措置の対象・税率・実施日のいずれかを具体的に公表する。限定合意を含み、経済関係全体の正常化とは区別。協議継続だけは除外。",
+      "evidence_confidence": "中",
+      "p_previous_final": 0.6,
+      "p_web_before_github": 0.6,
+      "reason": "中国の弱い内需と米国の生活費不満は緩和を急ぐ誘因だが、AI対立も続く。具体的な双方合意の追加証拠がないため60％を維持。",
+      "support": "中国の小売0.4％増と投資減、米国調査の生活費重視。",
+      "counter": "技術対立が残り、同一対象・条件・発効時期の両政府確認には届かない。",
+      "watch": "対象品目・税率・発効日をそろえた双方の公表。",
+      "p_final": 0.6,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "F",
+      "label": "経済と安全保障の交換",
+      "definition_version": 1,
+      "target": "同一合意で経済的譲歩と台湾供与または第一列島線軍事態勢の具体的制約を交換条件として両国が正式に公表する。並行する別々の協議や秘密取引の推測は除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.1,
+      "p_web_before_github": 0.1,
+      "reason": "経済合意と台湾・第一列島線の軍事制約を交換する同一合意は未確認で10％を維持。",
+      "support": "経済交渉の動機はある。",
+      "counter": "経済交渉と軍事活動の同時存在は交換条件の証拠ではない。",
+      "watch": "同じ合意の対価関係を双方政府が確認するか。",
+      "p_final": 0.1,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "G",
+      "label": "quasi-G2・大国協商",
+      "definition_version": 1,
+      "target": "台湾・西太平洋の勢力圏や同盟国の扱いを米中が相互に認める継続的な協商の枠組みを公式文書・実施で確認する。首脳会談の開催、経済合意、通常の危機管理対話だけは除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.05,
+      "p_web_before_github": 0.05,
+      "reason": "持続的な勢力圏や同盟国の扱いを定める新たな公式枠組みは未確認で５％を維持。",
+      "support": "大国間の取引志向という既存の背景。",
+      "counter": "社説・政治的発言・会合予定を勢力圏合意とは扱えない。",
+      "watch": "台湾・西太平洋と同盟国に関する継続的枠組みの公式文書。",
+      "p_final": 0.05,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "H",
+      "label": "日本が緩和から取り残される",
+      "definition_version": 1,
+      "target": "米中の経済条件改善と対照的に、日本の同等品目・業務では規制または追加負担が残る・強化されることを公式条件や企業開示で確認する。比較不能な別品目、資料未取得だけは根拠にしない。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.55,
+      "p_web_before_github": 0.55,
+      "reason": "カナダの投資誘致や調達変更は第三国の事実で、日本が米中より不利になる同一条件比較ではないため55％を維持。",
+      "support": "国別・品目別の通商条件が分かれるリスク。",
+      "counter": "同一の品目・事業で米中改善と日本の制限維持・悪化の対比が未確認。",
+      "watch": "原産地・品目・契約条件をそろえた対日・対中の実適用比較。",
+      "p_final": 0.55,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    }
+  ],
+  "news": [
+    {
+      "id": "china",
+      "title": "中国８月統計：生産回復と内需の弱さが並存",
+      "countries": [
+        "中国"
+      ],
+      "summary": "工業生産は実質前年比5.2％増、小売は名目0.4％増・前月比0.13％減。１〜８月固定資産投資は7.2％減、不動産開発投資は19.9％減。日本の資本財・消費財需要を一律に回復としない。",
+      "source": "中国国家統計局",
+      "url": "https://www.stats.gov.cn/sj/zxfb/202609/t20260915_1965307.html",
+      "category": "経済・市場",
+      "scenarios": [
+        "E",
+        "H"
+      ],
+      "published_date": "2026-09-15",
+      "published_time": "10:00（原文表示、TZ明記なし）",
+      "event": "2026年８月、投資は１〜８月累計",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "poll",
+      "title": "米中間選挙の投票先調査で民主44％・共和37％",
+      "countries": [
+        "米国"
+      ],
+      "summary": "９/11〜14調査の登録有権者896人では民主44％・共和37％、誤差幅±3.4pt。成人全体1143人の大統領支持率は35％、誤差幅±3.0pt。母集団を分け、議席や勝率へ変換しない。生活費への圧力は対日通商にも波及し得る。",
+      "source": "Reuters/Ipsos・調査原票",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-09/Reuters%20Ipsos%20Survey%20September%202026%209.14%20Release.pdf",
+      "category": "米国内政治・選挙",
+      "scenarios": [
+        "B",
+        "C",
+        "E"
+      ],
+      "published_date": "2026-09-14",
+      "published_time": "時刻不明",
+      "event": "９/11〜14実査",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "trump_ai",
+      "title": "トランプ氏、追加のAI規制に否定的な発言",
+      "countries": [
+        "米国",
+        "中国"
+      ],
+      "summary": "９/14の投稿で、既存の刑事・規制手段でAIの安全を守れると主張し、規制と対中競争力を結び付けた。発言を新しい輸出規制や法改正の発効と扱わない。日本のAI・半導体投資にも政策不確実性が残る。",
+      "source": "Reuters（Times of Israel掲載）",
+      "url": "https://www.timesofisrael.com/liveblog_entry/trump-says-us-has-tools-to-keep-ai-safe-concerns-are-part-of-sick-conspiracy/",
+      "category": "米中・技術",
+      "scenarios": [
+        "E",
+        "H"
+      ],
+      "published_date": "2026-09-14",
+      "published_time": "17:55（掲載表示、TZ不明）",
+      "event": "９/14の投稿",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "china_ai",
+      "title": "中国国営系紙、AI開発減速論を批判",
+      "countries": [
+        "中国",
+        "米国"
+      ],
+      "summary": "環球時報の９/14社説が米企業のAI開発減速提案を対中封じ込めと批判。技術分野の対立言説が続くが、社説は中国政府の新しい規則ではない。日本企業は交渉報道と実際の許認可を分けて確認する。",
+      "source": "Reuters（Mint掲載）",
+      "url": "https://www.livemint.com/technology/china-state-newspaper-blasts-anthropics-calls-to-slow-ai-as-cold-war-tactic/amp-11789358619571.html",
+      "category": "米中・技術",
+      "scenarios": [
+        "E",
+        "H"
+      ],
+      "published_date": "2026-09-14",
+      "published_time": "09:33 IST",
+      "event": "９/14社説",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "canada",
+      "title": "カナダ、投資首脳会合で資金誘致へ",
+      "countries": [
+        "カナダ",
+        "米国"
+      ],
+      "summary": "カーニー首相が９/14に投資家と面会、15日のトロント会合へ160超の事業を提示。投資実現には12〜18か月を見込むとの説明で、資金確保済みではない。日本の資源・インフラ企業には調達や参加の選択肢となる。",
+      "source": "Reuters（StreetInsider掲載）",
+      "url": "https://new.streetinsider.com/Reuters/Carney%2C%2Blocked%2Bin%2BUS%2Btrade%2Bwar%2C%2Bpitches%2BCanada%2Bto%2Bglobal%2Binvestment%2Btitans/27055408.html",
+      "category": "通商・投資",
+      "scenarios": [
+        "H"
+      ],
+      "published_date": "2026-09-14",
+      "published_time": "07:31 EDT（掲載表示）",
+      "event": "９/14面会、９/15本会合予定",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "grocers",
+      "title": "カナダ小売、米国産回避に合わせ調達を調整",
+      "countries": [
+        "カナダ",
+        "米国"
+      ],
+      "summary": "米国産を避ける消費者に対応し、小売が産地表示や仕入れ先を変更。民間の購買行動であり政府の輸入禁止ではない。日本企業には代替供給の可能性があるが、全国一律の切替率は確認していない。",
+      "source": "Reuters（Business Recorder掲載）",
+      "url": "https://www.brecorder.com/news/40439342/us-products-canadian-boycott-pushes-grocers-to-adapt-explore-new-supply-sources",
+      "category": "通商・供給網",
+      "scenarios": [
+        "H"
+      ],
+      "published_date": "2026-09-14",
+      "published_time": "04:59更新（TZ不明）",
+      "event": "継続する購買行動、８月などの対応を取材",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "traffic",
+      "title": "ホルムズの追跡通航が急減、紅海側も細る",
+      "countries": [
+        "イラン",
+        "オマーン",
+        "イエメン",
+        "サウジアラビア"
+      ],
+      "summary": "Kplerのコモディティ船追跡で９/12〜13のホルムズは計５隻、前週末31隻。バブ・エル・マンデブは49隻、同55隻。日曜の追跡ゼロは実際の全船通航ゼロではなく、AISを切った船の捕捉漏れがある。日本の輸入費用・到着遅延への材料。",
+      "source": "Reuters（Gulf Times掲載）",
+      "url": "https://www.gulf-times.com/article/731298/business/shipping-slows-through-strait-of-hormuz-after-tanker-attacks",
+      "category": "海運・中東",
+      "scenarios": [],
+      "published_date": "2026-09-15",
+      "published_time": "09:06 AM（掲載表示、TZ不明）",
+      "event": "９/12〜13の観測、９/14取材",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "houthi",
+      "title": "フーシ派の紅海諸島掌握とサウジ攻撃の報道",
+      "countries": [
+        "イエメン",
+        "サウジアラビア"
+      ],
+      "summary": "９/14のハニシュ諸島掌握をイエメン政府・フーシ派関係者が説明。サウジ側は攻撃で民間人13人負傷と発表。独立した全島の支配確認や海峡全面閉鎖の確認はなく、日本向け航路への影響は実航行で追う。",
+      "source": "Times of Israel・通信社報道",
+      "url": "https://www.timesofisrael.com/houthis-seize-more-key-islands-in-red-sea-launch-attacks-into-saudi-arabia/",
+      "category": "海運・中東",
+      "scenarios": [],
+      "published_date": "2026-09-15",
+      "published_time": "02:53更新、初出９/14 14:53（TZ不明）",
+      "event": "９/14の掌握・攻撃、９/15に被害報道",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "oil",
+      "title": "９/14原油終値、Brent105.68ドル・WTI101.39ドル",
+      "countries": [
+        "国際市場"
+      ],
+      "summary": "Brentは１バレル105.68ドルで前営業日比1.0％高、WTIは101.39ドルで1.3％高。一時の上昇からは縮小した。９/15の日中価格や日本の実際の輸入単価ではなく、前号の日中値とも直結比較しない。",
+      "source": "Reuters（Business Recorder掲載）",
+      "url": "https://www.brecorder.com/news/40439510/oil-settles-about-1pc-higher",
+      "category": "経済・市場",
+      "scenarios": [],
+      "published_date": "2026-09-15",
+      "published_time": "04:57更新（TZ不明）",
+      "event": "９/14米国市場の清算・終値",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "fx",
+      "title": "ドル円154.88円の報道値、日米会合を前に変動",
+      "countries": [
+        "日本",
+        "米国"
+      ],
+      "summary": "９/14米国取引中のドル円は154.88円、ドルが対円で0.9％上昇。９/15のReutersは週内の日米金融会合を注目材料とする。観測時点の価格と政策予想であり、利上げ決定や本日の東京終値ではない。輸入燃料費には原油と為替の両方が作用する。",
+      "source": "Reuters（Business Recorder・MarketScreener掲載）",
+      "url": "https://www.brecorder.com/news/40439502/dollar-gains-as-me-conflict-lifts-oil",
+      "category": "経済・市場",
+      "scenarios": [],
+      "published_date": "2026-09-15",
+      "published_time": "為替記事04:57更新（TZ不明）、会合記事11:36 IST更新",
+      "event": "価格は９/14、会合見通しは９/15",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://in.marketscreener.com/news/yen-rally-faces-moment-of-truth-as-boj-risks-disappointing-markets-ce785bddd888f122"
+      ]
+    },
+    {
+      "id": "panama",
+      "title": "パナマ運河のPanamax予約枠、15日から23枠の制度",
+      "countries": [
+        "パナマ"
+      ],
+      "summary": "公式通知は９/15からPanamax予約枠を25から23へ縮小すると規定。実通航数ではない。９/４通知ではNeopanamaxの喫水14.48mへの引下げを延期し14.63mを維持。予約制約と喫水の緩和材料を分け、日本の輸送手配への影響を点検する。",
+      "source": "パナマ運河庁・公式発表と航行通知",
+      "url": "https://pancanal.com/en/panama-canal-adopts-additional-measures-to-address-reduced-precipitation-in-the-canal-watershed/",
+      "category": "海運・供給",
+      "scenarios": [],
+      "published_date": null,
+      "published_time": "予約枠発表の正確な公表日時は未確認。喫水通知９/４、月次・保守通知９/10、各時刻不明",
+      "event": "９/15予約枠の適用日。喫水は継続。現地の当日実績は未取得",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://pancanal.com/wp-content/uploads/2026/09/ADV-33-2026-Postponement-of-Maximum-Authorized-Draft-Adjustment-in-the-Neopanamax-Locks.pdf",
+        "https://pancanal.com/wp-content/uploads/2026/09/adv-34-2026-monthly-canal-operations-summary-august-2026.pdf"
+      ],
+      "classification_note": "古い通知の本日対象分。９/10通知の９/15保守は暫定予定で実施未確認。８月月次1029隻・日平均33.19隻を当日通航数に転用しない。"
+    },
+    {
+      "id": "waves",
+      "title": "インドネシア周辺の波浪予報、実航行停止とは区別",
+      "countries": [
+        "インドネシア",
+        "マレーシア"
+      ],
+      "summary": "BMKGは北部マラッカ、西・南部スンダ、南部ロンボクで2.5〜4mの波浪予報。９/15〜18が対象。ロンボクを4〜6mとする通信社記事とは数値が一致せず、差の原因は未確認。予報を観測波高や運航停止とせず、日本向け船舶の遅延は別途確認する。",
+      "source": "BMKG公式・ANTARA",
+      "url": "https://www.bmkg.go.id/cuaca/maritim/peringatan-gelombang-tinggi",
+      "category": "海運・気象",
+      "scenarios": [],
+      "published_date": null,
+      "published_time": "公式ページの公表時刻不明。ANTARA９/15 04:34 WIB",
+      "event": "９/15 07:00 WIB〜９/18 07:00 WIBの予報期間",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://mataram.antaranews.com/amp/berita/571024/bmkg-menerbitkan-peringatan-dini-gelombang-tinggi-di-selat-lombok"
+      ]
+    },
+    {
+      "id": "taiwan",
+      "title": "台湾周辺活動は９/14までの読めた公表値を継続確認",
+      "countries": [
+        "台湾",
+        "中国"
+      ],
+      "summary": "台湾国防部の９/13朝〜14朝の集計は航空機４延べ機、軍艦６隻、公務船２隻。９/15付の一覧見出しはあるが本文を取得できず、最新の増減は判定できない。単日の活動数から日本周辺の配置転換を断定しない。",
+      "source": "台湾国防部",
+      "url": "https://www.mnd.gov.tw/news/plaact/87754",
+      "category": "日本・安全保障",
+      "scenarios": [
+        "A",
+        "D"
+      ],
+      "published_date": "2026-09-14",
+      "published_time": "時刻不明",
+      "event": "９/13 06:00〜９/14 06:00（台湾時間）",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": false,
+      "classification_note": "最新９/15本文は取得不能。既に読めた前日の公表値を明示。"
+    },
+    {
+      "id": "congress",
+      "title": "米議会、選挙前の短い審議日程で軍事・AI議題",
+      "countries": [
+        "米国"
+      ],
+      "summary": "ABCによると、下院は選挙前の審議が今週１週間、上院は３週間の予定。軍事関連やAI政策が議題に残る。日程の短さは合意形成の制約であり、法案成立や海外任務縮小の決定ではない。日本は演説に加え採決・予算文書を追う。",
+      "source": "ABC News",
+      "url": "https://www-cdn.abcnews.com/Politics/military-funding-ai-congress-returns-short-stint-bolting/story?id=136371065",
+      "category": "米国内政治・選挙",
+      "scenarios": [
+        "B",
+        "C"
+      ],
+      "published_date": "2026-09-14",
+      "published_time": "05:14（TZ不明）",
+      "event": "９/14の週以降の議会日程",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "stocks",
+      "title": "９/14日本株、日経平均下落とTOPIX上昇に分岐",
+      "countries": [
+        "日本"
+      ],
+      "summary": "日経平均は63492.99円で0.81％安、TOPIXは4058.21で0.74％高。AI関連への警戒が重荷となった一方、市場全体を一律の下落とは言えない。９/14終値であり９/15終値は本号に含めない。",
+      "source": "Reuters（IndoPremier掲載）",
+      "url": "https://www.indopremier.com/module/newsDetail.php?group_news=IPOTNEWS&halaman=1&jdl=Japan_s_Nikkei_slumps_as_AI_leaders_raise_safety_concerns__Topix_gains&name=&news_id=241274&q=japan+shares%2C+nikkei+225%2C+topix%2C&search=y_general&taging_subtype=Indeks+Nikkei",
+      "category": "経済・市場",
+      "scenarios": [],
+      "published_date": "2026-09-14",
+      "published_time": "14:00 WIB（掲載表示）",
+      "event": "９/14東京市場終値",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "tariff",
+      "title": "米国の対加追加関税の対象変更、15日の発効時刻へ",
+      "countries": [
+        "米国",
+        "カナダ"
+      ],
+      "summary": "９/８布告は追加関税の対象品目の追加・除外を９/15 00:01米東部時間から適用と規定。この時刻は到来したが、当日の徴収実績は未確認。カナダ製品全体の新規一律関税と読まず、日本企業も原産地と個別品目を確認する。",
+      "source": "米ホワイトハウス・布告原文",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/09/modifying-the-scope-of-products-of-canada-subject-to-the-additional-duties-imposed-to-offset-canadian-discrimination-against-the-united-states-with-respect-to-motor-vehicles/",
+      "category": "通商・制度",
+      "scenarios": [
+        "H"
+      ],
+      "published_date": "2026-09-08",
+      "published_time": "時刻不明",
+      "event": "９/15 00:01 EDT＝13:01 JSTが発効時刻",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "iran_dd",
+      "title": "イラン関連の終了処理許可DD、その対象と期限を追加確認",
+      "countries": [
+        "米国",
+        "イラン"
+      ],
+      "summary": "９/８付一般許可DDは、指定する３区分の終了処理を９/23 00:01 EDTまで認める。９/10方針の例外的な個別許可とは別。原油輸入や新規取引全般の包括緩和ではなく、日本への影響は対象案件・決済経路次第。",
+      "source": "OFAC・一般許可DDと許可方針原文",
+      "url": "https://ofac.treasury.gov/media/936901/download?inline=",
+      "category": "制度・決済",
+      "scenarios": [],
+      "published_date": "2026-09-08",
+      "published_time": "時刻不明。補足の個別許可方針は９/10付・時刻不明",
+      "event": "９/８発出、終了時刻９/23 00:01 EDT＝13:01 JST",
+      "status": "追加確認",
+      "phase": 2,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://ofac.treasury.gov/media/936916/download?inline="
+      ],
+      "classification_note": "研究の９/14完成版を参照後に公開原文を再確認した背景・重要継続。新たな延長発表ではない。"
+    },
+    {
+      "id": "vtb",
+      "title": "既存の制裁下にあるVTBへイラン関連の指定を追加",
+      "countries": [
+        "米国",
+        "ロシア",
+        "イラン"
+      ],
+      "summary": "OFACの９/14公表で、VTBにイラン関連のE.O.13902指定が加わった。初めて制裁対象になったという意味ではない。日本向けの航路が改善しても決済の制約が同時に解消するとは限らず、影響額は未確認。",
+      "source": "OFAC・９/14公表",
+      "url": "https://ofac.treasury.gov/recent-actions/20260914",
+      "category": "制度・決済",
+      "scenarios": [],
+      "published_date": "2026-09-14",
+      "published_time": "時刻不明",
+      "event": "９/14のイラン関連指定追加",
+      "status": "追加確認",
+      "phase": 2,
+      "cross_cutting": true,
+      "classification_note": "②でOFACの最新公表を照合中に追加した新しい政策事実。①の確率へ遡及して反映しない。"
+    }
+  ]
+}
