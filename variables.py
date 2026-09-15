@@ -10,6 +10,12 @@ from editions import load_editions, route as edition_route
 def esc(value): return html.escape(str(value),quote=True)
 def number(value): return f'{value:g}' if isinstance(value,(int,float)) else str(value)
 
+def render_food_security_guide(root):
+    guide=json.loads((root/'food-security-monitoring.json').read_text(encoding='utf-8'))
+    topics=''.join(f'<li><strong>{esc(t["label"])}</strong><span>{esc(t["detail"])}</span></li>' for t in guide['topics'])
+    sources='・'.join(f'<a href="{esc(s["url"])}" target="_blank" rel="noopener noreferrer">{esc(s["label"])} ↗<span class="sr-only">（新しいタブ）</span></a>' for s in guide['sources'])
+    return f'''<section class="method-prose bottleneck-guide" id="food-security-guide" aria-labelledby="food-security-title"><h3 id="food-security-title">{esc(guide['title'])}</h3><p>{esc(guide['scope_note'])}</p><ul class="bottleneck-list">{topics}</ul><p>{esc(guide['comparison_note'])}</p><p>{esc(guide['workflow_note'])}</p><details><summary>食料・肥料の一次情報の入口</summary><p>{sources}</p><p>入口の一覧に加え、各国の農業・貿易当局、気象機関、港湾・船社等の原文を確認します。取得できた範囲と、未取得の範囲を区別します。</p></details></section>'''
+
 def render_bottleneck_guide(root):
     scope=json.loads((root/'bottlenecks.json').read_text(encoding='utf-8'))
     locations=''.join(f'<li><strong>{esc(region["region"])}</strong><span>{esc("、".join(region["locations"]))}</span></li>' for region in scope['regions'])

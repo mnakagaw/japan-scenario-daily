@@ -1,0 +1,34 @@
+{
+  "effective_from": "2026-09-16",
+  "title": "食料安全保障・肥料・作柄の確認対象",
+  "scope_note": "2026年9月16日号から毎日の分析に追加します。主要生産・輸出国と日本への影響を確認し、重要な変化・確認できた重大制約を選んで掲載します。この一覧は確認対象であり、当日の調査完了を示すものではありません。",
+  "topics": [
+    {
+      "label": "肥料価格・供給",
+      "detail": "窒素系（尿素・アンモニア等）、リン酸系（DAP・MAP等）、カリ系を分け、価格、生産・供給停止、輸出規制、天然ガス等の原料・エネルギー条件を追います。"
+    },
+    {
+      "label": "作柄・収穫見通し",
+      "detail": "小麦、トウモロコシ、コメ、大豆等の作付面積、単収、作柄評価、収穫進捗、生産見通し。干ばつ・洪水・高温・病害虫と、生育時期を対応させます。"
+    },
+    {
+      "label": "食料・飼料の需給",
+      "detail": "穀物・油糧種子・植物油・飼料の生産、消費、在庫、輸出余力、価格。輸出規制・関税・備蓄放出、港湾・内陸輸送の障害や復旧、食料の購買可能性を確認します。"
+    },
+    {
+      "label": "日本への波及",
+      "detail": "肥料調達と農業生産費、輸入食料・飼料、畜産・食品価格、供給量と到着時期、調達先の分散。悪化と改善をともに扱い、実際の輸入・契約と見通しを分けます。"
+    }
+  ],
+  "comparison_note": "通貨・単位・品位・産地・受渡条件、先物限月と現物、指数と価格、収穫年・販売年度・暦年、予測と実績をそろえて比較します。月次・週次の前回公表値との差と、日報の前日差は別です。未取得を0や平常にせず、作柄評価の比率を生産量と扱いません。更新がない資料は最新公表日と対象期間を示します。",
+  "workflow_note": "①公開Webで判断を先に固定し、②完成済み研究を受信専用で参照、③違いを説明、④日本への総合判断に反映します。世界の横断変数として扱い、A〜Hの主シナリオに機械的な点数を加減算しません。重要な確認不足は日報に明示します。",
+  "sources": [
+    {"label": "FAO・食料価格指数", "url": "https://www.fao.org/worldfoodsituation/foodpricesindex/en/"},
+    {"label": "FAO GIEWS・食料早期警戒", "url": "https://www.fao.org/giews/en/"},
+    {"label": "AMIS・農産物市場情報", "url": "https://www.amis-outlook.org/"},
+    {"label": "USDA・WASDE需給見通し", "url": "https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-economist/commodity-markets/wasde-report"},
+    {"label": "GEOGLAM・Crop Monitor", "url": "https://www.cropmonitor.org/"},
+    {"label": "世界銀行・商品価格データ", "url": "https://www.worldbank.org/en/research/commodity-markets"},
+    {"label": "農林水産省・肥料関係情報", "url": "https://www.maff.go.jp/j/seisan/sien/sizai/s_hiryo/"}
+  ]
+}
