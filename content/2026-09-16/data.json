@@ -1,0 +1,651 @@
+{
+  "series_id": "daily_reference_scenarios_v1",
+  "deadline": "2026-11-03T23:59:59-05:00",
+  "forecast_start": "2026-09-13T11:36:53.980623+09:00",
+  "run_started_at": "2026-09-16T16:31:44.559+09:00",
+  "previous_day_reference": {
+    "path": "reports/2026-09-15/data.json",
+    "prepared_at": "2026-09-15T16:10:21+09:00",
+    "sha256": "03adbf33a93cc1aaca86fdd4b741e1d67827a19b1f626de07bd9181c7b7a5efa"
+  },
+  "date": "2026-09-16",
+  "edition": "01・16:30開始号",
+  "title": "食料は品目で分岐。輸入費用と海運・決済を分けて判断。",
+  "cutoff_at": "2026-09-16T16:50:32+09:00",
+  "prepared_at": "2026-09-16T17:01:01+09:00",
+  "numeric_recorded_at": "2026-09-16T16:59:31+09:00",
+  "model": "GPT-6 Astra / max（指定Ultraと相違）",
+  "initial": false,
+  "strict_blind": false,
+  "github_read_at": "2026-09-16T16:51:28+09:00",
+  "summary": [
+    "A〜Hは前日最終・本日のWeb判断から全て据置。A75％、E60％。新たな同盟実装・米中の具体的緩和合意の裏付けは不足。",
+    "日本への当面の圧力は輸入費用と海運・決済の制約。食料は米トウモロコシ見通し悪化と小麦の供給改善が併存し、肥料も種類で方向が異なる。",
+    "研究確認後は価格上昇と物理的不足を分ける判断を補強。９/15の完成資料を参照し、９/16完成日報は参照版に未収録。日本全体の食料不足は未確認。"
+  ],
+  "corrections": [],
+  "movement_summary": "前日最終→今日Web→研究確認後はA75・B55・C40・D10・E60・F10・G5・H55％。前日差と研究確認差はそれぞれ全て0pt。",
+  "news_window_label": "９/15〜16公表分を中心に①18項目、②で追加確認３項目。予定・継続と、初めて加える食料・肥料の月次・年次背景を含む。全21件が本日発生した新事件ではない。",
+  "comparison_summary": "９/15日報・食料研究の完成記録と本文を照合し、公開原文を再確認。価格と物量、航路と決済を分ける判断を補強。主シナリオ確率は据置。",
+  "pre_post_note": "過去の研究への既接触あり。①は16:50:32 JSTに固定、GitHub分析確認は16:51:28以降。９/16完成日報は参照版に未収録。",
+  "highlights": [
+    {
+      "label": "同盟・軍事",
+      "text": "A75％、前日差0pt。協力継続方針から新しい演習・補給の実装を先取りしない。",
+      "scenario": "A"
+    },
+    {
+      "label": "米中の経済条件",
+      "text": "E60％、前日差0pt。物価圧力は交渉の動機だが、意見募集と双方合意は別。",
+      "scenario": "E"
+    },
+    {
+      "label": "日本への波及",
+      "text": "H55％、前日差0pt。輸入費用増だけで日中の相対的な政策条件差を認定しない。",
+      "scenario": "H"
+    }
+  ],
+  "comparison": [
+    {
+      "ids": "A・B",
+      "before": "A75％ / B55％",
+      "after": "A75％ / B55％、各0pt",
+      "reason": "日韓の協力方針と新規運用・具体的対日負担を区別。研究にも新しい実装の証拠は増えない。"
+    },
+    {
+      "ids": "C・D",
+      "before": "C40％ / D10％",
+      "after": "C40％ / D10％、各0pt",
+      "reason": "国内政治圧力やイラン制裁を東アジアの恒常的な配置・任務縮小と同一視しない。"
+    },
+    {
+      "ids": "E",
+      "before": "60％",
+      "after": "60％、0pt",
+      "reason": "追加確認したUSTRの意見募集は双方の緩和合意・最終品目リストではない。"
+    },
+    {
+      "ids": "F・G・H",
+      "before": "F10％ / G5％ / H55％",
+      "after": "F10％ / G5％ / H55％、各0pt",
+      "reason": "経済と軍事の同一交換合意、公式な勢力圏枠組み、同じ品目での日中相対条件の新証拠は不足。"
+    },
+    {
+      "ids": "食料・肥料・農業",
+      "before": "価格・需給予測・作柄から品目別の費用圧力を評価",
+      "after": "入着・在庫・加工・小売を通じて不足と費用増を分ける",
+      "reason": "自給率を構造的背景に追加。研究のUSDA世界見通しは重複であり独立票にはしない。"
+    },
+    {
+      "ids": "物流・決済",
+      "before": "航路・船積み・輸送費と代替輸送を確認",
+      "after": "決済・銀行処理から実配送までの条件を追加点検",
+      "reason": "VTB指定は前号と重複。金融機関会合の表明と実施結果、日本企業の露出は別。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "A",
+      "label": "第一列島線・同盟の強化",
+      "definition_version": 1,
+      "target": "開始時点後、第一列島線に関わる新規・拡充された共同演習、基地運用、共同対処・兵站の合意または実施を少なくとも一つ公式に確認する。既存行事の単純な再掲載だけは除外。",
+      "evidence_confidence": "中",
+      "p_previous_final": 0.75,
+      "p_web_before_github": 0.75,
+      "reason": "75％を維持。日韓の協力継続は同盟強化と整合するが、新規・拡充された演習や基地運用の具体化は本日の公表にない。",
+      "support": "日韓防衛相が日韓・日米韓協力の継続を確認。",
+      "counter": "一般的な協力方針と本系列開始後の具体的実装を区別。台湾の当日本文にも取得不足がある。",
+      "watch": "新規・拡充の演習、補給、基地運用について双方の具体的決定。",
+      "p_final": 0.75,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "B",
+      "label": "同盟維持・負担増の具体化",
+      "definition_version": 1,
+      "target": "米国の同盟維持を前提に、対日負担の具体額・比率・任務・期限のいずれかを伴う新たな公式要求または合意を確認する。一般的な公平負担の言説だけは除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.55,
+      "p_web_before_github": 0.55,
+      "reason": "55％を維持。米国の物価・選挙圧力はあるが、新たな対日要求の金額・任務・期限は確認できない。",
+      "support": "YouGovの経済評価・投票先は政権に政策成果を求める圧力の材料。",
+      "counter": "世論調査は日本向け負担要求の実施証拠ではない。",
+      "watch": "対日負担の金額・比率・任務・期限を伴う公式要求・合意。",
+      "p_final": 0.55,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "C",
+      "label": "本土・西半球優先への転換",
+      "definition_version": 1,
+      "target": "米本土・西半球への資源優先が、他地域の任務・配置・予算の具体的縮小を伴う新しい公式決定または実施として確認される。国内重視の発言だけは除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.4,
+      "p_web_before_github": 0.4,
+      "reason": "40％を維持。国内重視を海外任務の縮小へ直結させる証拠は不足。",
+      "support": "米国の経済・選挙を重視する政治的誘因。",
+      "counter": "本土・西半球への優先と他地域の配置・任務・予算削減の組合せは未確認。",
+      "watch": "本土・西半球の実務優先と、他地域縮小を伴う具体的決定。",
+      "p_final": 0.4,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "D",
+      "label": "第二列島線への実質後退",
+      "definition_version": 1,
+      "target": "第一列島線から第二列島線への重心移転として、配置・任務・同盟義務の具体的縮小を伴う方針変更または実施を確認する。通常の交代、第二列島線の増強だけは除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.1,
+      "p_web_before_github": 0.1,
+      "reason": "10％を維持。中国の演説や外交的批判は米国の第一列島線からの実質後退を示さない。",
+      "support": "財政・運用負担が配置見直しを促す可能性は残る。",
+      "counter": "米軍の恒常的縮小は未確認。日韓協力の継続という反対方向の材料もある。",
+      "watch": "第一列島線の任務・配置縮小と第二列島線への重心移動の公表。",
+      "p_final": 0.1,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "E",
+      "label": "米中経済緩和の具体化",
+      "definition_version": 1,
+      "target": "相互減税等の新たな経済緩和について、両国が同じ措置の対象・税率・実施日のいずれかを具体的に公表する。限定合意を含み、経済関係全体の正常化とは区別。協議継続だけは除外。",
+      "evidence_confidence": "中",
+      "p_previous_final": 0.6,
+      "p_web_before_github": 0.6,
+      "reason": "60％を維持。生活費・輸入費用の圧力は限定緩和の動機だが、対象・税率・日付の双方一致は新たに確認できない。",
+      "support": "米国の関税・物価への不満は限定的な経済成果を求める誘因。",
+      "counter": "演説や外交日程は具体的な米中経済緩和の実施ではない。",
+      "watch": "同じ対象・税率・実施日についての米中双方の公式公表。",
+      "p_final": 0.6,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "F",
+      "label": "経済と安全保障の交換",
+      "definition_version": 1,
+      "target": "同一合意で経済的譲歩と台湾供与または第一列島線軍事態勢の具体的制約を交換条件として両国が正式に公表する。並行する別々の協議や秘密取引の推測は除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.1,
+      "p_web_before_github": 0.1,
+      "reason": "10％を維持。経済譲歩と台湾・第一列島線の軍事抑制を交換する同一合意は確認できない。",
+      "support": "経済交渉の動機と安全保障問題は併存する。",
+      "counter": "並行する外交案件の存在だけでは交換条件にならない。",
+      "watch": "経済と軍事の交換条件を両国が同一合意で確認するか。",
+      "p_final": 0.1,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "G",
+      "label": "quasi-G2・大国協商",
+      "definition_version": 1,
+      "target": "台湾・西太平洋の勢力圏や同盟国の扱いを米中が相互に認める継続的な協商の枠組みを公式文書・実施で確認する。首脳会談の開催、経済合意、通常の危機管理対話だけは除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.05,
+      "p_web_before_github": 0.05,
+      "reason": "５％を維持。米中が台湾・同盟国の扱いを分担する継続的な公式枠組みは未確認。",
+      "support": "大国外交の背景としての取引可能性。",
+      "counter": "中国の安全保障演説を米中の勢力圏合意と読み替えない。",
+      "watch": "台湾・西太平洋・同盟国に関する継続的な共同統治の公式文書。",
+      "p_final": 0.05,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "H",
+      "label": "日本が緩和から取り残される",
+      "definition_version": 1,
+      "target": "米中の経済条件改善と対照的に、日本の同等品目・業務では規制または追加負担が残る・強化されることを公式条件や企業開示で確認する。比較不能な別品目、資料未取得だけは根拠にしない。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.55,
+      "p_web_before_github": 0.55,
+      "reason": "55％を維持。日本の輸入費用増は観測されたが、同じ品目で中国だけ条件改善する対照証拠はない。",
+      "support": "国別・品目別の交渉条件が分岐するリスクは残る。",
+      "counter": "原油・穀物の費用増は世界共通の供給要因を含み、それだけで日本の取り残しを認定できない。",
+      "watch": "日本と中国の同一品目・業務・原産地条件をそろえた実適用。",
+      "p_final": 0.55,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    }
+  ],
+  "news": [
+    {
+      "id": "trade",
+      "title": "日本８月輸入は金額28.0％増、原油は数量と金額が乖離",
+      "countries": [
+        "日本"
+      ],
+      "summary": "財務省速報では輸入金額28.0％増、輸出19.3％増、貿易赤字１兆1056億円。原粗油は数量3.6％増に対し金額58.7％増とReutersが報道。前年比であり日々の増加率ではない。調達費用上昇と物量増加を分ける。",
+      "source": "財務省・Reuters",
+      "url": "https://www.customs.go.jp/toukei/shinbun/trade-st/2026/2026084.pdf",
+      "category": "経済・市場",
+      "scenarios": [],
+      "published_date": "2026-09-16",
+      "published_time": "財務省は時刻未確認。Reuters更新02:38 BST",
+      "event": "2026年８月の貿易速報",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://uk.marketscreener.com/news/japan-august-imports-jump-as-oil-prices-lift-costs-exports-stay-firm-ce785bd2d98cfe26"
+      ]
+    },
+    {
+      "id": "dong",
+      "title": "中国国防相、香山フォーラムで挑発や軍国主義を批判",
+      "countries": [
+        "中国",
+        "日本"
+      ],
+      "summary": "董軍国防相の９/16演説をReutersが報道。日本を意識した発言との解釈を含むが、発言は新しい部隊配置や米中の勢力圏合意ではない。日本の安全保障環境への圧力と、実施された措置を分ける。",
+      "source": "Reuters（AOL掲載）",
+      "url": "https://www.aol.com/articles/china-defence-minister-urges-end-053825000.html",
+      "category": "日本・安全保障",
+      "scenarios": [
+        "A",
+        "D",
+        "G"
+      ],
+      "published_date": "2026-09-16",
+      "published_time": "05:40 UTC更新",
+      "event": "９/16香山フォーラム演説",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "korea",
+      "title": "日韓防衛相、二国間・日米韓協力の継続を確認",
+      "countries": [
+        "日本",
+        "韓国"
+      ],
+      "summary": "９/15会談で従来の協力の進展を歓迎し、日韓・日米韓の協力継続で一致。公表本文には新しい演習・補給の具体的な運用や対日負担額はない。Aの方向に整合するが新規実装の認定には不足。",
+      "source": "日本防衛省",
+      "url": "https://www.mod.go.jp/j/approach/exchange/area/2026/20260915_kor-j.html",
+      "category": "日本・安全保障",
+      "scenarios": [
+        "A",
+        "B"
+      ],
+      "published_date": "2026-09-15",
+      "published_time": "時刻不明",
+      "event": "９/15防衛相会談",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "iran_visit",
+      "title": "イラン外相の訪中予定、中国との協議結果は未確認",
+      "countries": [
+        "中国",
+        "イラン"
+      ],
+      "summary": "中国側がアラグチ外相の９/16訪中・王毅外相との会談予定を発表したとRTHKが伝えた。確認できたのは予定で、停戦や通航再開の合意結果ではない。日本への効果は航行・供給の改善が伴うかで判断。",
+      "source": "RTHK（AFP・新華社）",
+      "url": "https://news.rthk.hk/rthk/en/component/k2/1870090-20260915.htm",
+      "category": "中東・外交",
+      "scenarios": [],
+      "published_date": "2026-09-15",
+      "published_time": "17:20 HKT",
+      "event": "９/16訪中予定、９/15発表",
+      "status": "予定",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "mfa",
+      "title": "中国外交部、対日関係で台湾問題を引き続き重視",
+      "countries": [
+        "中国",
+        "日本"
+      ],
+      "summary": "９/15会見で前日の議員交流に言及しつつ、日本側の台湾に関する発言を問題視。対話の継続と政治的な対立が併存している。日本の同盟運用の縮小や米中経済合意の証拠にはしない。",
+      "source": "中国外交部",
+      "url": "https://www.fmprc.gov.cn/fyrbt_673021/202609/t20260915_12022859.shtml",
+      "category": "米中・外交",
+      "scenarios": [
+        "A",
+        "D",
+        "E"
+      ],
+      "published_date": "2026-09-15",
+      "published_time": "18:00（原文表示、TZ明記なし）",
+      "event": "９/15会見、９/14議員交流",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "poll",
+      "title": "米投票見込み層の支持先、民主51％・共和39％",
+      "countries": [
+        "米国"
+      ],
+      "summary": "Economist/YouGovの９/11〜14調査。投票見込み層と、成人全体1596人・登録予定を含む登録層1461人は別の母集団。表示比率を選挙勝率や議席へ変換しない。生活費への圧力は日本への通商姿勢にも波及し得る。",
+      "source": "YouGov・調査公表",
+      "url": "https://yougov.com/en-us/articles/55567-2026-election-independents-give-democrats-big-midterms-lead-among-likely-voters-september-11-14-2026-economist-yougov-poll",
+      "category": "米国内政治・選挙",
+      "scenarios": [
+        "B",
+        "C",
+        "E"
+      ],
+      "published_date": "2026-09-15",
+      "published_time": "時刻不明",
+      "event": "９/11〜14実査",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false,
+      "supporting_urls": [
+        "https://yougov.com/en-us/articles/55566-2026-election-midterms-donald-trump-terrorism-september-11-14-2026-economist-yougov-poll"
+      ],
+      "classification_note": "記事の丸めた比率と本文中のリード幅が一致しないため、独自に差を算出して掲載しない。"
+    },
+    {
+      "id": "fed",
+      "title": "日米金融会合を控え、結果と予想を分ける",
+      "countries": [
+        "米国",
+        "日本"
+      ],
+      "summary": "FOMCは９/15〜16、日銀会合は９/17〜18の日程。今回の締切で９月FOMC決定本文はまだ掲載されておらず、日銀会合は開催前。輸入物価への影響は決定後の為替・金利で点検する。",
+      "source": "FRB・日本銀行",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "category": "経済・市場",
+      "scenarios": [],
+      "published_date": null,
+      "published_time": "日程ページの公表日時不明",
+      "event": "FOMC９/15〜16、日銀９/17〜18",
+      "status": "予定",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://www.boj.or.jp/mopo/mpmsche_minu/index.htm"
+      ]
+    },
+    {
+      "id": "saudi",
+      "title": "サウジ原油の一部船積み取り消し、代替調達へ",
+      "countries": [
+        "サウジアラビア",
+        "ポーランド"
+      ],
+      "summary": "Reutersの取引・海運筋によると、パイプライン攻撃後に欧州向け９月積みの一部が取り消された。Aramcoの確認コメントはなく、件数・継続期間は不明。買い手の代替調達が日本にも価格競争を通じ波及し得る。",
+      "source": "Reuters（MarketScreener掲載）",
+      "url": "https://uk.marketscreener.com/news/saudi-cancels-some-oil-cargoes-after-pipeline-hit-top-buyer-chasing-alternatives-ce785bddde8bfe24",
+      "category": "海運・エネルギー",
+      "scenarios": [],
+      "published_date": "2026-09-15",
+      "published_time": "17:46 BST",
+      "event": "９月積みの取り消し、９/15取材",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "oil",
+      "title": "Brent107.53ドル、ホルムズの可視通航は４隻",
+      "countries": [
+        "国際市場",
+        "イラン",
+        "オマーン"
+      ],
+      "summary": "９/16 06:55 GMTのBrent先物107.53ドル、WTI104.19ドル。９/15のホルムズ可視通航は４隻、14日は７隻とReuters。追跡外の通航を含まない。オマーン積み替え提案は実配送と区別し、日本向け到着を追う。",
+      "source": "Reuters（MarketScreener掲載）",
+      "url": "https://uk.marketscreener.com/news/oil-falls-as-us-crude-inventories-rise-despite-saudi-supply-concerns-ce785bd2d980f225",
+      "category": "海運・エネルギー",
+      "scenarios": [],
+      "published_date": "2026-09-16",
+      "published_time": "08:01 BST更新",
+      "event": "価格９/16 15:55 JST、通航９/15",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true,
+      "classification_note": "Brentのドル変化と百分率に本文内の不整合があり、変化率は採用しない。限月の明記は未確認。"
+    },
+    {
+      "id": "yemen",
+      "title": "英国、安保理でフーシ派による海運への脅威を指摘",
+      "countries": [
+        "イエメン",
+        "英国"
+      ],
+      "summary": "９/15声明はバブ・エル・マンデブ沿岸の支配強化と海運への脅威を指摘し、食料不安と支援アクセスの制約にも言及。英国の説明として扱い、独立した全海峡の全面閉鎖確認とはしない。日本の航路・保険費用への材料。",
+      "source": "英国政府・国連安保理声明",
+      "url": "https://www.gov.uk/government/speeches/the-houthis-bear-full-responsibility-for-the-escalation-in-yemen-uk-statement-at-the-un-security-council",
+      "category": "海運・食料安全保障",
+      "scenarios": [],
+      "published_date": "2026-09-15",
+      "published_time": "時刻不明",
+      "event": "９/15安保理声明",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "panama",
+      "title": "パナマ予約枠の制約は継続、喫水引下げは延期",
+      "countries": [
+        "パナマ"
+      ],
+      "summary": "A-29は９/15以降の予約対象日にPanamax23枠、Neopanamax９枠とする制度。実通航数ではない。A-33は14.48mへの喫水引下げを延期し14.63mを維持。日本向け穀物等の積載・予約条件を別々に確認。",
+      "source": "パナマ運河庁・A-29/A-33",
+      "url": "https://pancanal.com/wp-content/uploads/2026/08/ADV-29-2026-Additional-Measures-to-Address-Reduced-Precipitation-in-the-Canal-Watershed.pdf",
+      "category": "海運・供給",
+      "scenarios": [],
+      "published_date": "2026-08-20",
+      "published_time": "時刻不明。補足A-33は９/４付・時刻不明",
+      "event": "９/15以降の予約対象日。９/16に後続通知を再確認",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://pancanal.com/wp-content/uploads/2026/09/ADV-33-2026-Postponement-of-Maximum-Authorized-Draft-Adjustment-in-the-Neopanamax-Locks.pdf",
+        "https://pancanal.com/en/maritime-services/advisory-to-shipping/"
+      ]
+    },
+    {
+      "id": "waves",
+      "title": "スンダ・ロンボク南部で2.5〜4mの波浪予報",
+      "countries": [
+        "インドネシア"
+      ],
+      "summary": "BMKGの９/16〜19を含む警報ではスンダ南部・ロンボク南部で2.5〜4m。地域によりWIB/WITAと開始時刻が異なる。予報は実測波高・運休ではなく、代替航路の遅延が実際に発生するかを確認する。",
+      "source": "BMKG",
+      "url": "https://www.bmkg.go.id/cuaca/maritim/peringatan-gelombang-tinggi",
+      "category": "海運・気象",
+      "scenarios": [],
+      "published_date": null,
+      "published_time": "ページの公表日時不明。予報の有効時刻を公表時刻に転用しない",
+      "event": "スンダ９/16 07:00 WIB〜19日、ロンボク９/16 08:00 WITA〜19日",
+      "status": "予報",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "ohio",
+      "title": "米オハイオ川で送電線修理に伴う区間規制予定",
+      "countries": [
+        "米国"
+      ],
+      "summary": "USCGは９/16 09〜20時現地の471〜472マイル区間の通航規制を通知。許可・作業間の通過調整は可能。川全体の閉鎖ではなく、日本向け穀物の影響量も未測定。内陸から港への輸送の遅れを観測する。",
+      "source": "米沿岸警備隊・BNM0491-26",
+      "url": "https://www.navcen.uscg.gov/broadcast-notice-to-mariners-message?guid=69903470",
+      "category": "河川・物流",
+      "scenarios": [],
+      "published_date": "2026-09-14",
+      "published_time": "16:16:27−04:00",
+      "event": "９/16 09:00〜20:00現地の予定。JST締切時点は開始前",
+      "status": "予定",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "wasde",
+      "title": "９月需給見通し、小麦の増産材料と米トウモロコシ下方修正",
+      "countries": [
+        "米国",
+        "オーストラリア",
+        "カナダ"
+      ],
+      "summary": "USDAの2026/27年度見通しは米トウモロコシ生産158億bushel、８月比２億1300万減。世界小麦期末在庫は２億7630万トン、300万増。大豆は生産増でも米期末在庫減。単一の世界食料危機とせず、日本の飼料・製粉を分ける。",
+      "source": "USDA・９月WASDE",
+      "url": "https://www.usda.gov/oce/commodity/wasde/wasde0926.pdf",
+      "category": "食料・肥料・農業",
+      "scenarios": [],
+      "published_date": "2026-09-11",
+      "published_time": "公表時刻未確認",
+      "event": "2026/27販売年度等の９月予測、比較元は８月予測",
+      "status": "背景",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "crop",
+      "title": "米収穫進捗、トウモロコシ８％・大豆６％",
+      "countries": [
+        "米国"
+      ],
+      "summary": "９/13までのUSDA週報で、18州トウモロコシ収穫は８％、５年平均６％。良・優合計は57％。大豆収穫は６％、平均３％、良・優58％。収穫の速さ・作柄評価と生産量を分け、日本向け飼料供給を評価する。",
+      "source": "USDA・Crop Progress",
+      "url": "https://esmis.nal.usda.gov/sites/default/release-files/796060/prog3726.pdf",
+      "category": "食料・肥料・農業",
+      "scenarios": [],
+      "published_date": "2026-09-14",
+      "published_time": "公表時刻未確認",
+      "event": "９/13終了週",
+      "status": "継続",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "fertilizer",
+      "title": "８月肥料価格は尿素・カリ低下、DAP上昇と分岐",
+      "countries": [
+        "国際市場"
+      ],
+      "summary": "世界銀行９/２公表の８月平均は尿素390.0、DAP793.5、塩化カリ386.9米ドル/トン。７月比それぞれ−10.0、＋12.2、−9.6。地域・品位・受渡条件が同一とは限らず、日本の農家購入価格へ直結させない。",
+      "source": "世界銀行・Pink Sheet",
+      "url": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Pink-Sheet-September-2026.pdf",
+      "category": "食料・肥料・農業",
+      "scenarios": [],
+      "published_date": "2026-09-02",
+      "published_time": "時刻不明",
+      "event": "2026年８月平均、比較元７月平均",
+      "status": "背景",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://www.worldbank.org/en/research/commodity-markets"
+      ],
+      "classification_note": "尿素の原表ラベルはE. Europe。品位・FOB/CFR等の条件は本号未確認。アンモニア・MAPの価格は未取得。"
+    },
+    {
+      "id": "fao",
+      "title": "８月FAO食料価格指数は133.3、前月比1.9％高",
+      "countries": [
+        "国際市場"
+      ],
+      "summary": "９/４公表の８月指数は133.3（2014〜16年＝100）、改定後７月130.8から上昇。穀物・植物油などの国際価格指数であり、日本の店頭物価や本日の日次変動ではない。購買可能性への影響は所得・為替にも左右される。",
+      "source": "FAO",
+      "url": "https://www.fao.org/worldfoodsituation/foodpricesindex/en/",
+      "category": "食料・肥料・農業",
+      "scenarios": [],
+      "published_date": "2026-09-04",
+      "published_time": "時刻不明",
+      "event": "2026年８月平均、比較元は改定後７月",
+      "status": "背景",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "wheat_jp",
+      "title": "日本の輸入小麦売渡価格、10月から12.0％引上げ予定",
+      "countries": [
+        "日本"
+      ],
+      "summary": "農水省９/９公表では10月以降の主要５銘柄加重平均は税込70,020円/トン、４月期62,520円から12.0％上昇。過去６か月の買付価格等を反映する制度価格であり、パン店頭価格が同率上がる意味ではない。",
+      "source": "農林水産省",
+      "url": "https://www.maff.go.jp/j/seisan/boueki/mugi_zyukyuu/attach/pdf/index-185.pdf",
+      "category": "食料・肥料・農業",
+      "scenarios": [],
+      "published_date": "2026-09-09",
+      "published_time": "時刻不明",
+      "event": "2026年10月期の政府売渡価格、適用前",
+      "status": "背景・予定",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "maff_self_sufficiency",
+      "title": "日本の食料自給率、異なる分母と現在の不足を区別",
+      "countries": [
+        "日本"
+      ],
+      "summary": "８/７公表の2025年度食料自給率はカロリーベース37％、生産額ベース66％。輸入依存の構造を示すが、現在の不足率ではない。日本の品目別入着・在庫・加工量を別に確認する。",
+      "source": "農林水産省",
+      "url": "https://www.maff.go.jp/j/press/kanbo/anpo/260807.html",
+      "category": "食料・肥料・農業",
+      "scenarios": [],
+      "published_date": "2026-08-07",
+      "published_time": "時刻不明",
+      "event": "2025年度の年次結果",
+      "status": "追加確認・背景",
+      "phase": 2,
+      "cross_cutting": true,
+      "classification_note": "研究の食料接続表を参照後、公開原文で確認。取得日を公表日にはしない。"
+    },
+    {
+      "id": "vtb",
+      "title": "VTBへのイラン関連指定と金融機関会合を再確認",
+      "countries": [
+        "米国",
+        "ロシア",
+        "イラン"
+      ],
+      "summary": "９/14に既存制裁へイラン関連の指定を追加し、米財務省は今週金融機関と会合すると表明。指定自体は前号と重複。次の銀行への指定、会合完了、日本企業の実際の支払停止は未確認。",
+      "source": "米財務省・OFAC",
+      "url": "https://home.treasury.gov/news/press-releases/sb0629/",
+      "category": "制度・決済",
+      "scenarios": [],
+      "published_date": "2026-09-14",
+      "published_time": "時刻不明",
+      "event": "９/14指定・今週の会合表明",
+      "status": "追加確認・継続",
+      "phase": 2,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://ofac.treasury.gov/recent-actions"
+      ],
+      "classification_note": "有限の最新一覧に９/14が先頭表示。網羅的な新規措置の不在証明ではない。"
+    },
+    {
+      "id": "ustr_nte",
+      "title": "USTRの貿易障壁意見募集、米中緩和の合意とは別",
+      "countries": [
+        "米国"
+      ],
+      "summary": "９/14公表の2027 NTE報告向け意見募集は10/29が期限。外国貿易障壁の情報を募る手続きであり、米中の緩和対象品目合意や日本への規制変更の発効ではない。",
+      "source": "USTR",
+      "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/september/ustr-seeks-public-comment-foreign-trade-barriers-2027-national-trade-estimate-report",
+      "category": "米中・通商",
+      "scenarios": [
+        "E",
+        "H"
+      ],
+      "published_date": "2026-09-14",
+      "published_time": "時刻不明",
+      "event": "2027年報告向け意見募集、期限10/29",
+      "status": "追加確認",
+      "phase": 2,
+      "cross_cutting": false
+    }
+  ]
+}

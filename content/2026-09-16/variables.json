@@ -1,0 +1,520 @@
+{
+  "date": "2026-09-16",
+  "recorded_at": "2026-09-16T16:59:31+09:00",
+  "basis_note": "①16:50:32 JST固定の公開Web観測に、②の公開原文再確認（日本の年次自給率・VTB）を明示して追加。月次・週次・年次・制度・予報を日次観測へ置換しない。",
+  "coverage_note": "物流８地域28基幹項目は重要材料６、限定確認で新情報なし４、取得不能17、未確認１。日本周辺・黒海・アフリカ・北極圏等の実況が不足し、１項目中の全地点を確認した意味ではない。オハイオ川の区間規制も確認したが日本向け影響量は不明。食料はUSDA・FAO・世界銀行・農水省を中心に確認。アンモニア・MAP、肥料の品位・FOB/CFR等、日本の直近契約価格、各国の最新作柄・輸出規制とアフリカ・中南米の個別現況には欠測がある。未掲載は異常なしではない。",
+  "items": [
+    {
+      "id": "hormuz-visible",
+      "label": "ホルムズの可視通航",
+      "group": "海上交通・供給",
+      "value": 4,
+      "unit": "隻／日",
+      "observed": "９/15、比較９/14",
+      "published": "９/16 08:01 BST更新",
+      "kind": "Reutersの船舶追跡報道",
+      "previous_value": 7,
+      "delta_unit": "隻／日",
+      "change_note": "７→４、３隻減。全船の実通航数ではない。前号の週末２日間集計とは比較しない。",
+      "note": "見える船だけの暫定集計。10日平均18隻との記事記述があるが完全捕捉ではない。",
+      "implication": "推論：原油・肥料等の到着遅延と費用増の可能性。日本向け数量は未測定。",
+      "watch": "船種別の実通航、積卸し・保険条件。",
+      "sources": [
+        {
+          "label": "Reuters・原油と海峡通航",
+          "url": "https://uk.marketscreener.com/news/oil-falls-as-us-crude-inventories-rise-despite-saudi-supply-concerns-ce785bd2d980f225"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "brent",
+      "label": "Brent原油先物・９/16日中",
+      "group": "エネルギー・制度",
+      "value": 107.53,
+      "unit": "米ドル／バレル",
+      "observed": "９/16 06:55 GMT＝15:55 JST",
+      "published": "９/16 08:01 BST更新",
+      "kind": "Reuters市況",
+      "previous_value": null,
+      "delta_unit": "米ドル／バレル",
+      "change_note": "前号の終値と時点が異なるため日報前日差は算出しない。",
+      "note": "限月未確認。記事のドル変化と百分率が不整合のため変化率は不採用。日本の輸入CIF価格ではない。",
+      "implication": "推論：燃料・肥料製造・輸送費を通じ日本の食料費にも波及する。",
+      "watch": "同じ限月・時刻の価格、為替と日本の実調達単価。",
+      "sources": [
+        {
+          "label": "Reuters・原油と海峡通航",
+          "url": "https://uk.marketscreener.com/news/oil-falls-as-us-crude-inventories-rise-despite-saudi-supply-concerns-ce785bd2d980f225"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "saudi-cargo",
+      "label": "サウジの一部原油船積み取り消し",
+      "group": "エネルギー・制度",
+      "value": "一部取り消しの報道",
+      "unit": "供給状態",
+      "observed": "９月積み、９/15取材",
+      "published": "９/15 17:46 BST",
+      "kind": "Reuters・取引海運筋",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "件数・量・継続期間は未確認。",
+      "note": "パイプライン攻撃後の欧州向け。Aramcoの確認コメントなし。オマーン積み替えは提案段階で実配送は未確認。",
+      "implication": "推論：代替原油の買付競争と供給日数に影響し得る。",
+      "watch": "復旧通知、実船積み、代替港の能力と契約条件。",
+      "sources": [
+        {
+          "label": "Reuters・原油船積み",
+          "url": "https://uk.marketscreener.com/news/saudi-cancels-some-oil-cargoes-after-pipeline-hit-top-buyer-chasing-alternatives-ce785bddde8bfe24"
+        },
+        {
+          "label": "Reuters・原油と海峡通航",
+          "url": "https://uk.marketscreener.com/news/oil-falls-as-us-crude-inventories-rise-despite-saudi-supply-concerns-ce785bd2d980f225"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "bab-risk",
+      "label": "バブ・エル・マンデブの海運脅威",
+      "group": "海上交通・供給",
+      "value": "英国が脅威を指摘",
+      "unit": "声明・安全保障状態",
+      "observed": "９/15安保理声明",
+      "published": "９/15、時刻不明",
+      "kind": "英国政府の説明",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "海峡全面閉鎖や当日の実通航ゼロを確認したものではない。",
+      "note": "沿岸支配強化・人道アクセスの制約への英国の評価。独立した全海峡の実況は未取得。",
+      "implication": "推論：紅海輸送の保険・迂回費用、人道的な食料アクセスに影響。",
+      "watch": "船舶攻撃・入港・船社運航と人道物資の実搬入。",
+      "sources": [
+        {
+          "label": "英国政府・安保理声明",
+          "url": "https://www.gov.uk/government/speeches/the-houthis-bear-full-responsibility-for-the-escalation-in-yemen-uk-statement-at-the-un-security-council"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "panamax-bookings",
+      "label": "パナマ・Panamax予約枠",
+      "group": "海上交通・供給",
+      "value": 23,
+      "unit": "予約枠／日",
+      "observed": "９/15以降の予約対象日",
+      "published": "A-29：８/20、時刻不明",
+      "kind": "運河庁の継続制度",
+      "previous_value": 25,
+      "delta_unit": "予約枠／日",
+      "change_note": "従来25から23へ。制度改定の比較で本日の実通航差ではない。",
+      "note": "Neopanamaxは９枠。予約対象日と９/１の制度施行日を分ける。後続一覧を９/16に再確認。",
+      "implication": "推論：日本向け穀物・飼料輸送の予約確保と待機費用に影響。",
+      "watch": "実際の予約・通航・水位と後続通知。",
+      "sources": [
+        {
+          "label": "パナマ運河庁・A-29",
+          "url": "https://pancanal.com/wp-content/uploads/2026/08/ADV-29-2026-Additional-Measures-to-Address-Reduced-Precipitation-in-the-Canal-Watershed.pdf"
+        },
+        {
+          "label": "パナマ運河庁・現行通知一覧",
+          "url": "https://pancanal.com/en/maritime-services/advisory-to-shipping/"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "neopanamax-draft",
+      "label": "パナマ・Neopanamax許容喫水",
+      "group": "海上交通・供給",
+      "value": 14.63,
+      "unit": "m TFW",
+      "observed": "A-33による継続条件",
+      "published": "９/４、時刻不明",
+      "kind": "運河庁通知",
+      "previous_value": null,
+      "delta_unit": "m",
+      "change_note": "予定された14.48mへの引下げは延期。予定値からの実績改善率は作らない。",
+      "note": "次の通知まで14.63mを維持。予約枠の削減とは別条件。",
+      "implication": "推論：引下げ延期は積載制約を緩和する方向の材料。",
+      "watch": "新しい喫水通知、船型別の積載量。",
+      "sources": [
+        {
+          "label": "パナマ運河庁・A-33",
+          "url": "https://pancanal.com/wp-content/uploads/2026/09/ADV-33-2026-Postponement-of-Maximum-Authorized-Draft-Adjustment-in-the-Neopanamax-Locks.pdf"
+        },
+        {
+          "label": "パナマ運河庁・現行通知一覧",
+          "url": "https://pancanal.com/en/maritime-services/advisory-to-shipping/"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "indonesia-waves",
+      "label": "スンダ・ロンボク南部の波浪予報",
+      "group": "海上交通・供給",
+      "value": "2.5〜4",
+      "unit": "m（予報）",
+      "observed": "９/16〜19、地域ごとの有効時間",
+      "published": "ページ公表日時不明",
+      "kind": "BMKGの予報",
+      "previous_value": null,
+      "delta_unit": "m",
+      "change_note": "比較可能な前回予報との差は未設定。",
+      "note": "スンダ07:00 WIB、ロンボク08:00 WITAを起点とする期間。北部ロンボク等は別の波高。予報は運休や観測値ではない。",
+      "implication": "推論：船型によって迂回・待機が発生し得る。",
+      "watch": "運航判断、最新予報と実測。",
+      "sources": [
+        {
+          "label": "BMKG・波浪予報",
+          "url": "https://www.bmkg.go.id/cuaca/maritim/peringatan-gelombang-tinggi"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "japan-imports",
+      "label": "日本の８月輸入金額",
+      "group": "物価・金融",
+      "value": 28.0,
+      "unit": "前年比％（名目・円建て）",
+      "observed": "2026年８月",
+      "published": "９/16、時刻未確認",
+      "kind": "財務省貿易統計速報",
+      "previous_value": null,
+      "delta_unit": "pt",
+      "change_note": "前年同月比。日報の前日差ではない。",
+      "note": "輸出は19.3％増、赤字１兆1056億円。輸入CIF・輸出FOB。原粗油の数量3.6％と金額58.7％の増加を区別。",
+      "implication": "推論：輸出拡大でも輸入費用負担が強く、食品・飼料の着値は為替と運賃も重要。",
+      "watch": "品目ごとの数量・金額・単価と輸入先。",
+      "sources": [
+        {
+          "label": "財務省・貿易統計",
+          "url": "https://www.customs.go.jp/toukei/shinbun/trade-st/2026/2026084.pdf"
+        },
+        {
+          "label": "Reuters・日本貿易",
+          "url": "https://uk.marketscreener.com/news/japan-august-imports-jump-as-oil-prices-lift-costs-exports-stay-firm-ce785bd2d98cfe26"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "us-corn-output",
+      "label": "米国トウモロコシ生産見通し",
+      "group": "食料・肥料・農業",
+      "value": 15.8,
+      "unit": "十億bushel",
+      "observed": "2026/27販売年度の９月見通し",
+      "published": "９/11、時刻未確認",
+      "kind": "USDA予測",
+      "previous_value": null,
+      "delta_unit": "百万bushel",
+      "change_note": "８月予測から213百万bushel下方修正。丸められた当月水準から前月値を逆算しない。",
+      "note": "単収178.5bushel/acre、８月比−2.2。確定収穫量ではない。",
+      "implication": "推論：日本の飼料・畜産原価への上昇圧力。",
+      "watch": "次回単収・収穫結果、輸出余力と日本向け価格。",
+      "sources": [
+        {
+          "label": "USDA・９月WASDE",
+          "url": "https://www.usda.gov/oce/commodity/wasde/wasde0926.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "world-wheat-stocks",
+      "label": "世界小麦期末在庫見通し",
+      "group": "食料・肥料・農業",
+      "value": 276.3,
+      "unit": "百万トン",
+      "observed": "2026/27年度の９月見通し",
+      "published": "９/11、時刻未確認",
+      "kind": "USDA予測",
+      "previous_value": 273.3,
+      "delta_unit": "百万トン",
+      "change_note": "８月予測比＋3.0百万トン。日報前日差ではない。",
+      "note": "豪州・カナダ等の増産見通しを含む。世界在庫と各国の輸出可能在庫は同じではない。",
+      "implication": "推論：日本の代替調達の余地。ただし運賃・為替・契約時期により費用低下へ直結しない。",
+      "watch": "豪州・カナダの収穫、品質、輸出港の稼働。",
+      "sources": [
+        {
+          "label": "USDA・９月WASDE",
+          "url": "https://www.usda.gov/oce/commodity/wasde/wasde0926.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "world-rice-stocks",
+      "label": "世界コメ期末在庫見通し",
+      "group": "食料・肥料・農業",
+      "value": 197.0,
+      "unit": "百万トン",
+      "observed": "2026/27年度の９月見通し",
+      "published": "９/11、時刻未確認",
+      "kind": "USDA予測",
+      "previous_value": 192.6,
+      "delta_unit": "百万トン",
+      "change_note": "８月予測比＋4.4百万トン。",
+      "note": "繰越在庫の改定も寄与。インドの生産見通し低下と在庫増は両立し、増産の意味ではない。",
+      "implication": "推論：総在庫だけでアジアの輸出余力や日本の調達価格を判断しない。",
+      "watch": "モンスーン・品質・輸出政策、利用可能な在庫。",
+      "sources": [
+        {
+          "label": "USDA・９月WASDE",
+          "url": "https://www.usda.gov/oce/commodity/wasde/wasde0926.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "us-soy-stocks",
+      "label": "米国大豆期末在庫見通し",
+      "group": "食料・肥料・農業",
+      "value": 310,
+      "unit": "百万bushel",
+      "observed": "2026/27販売年度の９月見通し",
+      "published": "９/11、時刻未確認",
+      "kind": "USDA予測",
+      "previous_value": 320,
+      "delta_unit": "百万bushel",
+      "change_note": "８月予測比−10百万bushel。",
+      "note": "生産は16百万増加する一方、輸出見通しは25百万増加。生産増だけで需給緩和とはしない。",
+      "implication": "推論：大豆かす・飼料・植物油の調達条件を分けて追う。",
+      "watch": "輸出成約、搾油・在庫、油と粕それぞれの価格。",
+      "sources": [
+        {
+          "label": "USDA・９月WASDE",
+          "url": "https://www.usda.gov/oce/commodity/wasde/wasde0926.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "us-crop-progress",
+      "label": "米国トウモロコシ・大豆の収穫進捗",
+      "group": "食料・肥料・農業",
+      "value": "８％／６％",
+      "unit": "収穫面積の割合",
+      "observed": "９/13終了週",
+      "published": "９/14、時刻未確認",
+      "kind": "USDA週次観測",
+      "previous_value": null,
+      "delta_unit": "pt",
+      "change_note": "５年平均は６％／３％。前週のトウモロコシ５％からは＋3pt。大豆の前週値はNA。",
+      "note": "トウモロコシ良44％＋優13％＝57％、大豆良46％＋優12％＝58％は日報での加算。収穫進捗・作柄評価・生産量を区別。",
+      "implication": "推論：収穫の早さは供給の時期に関係するが、最終生産量を保証しない。",
+      "watch": "降雨・収穫・単収の続報と実出荷。",
+      "sources": [
+        {
+          "label": "USDA・週次作柄",
+          "url": "https://esmis.nal.usda.gov/sites/default/release-files/796060/prog3726.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "fao-food-price",
+      "label": "FAO食料価格指数・８月",
+      "group": "食料・肥料・農業",
+      "value": 133.3,
+      "unit": "指数（2014〜16年＝100）",
+      "observed": "2026年８月",
+      "published": "９/４、時刻不明",
+      "kind": "FAO月次名目指数",
+      "previous_value": 130.8,
+      "delta_unit": "指数pt",
+      "change_note": "改定後７月比＋2.5pt、＋1.9％。日次・前日差ではない。",
+      "note": "国際取引価格の指数。日本の小売CPIや各家庭の食費と同じではない。",
+      "implication": "推論：輸入費用の背景。ただし為替・所得・補助や契約で購買可能性への影響は異なる。",
+      "watch": "次回公表、穀物・植物油・畜産物別の動向。",
+      "sources": [
+        {
+          "label": "FAO・食料価格指数",
+          "url": "https://www.fao.org/worldfoodsituation/foodpricesindex/en/"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "japan-wheat-price",
+      "label": "日本の10月期輸入小麦売渡価格",
+      "group": "食料・肥料・農業",
+      "value": 70020,
+      "unit": "円／トン（税込、５銘柄加重平均）",
+      "observed": "2026年10月から適用予定",
+      "published": "９/９、時刻不明",
+      "kind": "農水省の政府売渡価格",
+      "previous_value": 62520,
+      "delta_unit": "円／トン",
+      "change_note": "４月期比＋7500円、＋12.0％。店頭価格の上昇率ではない。",
+      "note": "６か月の買付価格等を反映。世界の新しい需給予測と適用時期に差がある。",
+      "implication": "推論：製粉・食品の原料費に波及するが、個々の製品価格は配合・契約・価格転嫁次第。",
+      "watch": "実際の売渡し、製粉・食品企業の価格改定。",
+      "sources": [
+        {
+          "label": "農林水産省・10月小麦売渡価格",
+          "url": "https://www.maff.go.jp/j/seisan/boueki/mugi_zyukyuu/attach/pdf/index-185.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "urea",
+      "label": "窒素系・尿素（原表E. Europe）",
+      "group": "食料・肥料・農業",
+      "value": 390.0,
+      "unit": "米ドル／トン（月平均）",
+      "observed": "2026年８月",
+      "published": "９/２、時刻不明",
+      "kind": "世界銀行Pink Sheetの名目価格",
+      "previous_value": 400.0,
+      "delta_unit": "米ドル／トン",
+      "change_note": "７月平均比-10.0。本日の現物価格・日報前日差ではない。",
+      "note": "原表系列の品位・FOB/CFR等の受渡条件は本号未確認。日本のCIF・農家購入価格とは異なる。アンモニア価格は未取得。天然ガス・生産停止の当日実績は不足。",
+      "implication": "推論：円相場・運賃・契約時期を通じて日本の農業生産費へ波及。８月価格で９月の海運リスクを打ち消さない。",
+      "watch": "同一系列の次回公表、日本の輸入単価と納期。",
+      "sources": [
+        {
+          "label": "世界銀行・９月Pink Sheet",
+          "url": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Pink-Sheet-September-2026.pdf"
+        },
+        {
+          "label": "世界銀行・商品市況資料",
+          "url": "https://www.worldbank.org/en/research/commodity-markets"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "dap",
+      "label": "リン酸系・DAP",
+      "group": "食料・肥料・農業",
+      "value": 793.5,
+      "unit": "米ドル／トン（月平均）",
+      "observed": "2026年８月",
+      "published": "９/２、時刻不明",
+      "kind": "世界銀行Pink Sheetの名目価格",
+      "previous_value": 781.3,
+      "delta_unit": "米ドル／トン",
+      "change_note": "７月平均比+12.2。本日の現物価格・日報前日差ではない。",
+      "note": "原表系列の品位・FOB/CFR等の受渡条件は本号未確認。日本のCIF・農家購入価格とは異なる。MAP価格は未取得。リン鉱石・アンモニア等の投入費用と供給政策を別途追う。",
+      "implication": "推論：円相場・運賃・契約時期を通じて日本の農業生産費へ波及。８月価格で９月の海運リスクを打ち消さない。",
+      "watch": "同一系列の次回公表、日本の輸入単価と納期。",
+      "sources": [
+        {
+          "label": "世界銀行・９月Pink Sheet",
+          "url": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Pink-Sheet-September-2026.pdf"
+        },
+        {
+          "label": "世界銀行・商品市況資料",
+          "url": "https://www.worldbank.org/en/research/commodity-markets"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "potash",
+      "label": "カリ系・塩化カリ",
+      "group": "食料・肥料・農業",
+      "value": 386.9,
+      "unit": "米ドル／トン（月平均）",
+      "observed": "2026年８月",
+      "published": "９/２、時刻不明",
+      "kind": "世界銀行Pink Sheetの名目価格",
+      "previous_value": 396.5,
+      "delta_unit": "米ドル／トン",
+      "change_note": "７月平均比-9.6。本日の現物価格・日報前日差ではない。",
+      "note": "原表系列の品位・FOB/CFR等の受渡条件は本号未確認。日本のCIF・農家購入価格とは異なる。産地・輸出規制・輸送経路の新しい個別契約影響は未確認。",
+      "implication": "推論：円相場・運賃・契約時期を通じて日本の農業生産費へ波及。８月価格で９月の海運リスクを打ち消さない。",
+      "watch": "同一系列の次回公表、日本の輸入単価と納期。",
+      "sources": [
+        {
+          "label": "世界銀行・９月Pink Sheet",
+          "url": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Pink-Sheet-September-2026.pdf"
+        },
+        {
+          "label": "世界銀行・商品市況資料",
+          "url": "https://www.worldbank.org/en/research/commodity-markets"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・輸送・費用に関わる重要な観測、見通しまたは継続する制度条件。"
+    },
+    {
+      "id": "japan-food-self-sufficiency",
+      "label": "日本の食料自給率・構造的背景",
+      "group": "食料・肥料・農業",
+      "value": "熱量37％／生産額66％",
+      "unit": "分母の異なる比率",
+      "observed": "2025年度概算",
+      "published": "８/７、時刻不明",
+      "kind": "②で農水省公開原文を確認した年次結果",
+      "previous_value": null,
+      "delta_unit": "pt",
+      "change_note": "本日の需給や不足率ではない。前日差を作らない。",
+      "note": "熱量と金額を混同しない。国産品の価格上昇も生産額ベースに作用する。",
+      "implication": "推論：日本の小麦・飼料等について入着・在庫・加工量を追う必要がある。依存構造だけで危機と判定しない。",
+      "watch": "品目別輸入数量・単価、在庫、作柄・加工・配送。",
+      "sources": [
+        {
+          "label": "農林水産省",
+          "url": "https://www.maff.go.jp/j/press/kanbo/anpo/260807.html"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "食料安全保障の初回拡張として、国内の供給構造と今日の不足を区別する背景。"
+    },
+    {
+      "id": "vtb-payment",
+      "label": "VTB指定と決済の実行条件",
+      "group": "エネルギー・制度",
+      "value": "イラン関連指定を追加",
+      "unit": "制度・決済の状態",
+      "observed": "９/14指定、今週の金融機関会合の表明",
+      "published": "９/14、時刻不明",
+      "kind": "②で米財務省原文を再確認",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "指定自体は前号でも確認済み。新たな銀行への指定として二重計上しない。",
+      "note": "ロシア関連等の既存指定がある銀行への追加。会合の完了、実際の支払停止、日本企業の取引額は未確認。",
+      "implication": "推論：航行や積載が回復しても、決済・保険・取引条件が同時に回復するとは限らない。",
+      "watch": "金融機関の公表・実際の支払・許可と、個別の実在する取引経路。",
+      "sources": [
+        {
+          "label": "米財務省",
+          "url": "https://home.treasury.gov/news/press-releases/sb0629/"
+        },
+        {
+          "label": "OFAC最新一覧",
+          "url": "https://ofac.treasury.gov/recent-actions"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "海運と別の決済上の制約を区別するため、確認できた継続状態を掲載。"
+    }
+  ]
+}
