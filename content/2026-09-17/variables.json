@@ -1,0 +1,420 @@
+{
+  "date": "2026-09-17",
+  "recorded_at": "2026-09-17T17:30:38+09:00",
+  "basis_note": "①17:19:58 JST固定の公開観測に、②17:25のFinCEN公開原文確認を追加。日次市場価格、予報、政策手続、週次・月次・年次予測を区別する。",
+  "coverage_note": "物流８地域28基幹項目は重要材料９、限定確認で新情報なし３、取得不能16。日本周辺・黒海・アフリカ・北極圏等に実況の不足があり、全地点の安全確認ではない。基幹リスト外の港湾・河川も検索したが、再開予定を実再開としない。食料はカナダ統計局、USDA、FAO等を確認。アフリカ・中南米の最新作柄、各国の輸出規制・生産停止、日本の契約価格に欠測がある。米肥料は国内FOB提示価格で、世界平均や日本価格ではない。未掲載・未取得は異常なしを意味しない。",
+  "items": [
+    {
+      "id": "fed-target",
+      "label": "米政策金利",
+      "group": "物価・金融",
+      "value": "3.75〜4.00",
+      "unit": "％",
+      "observed": "９/17から",
+      "published": "９/16 14:00 EDT",
+      "kind": "政策決定・実施日",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "前回レンジから＋25bp。前日の市場予想との差ではない。",
+      "note": "据置予想や将来の政策見通しを混ぜない。",
+      "implication": "推論：ドル調達費用と為替を通じ日本の輸入・資金繰りに波及。",
+      "watch": "日銀決定と実際の為替。",
+      "sources": [
+        {
+          "label": "FRB",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+        },
+        {
+          "label": "FRB実施通知",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a1.htm"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "brent-intraday",
+      "label": "Brent先物",
+      "group": "エネルギー・制度",
+      "value": 103.95,
+      "unit": "米ドル/バレル",
+      "observed": "９/17 06:32 GMT",
+      "published": "９/17 07:53 BST更新",
+      "kind": "取引時間中の市場価格",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "記事の前日清算値比−1.88ドル、−1.8％。前号の取得時刻価格とは直接差分を取らない。",
+      "note": "限月は原文未確認。",
+      "implication": "推論：日本の燃料費を和らげる方向だが、円換算・入着は未確定。",
+      "watch": "実配送と保険費用。",
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://uk.marketscreener.com/news/oil-prices-extend-losses-as-fears-of-middle-east-supply-disruptions-ease-ce785bd3d98aff26"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "sanctions-bill",
+      "label": "対ロシア・イラン制裁法案",
+      "group": "エネルギー・制度",
+      "value": "下院可決",
+      "unit": "議会手続の状態",
+      "observed": "９/16下院可決",
+      "published": "９/16、時刻不明",
+      "kind": "議会の公表",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "署名・発効・個別課税は未確認。",
+      "note": "最大税率は上限であり、全ての対象国に即時適用された税率ではない。",
+      "implication": "推論：Eの米中緩和を妨げ、第三国の条件差にも波及し得る。",
+      "watch": "署名、指定、例外、施行。",
+      "sources": [
+        {
+          "label": "米下院歳入委員会・NPR",
+          "url": "https://waysandmeans.house.gov/2026/09/16/chairman-smith-statement-on-house-passage-of-legislation-to-impose-sanctions-on-russia-use-tariff-policies-to-curtail-support-for-russias-war-on-ukraine/"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "hormuz-opening",
+      "label": "ホルムズ通航計画",
+      "group": "海上交通・供給",
+      "value": "計画の説明あり／実開放未確認",
+      "unit": "外交・航行の状態",
+      "observed": "９/16北京会談",
+      "published": "９/16 16:08、TZ明記なし",
+      "kind": "中国側による会談公表",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "前号の訪問予定から、会談実施・計画への言及へ。",
+      "note": "イラン外相の説明を中国側が掲載。オマーン側の同じ計画と全商船の通航再開は未確認。",
+      "implication": "推論：日本の原油・LNG調達に関係するが、改善を数量へ換算できない。",
+      "watch": "実通航、保険、荷役、入着。",
+      "sources": [
+        {
+          "label": "中国外交部",
+          "url": "https://www.fmprc.gov.cn/wjbzhd/202609/t20260916_12023687.shtml"
+        },
+        {
+          "label": "Reuters",
+          "url": "https://uk.marketscreener.com/news/oil-prices-extend-losses-as-fears-of-middle-east-supply-disruptions-ease-ce785bd3d98aff26"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "panamax-booking",
+      "label": "パナマ連続日予約の扱い",
+      "group": "海上交通・供給",
+      "value": "異なる予約期間なら連続日取得可",
+      "unit": "Panamax制度",
+      "observed": "９/16即時適用",
+      "published": "９/16、時刻不明",
+      "kind": "A-35公式通知",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "予約期間をまたぐ連続日制限の適用範囲を明確化。",
+      "note": "23枠・９枠は予約枠、喫水14.63mはNeopanamaxの別条件。通航数増加と扱わない。",
+      "implication": "推論：日本向け穀物・エネルギーの予約に柔軟性。",
+      "watch": "予約成功率・待機時間・積載量。",
+      "sources": [
+        {
+          "label": "パナマ運河庁",
+          "url": "https://pancanal.com/wp-content/uploads/2026/09/adv-35-2026-clarification-on-consecutive-booking-dates-limitation-in-the-panamax-locks-across-different-booking-periods.pdf"
+        },
+        {
+          "label": "パナマ運河庁A-29",
+          "url": "https://pancanal.com/wp-content/uploads/2026/08/ADV-29-2026-Additional-Measures-to-Address-Reduced-Precipitation-in-the-Canal-Watershed.pdf"
+        },
+        {
+          "label": "パナマ運河庁A-33",
+          "url": "https://pancanal.com/wp-content/uploads/2026/09/ADV-33-2026-Postponement-of-Maximum-Authorized-Draft-Adjustment-in-the-Neopanamax-Locks.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "indonesia-waves",
+      "label": "主航路・代替航路の波浪",
+      "group": "海上交通・供給",
+      "value": "2.5〜4",
+      "unit": "m・予報波高帯",
+      "observed": "９/17〜20、WIB/WITA別",
+      "published": "公表時刻不明",
+      "kind": "BMKG予報",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "マラッカ北部、スンダ南部、ロンボク南部の最新有効期間を確認。",
+      "note": "閉鎖・運休・実測波高ではない。",
+      "implication": "推論：主航路と代替航路で遅延が重なる可能性。",
+      "watch": "運航会社・港湾の実際の運休や遅延。",
+      "sources": [
+        {
+          "label": "BMKG",
+          "url": "https://www.bmkg.go.id/cuaca/maritim/peringatan-gelombang-tinggi"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "bunker-g20",
+      "label": "G20低硫黄船舶燃料",
+      "group": "海上交通・供給",
+      "value": 888.5,
+      "unit": "米ドル/metric ton",
+      "observed": "９/15",
+      "published": "９/17 01:42 UTC",
+      "kind": "Ship & Bunker価格集計",
+      "previous_value": 543.5,
+      "delta_unit": "米ドル/metric ton",
+      "change_note": "２/27の543.50ドル比＋63.5％。日報前日差ではない。",
+      "note": "VLSFOであり原油価格・運賃指数とは別。",
+      "implication": "推論：日本向けの運賃・燃料割増への圧力。",
+      "watch": "燃料割増と実際の供給量。",
+      "sources": [
+        {
+          "label": "Ship & Bunker",
+          "url": "https://shipandbunker.com/news/world/940950-poll-will-we-yet-see-a-bunker-supply-squeeze-from-hormuz-and-middle-east-disruption"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "cbot-soy-intraday",
+      "label": "CBOT大豆先物",
+      "group": "食料・肥料・農業",
+      "value": 13.3025,
+      "unit": "米ドル/bushel",
+      "observed": "９/17 05:04 GMT",
+      "published": "９/17 10:47更新、TZ不明",
+      "kind": "市場価格・中心限月",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "前日清算値比＋0.74％との報道。",
+      "note": "限月未確認、現物FOB/CFRと接続しない。",
+      "implication": "推論：日本の搾油・飼料原料費を押し上げ得る。",
+      "watch": "中国の購入、米輸出検査、日本の現物見積。",
+      "sources": [
+        {
+          "label": "Reuters",
+          "url": "https://www.brecorder.com/news/40439922/soybeans-rise-as-traders-eye-trump-xi-talks-wheat-corn-also-higher"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "canada-wheat-2026",
+      "label": "カナダ小麦生産予測",
+      "group": "食料・肥料・農業",
+      "value": 36.122,
+      "unit": "百万metric ton",
+      "observed": "2026年収穫・８月モデル",
+      "published": "９/16、時刻不明",
+      "kind": "モデル予測",
+      "previous_value": 40.562,
+      "delta_unit": "百万metric ton",
+      "change_note": "2025年40.562百万トンから−10.9％。前日差・前月予測差ではない。",
+      "note": "面積と単収がともに減少。収穫実績ではない。USDA９月の前月比上方修正と両立する。",
+      "implication": "推論：日本の小麦調達は品位・輸出余力を点検。",
+      "watch": "収穫実績と輸出・品質。",
+      "sources": [
+        {
+          "label": "カナダ統計局",
+          "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260916/dq260916b-eng.htm"
+        },
+        {
+          "label": "カナダ統計局・生産表",
+          "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260916/t001b-eng.htm"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "canada-oilseed-2026",
+      "label": "カナダ油糧・飼料の生産予測",
+      "group": "食料・肥料・農業",
+      "value": "大豆7.456／カノーラ22.051／トウモロコシ16.549",
+      "unit": "百万metric ton",
+      "observed": "2026年収穫・８月モデル",
+      "published": "９/16、時刻不明",
+      "kind": "モデル予測",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "前年比それぞれ＋7.8％／−0.8％／＋11.3％。",
+      "note": "作付・単収・生産量を分ける。日本への輸出量ではない。",
+      "implication": "推論：小麦減産だけで全食品の供給を同方向に判断しない。",
+      "watch": "油糧・飼料別の輸出見通し。",
+      "sources": [
+        {
+          "label": "カナダ統計局",
+          "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260916/dq260916b-eng.htm"
+        },
+        {
+          "label": "カナダ統計局・生産表",
+          "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260916/t001b-eng.htm"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "illinois-ammonia",
+      "label": "米Illinois・無水アンモニア",
+      "group": "食料・肥料・農業",
+      "value": 892.5,
+      "unit": "米ドル/ton（原表単位）",
+      "observed": "９/４終了週",
+      "published": "９/４、時刻不明",
+      "kind": "国内販売業者の提示価格・FOB",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "原表の前回公表比＋2.50米ドル/ton。本日の変動ではない。",
+      "note": "Current受渡、Ask価格。tonをmetric tonへ無断換算せず、前号の世界銀行価格へ接続しない。",
+      "implication": "推論：米国の生産費を通じ供給に影響し得る。日本の農家購入価格ではない。",
+      "watch": "同系列の次回公表、日本の実契約価格、エネルギー・貿易規制。",
+      "sources": [
+        {
+          "label": "USDA AMS",
+          "url": "https://www.ams.usda.gov/mnreports/ams_3195.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "illinois-urea",
+      "label": "米Illinois・尿素46-0-0",
+      "group": "食料・肥料・農業",
+      "value": 722.0,
+      "unit": "米ドル/ton（原表単位）",
+      "observed": "９/４終了週",
+      "published": "９/４、時刻不明",
+      "kind": "国内販売業者の提示価格・FOB",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "原表の前回公表比０米ドル/ton。本日の変動ではない。",
+      "note": "Current受渡、Ask価格。tonをmetric tonへ無断換算せず、前号の世界銀行価格へ接続しない。",
+      "implication": "推論：米国の生産費を通じ供給に影響し得る。日本の農家購入価格ではない。",
+      "watch": "同系列の次回公表、日本の実契約価格、エネルギー・貿易規制。",
+      "sources": [
+        {
+          "label": "USDA AMS",
+          "url": "https://www.ams.usda.gov/mnreports/ams_3195.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "illinois-dap",
+      "label": "米Illinois・DAP18-46-0",
+      "group": "食料・肥料・農業",
+      "value": 921.11,
+      "unit": "米ドル/ton（原表単位）",
+      "observed": "９/４終了週",
+      "published": "９/４、時刻不明",
+      "kind": "国内販売業者の提示価格・FOB",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "原表の前回公表比＋3.89米ドル/ton。本日の変動ではない。",
+      "note": "Current受渡、Ask価格。tonをmetric tonへ無断換算せず、前号の世界銀行価格へ接続しない。",
+      "implication": "推論：米国の生産費を通じ供給に影響し得る。日本の農家購入価格ではない。",
+      "watch": "同系列の次回公表、日本の実契約価格、エネルギー・貿易規制。",
+      "sources": [
+        {
+          "label": "USDA AMS",
+          "url": "https://www.ams.usda.gov/mnreports/ams_3195.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "illinois-map",
+      "label": "米Illinois・MAP11-52-0",
+      "group": "食料・肥料・農業",
+      "value": 935.0,
+      "unit": "米ドル/ton（原表単位）",
+      "observed": "９/４終了週",
+      "published": "９/４、時刻不明",
+      "kind": "国内販売業者の提示価格・FOB",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "原表の前回公表比０米ドル/ton。本日の変動ではない。",
+      "note": "Current受渡、Ask価格。tonをmetric tonへ無断換算せず、前号の世界銀行価格へ接続しない。",
+      "implication": "推論：米国の生産費を通じ供給に影響し得る。日本の農家購入価格ではない。",
+      "watch": "同系列の次回公表、日本の実契約価格、エネルギー・貿易規制。",
+      "sources": [
+        {
+          "label": "USDA AMS",
+          "url": "https://www.ams.usda.gov/mnreports/ams_3195.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "illinois-potash",
+      "label": "米Illinois・カリWhite0-0-62",
+      "group": "食料・肥料・農業",
+      "value": 500.42,
+      "unit": "米ドル/ton（原表単位）",
+      "observed": "９/４終了週",
+      "published": "９/４、時刻不明",
+      "kind": "国内販売業者の提示価格・FOB",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "原表の前回公表比＋0.83米ドル/ton。本日の変動ではない。",
+      "note": "Current受渡、Ask価格。tonをmetric tonへ無断換算せず、前号の世界銀行価格へ接続しない。",
+      "implication": "推論：米国の生産費を通じ供給に影響し得る。日本の農家購入価格ではない。",
+      "watch": "同系列の次回公表、日本の実契約価格、エネルギー・貿易規制。",
+      "sources": [
+        {
+          "label": "USDA AMS",
+          "url": "https://www.ams.usda.gov/mnreports/ams_3195.pdf"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "日本の調達・政策判断に重要な変化、または比較条件を示す基準。"
+    },
+    {
+      "id": "fincen-bmu-proposal",
+      "label": "Banque Misr UAEの銀行規制",
+      "group": "エネルギー・制度",
+      "value": "提案あり／最終規則欄は空欄",
+      "unit": "法的手続の状態",
+      "observed": "８/28提案、９/17一覧確認",
+      "published": "８/28、時刻不明。一覧の更新時刻は不明",
+      "kind": "②で追加確認したFinCEN公開資料",
+      "previous_value": null,
+      "delta_unit": "",
+      "change_note": "本日の新規発動ではない。前日差を作らない。",
+      "note": "対象はBanque Misr UAE。エジプト本体や他国業務へ自動的に拡大しない。有限一覧の空欄はあらゆる措置の不在証明ではない。",
+      "implication": "推論：実際の米銀・中継銀行への接続がある取引で、日本の決済条件に影響し得る。露出額・物流停止は未確認。",
+      "watch": "最終文書の対象・発効日と、実在する決済経路。",
+      "sources": [
+        {
+          "label": "FinCEN提案",
+          "url": "https://www.fincen.gov/news/news-releases/fincen-proposes-rule-would-revoke-banque-misr-uaes-correspondent-banking-access"
+        },
+        {
+          "label": "FinCEN現行一覧",
+          "url": "https://www.fincen.gov/resources/statutes-and-regulations/special-measures"
+        }
+      ],
+      "show_on_page": true,
+      "selection_reason": "航路の改善と決済の条件を分けるため、確認済みの提案段階を掲載。"
+    }
+  ]
+}

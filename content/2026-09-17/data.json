@@ -1,0 +1,665 @@
+{
+  "series_id": "daily_reference_scenarios_v1",
+  "deadline": "2026-11-03T23:59:59-05:00",
+  "forecast_start": "2026-09-13T11:36:53.980623+09:00",
+  "run_started_at": "2026-09-17T17:03:20.520+09:00",
+  "previous_day_reference": {
+    "path": "reports/2026-09-16/data.json",
+    "prepared_at": "2026-09-16T17:01:01+09:00",
+    "sha256": "8a793c4a296726ef257b32a6fc57258422fea488f67eb0c7071d5ab1c65cff22"
+  },
+  "date": "2026-09-17",
+  "edition": "01・16:30予約回（17:03再開）",
+  "title": "米中緩和Eは55％へ低下。物流の改善材料と食料の品目差を追う。",
+  "cutoff_at": "2026-09-17T17:19:58+09:00",
+  "prepared_at": "2026-09-17T17:30:38+09:00",
+  "numeric_recorded_at": "2026-09-17T17:30:38+09:00",
+  "model": "GPT-6 Astra / max（指定Ultraと相違）",
+  "initial": false,
+  "strict_blind": false,
+  "github_read_at": "2026-09-17T17:20:32+09:00",
+  "summary": [
+    "米中経済緩和Eを60→55％へ下方修正。米下院の制裁法案可決が新たな逆風。他の７シナリオは据置で、研究確認後の追加変更はない。",
+    "原油下落、ホルムズ通航協議、パナマの予約柔軟化は改善材料。ただし提案・協議と実配送の回復を分ける。",
+    "食料はカナダ小麦減・大豆増の予測が併存。肥料は窒素・リン酸・カリを分け、価格負担と物理的不足を区別する。日本全体の不足は今回の確認範囲では未確認。"
+  ],
+  "corrections": [],
+  "movement_summary": "前日最終→今日Web→研究確認後：E60→55→55％（前日−5pt、研究確認差0pt）。A75・B55・C40・D10・F10・G5・H55％は両差分0pt。",
+  "news_window_label": "９/16〜17公表分を中心に①20項目＋②の銀行規制１項目。予定・継続・週次月次の背景を含み、21件すべてが本日発生した新事件ではありません。",
+  "comparison_summary": "完成記録と本文を照合した９/16日報と９/15食料追補を受信。決済手続と実配送、世界需給と日本の入着・在庫の区別を補強。研究確認後の確率変更なし。",
+  "pre_post_note": "過去研究への既接触あり。①は17:19:58 JSTに固定、GitHub確認は17:20:32以降。参照版に９/17完成号は未収録。",
+  "highlights": [
+    {
+      "label": "米中経済緩和",
+      "text": "E55％、前日−5pt。制裁法案の下院可決を逆風と評価。署名・実課税前で、取引の余地も残る。",
+      "scenario": "E"
+    },
+    {
+      "label": "同盟・軍事",
+      "text": "A75％、F10％。台湾への懸念報道を正式な交換合意や部隊縮小に置換しない。",
+      "scenario": "A"
+    },
+    {
+      "label": "日本の相対条件",
+      "text": "H55％、据置。同じ品目の日中の実適用条件を比べる証拠が不足。",
+      "scenario": "H"
+    }
+  ],
+  "comparison": [
+    {
+      "ids": "A・B",
+      "before": "A75％ / B55％",
+      "after": "A75％ / B55％、各0pt",
+      "reason": "研究の金融規則手続は新たな共同運用・具体的対日負担を示さない。"
+    },
+    {
+      "ids": "C・D",
+      "before": "C40％ / D10％",
+      "after": "C40％ / D10％、各0pt",
+      "reason": "金融圧力や迎撃弾不足と、地域別の配置・任務縮小を区別。実装の追加証拠はない。"
+    },
+    {
+      "ids": "E",
+      "before": "55％（前日60％から①で−5pt）",
+      "after": "55％、①→②は0pt",
+      "reason": "下院可決の逆風は①に反映済み。研究の別の金融政策事象から米中経済緩和の確率をさらに変更しない。"
+    },
+    {
+      "ids": "F・G・H",
+      "before": "F10％ / G5％ / H55％",
+      "after": "F10％ / G5％ / H55％、各0pt",
+      "reason": "経済と軍事の同一交換合意、継続的勢力圏協商、同一品目の日中条件差の新証拠は増えない。"
+    },
+    {
+      "ids": "食料・肥料・農業",
+      "before": "品目別・比較元別の予測差と費用を評価",
+      "after": "供給国輸出・日本の入着・在庫への接続を具体化",
+      "reason": "世界需給は①のUSDAと重複。研究の現行版を独立した追加証拠に数えず、世界の生産と消費の差だけで不足を判定しない。"
+    },
+    {
+      "ids": "物流・決済",
+      "before": "航路・費用・保険と実配送を区別",
+      "after": "銀行規制の提案・最終化・実際の決済経路を追加点検",
+      "reason": "②でFinCENの公開原文を確認。最終規則欄は空欄であり、新規発動や日本企業の損失は認定しない。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "A",
+      "label": "第一列島線・同盟の強化",
+      "definition_version": 1,
+      "target": "開始時点後、第一列島線に関わる新規・拡充された共同演習、基地運用、共同対処・兵站の合意または実施を少なくとも一つ公式に確認する。既存行事の単純な再掲載だけは除外。",
+      "evidence_confidence": "中",
+      "p_previous_final": 0.75,
+      "p_web_before_github": 0.75,
+      "reason": "75％維持。台湾への懸念報道は同盟運用の新規・拡充の具体策とは別。",
+      "support": "米国の政策不変という台湾外相の説明。",
+      "counter": "当日の新しい共同演習・基地運用の具体的決定は未確認。",
+      "watch": "新規・拡充の共同運用を双方の公表で確認。",
+      "p_final": 0.75,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "B",
+      "label": "同盟維持・負担増の具体化",
+      "definition_version": 1,
+      "target": "米国の同盟維持を前提に、対日負担の具体額・比率・任務・期限のいずれかを伴う新たな公式要求または合意を確認する。一般的な公平負担の言説だけは除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.55,
+      "p_web_before_github": 0.55,
+      "reason": "55％維持。選挙・物価圧力はあるが、具体的な対日負担要求は未確認。",
+      "support": "Fox調査の家計・政権への圧力。",
+      "counter": "米国内の不満は対日要求額や任務ではない。",
+      "watch": "金額・比率・任務・期限を伴う公式要求。",
+      "p_final": 0.55,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "C",
+      "label": "本土・西半球優先への転換",
+      "definition_version": 1,
+      "target": "米本土・西半球への資源優先が、他地域の任務・配置・予算の具体的縮小を伴う新しい公式決定または実施として確認される。国内重視の発言だけは除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.4,
+      "p_web_before_github": 0.4,
+      "reason": "40％維持。中東の迎撃弾負担は本土・西半球への資源移転を証明しない。",
+      "support": "軍需資源への負担報道。",
+      "counter": "制裁法案は対外関与の継続材料でもあり、地域別予算・任務縮小は未確認。",
+      "watch": "優先地域への資源移転と他地域の具体的縮小。",
+      "p_final": 0.4,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "D",
+      "label": "第二列島線への実質後退",
+      "definition_version": 1,
+      "target": "第一列島線から第二列島線への重心移転として、配置・任務・同盟義務の具体的縮小を伴う方針変更または実施を確認する。通常の交代、第二列島線の増強だけは除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.1,
+      "p_web_before_github": 0.1,
+      "reason": "10％維持。台湾政策への懸念と第一列島線からの実質後退を区別。",
+      "support": "同盟国が会談の扱いを懸念。",
+      "counter": "台湾外相は政策不変の説明。部隊・任務縮小は未確認。",
+      "watch": "第一列島線の任務・配置縮小と第二列島線への重心移動。",
+      "p_final": 0.1,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "E",
+      "label": "米中経済緩和の具体化",
+      "definition_version": 1,
+      "target": "相互減税等の新たな経済緩和について、両国が同じ措置の対象・税率・実施日のいずれかを具体的に公表する。限定合意を含み、経済関係全体の正常化とは区別。協議継続だけは除外。",
+      "evidence_confidence": "中",
+      "p_previous_final": 0.6,
+      "p_web_before_github": 0.55,
+      "reason": "60→55％。追加関税権限を含む制裁法案の下院可決が、期限内の米中緩和に新しい逆風。署名・発動前のため下げ幅は５ptに留める。",
+      "support": "首脳・実務会談の見込みと既存の大豆購入進捗は緩和を支える。",
+      "counter": "可決は新事実。逆に圧力が取引を促す可能性もあり、緩和が不可能になったとはいえない。",
+      "watch": "署名・対象国・実税率・例外と、双方が一致する新たな緩和措置。",
+      "p_final": 0.55,
+      "daily_delta_pp": -5.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "F",
+      "label": "経済と安全保障の交換",
+      "definition_version": 1,
+      "target": "同一合意で経済的譲歩と台湾供与または第一列島線軍事態勢の具体的制約を交換条件として両国が正式に公表する。並行する別々の協議や秘密取引の推測は除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.1,
+      "p_web_before_github": 0.1,
+      "reason": "10％維持。経済成果と台湾を結びつける懸念はあるが、既存の取引リスクと重複し、５pt動かす追加根拠は不足。",
+      "support": "Reutersの同盟国懸念。",
+      "counter": "政策不変という台湾側説明があり、正式な交換合意はない。",
+      "watch": "経済譲歩と軍事制約を交換する同一合意の双方公表。",
+      "p_final": 0.1,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "G",
+      "label": "quasi-G2・大国協商",
+      "definition_version": 1,
+      "target": "台湾・西太平洋の勢力圏や同盟国の扱いを米中が相互に認める継続的な協商の枠組みを公式文書・実施で確認する。首脳会談の開催、経済合意、通常の危機管理対話だけは除外。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.05,
+      "p_web_before_github": 0.05,
+      "reason": "５％維持。AIや首脳対話は継続的な勢力圏協商とは別。",
+      "support": "米中の対話が予定される。",
+      "counter": "台湾・同盟国の扱いを相互承認する継続枠組みは未確認。",
+      "watch": "西太平洋と同盟国の扱いに関する公式枠組み。",
+      "p_final": 0.05,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    },
+    {
+      "id": "H",
+      "label": "日本が緩和から取り残される",
+      "definition_version": 1,
+      "target": "米中の経済条件改善と対照的に、日本の同等品目・業務では規制または追加負担が残る・強化されることを公式条件や企業開示で確認する。比較不能な別品目、資料未取得だけは根拠にしない。",
+      "evidence_confidence": "低",
+      "p_previous_final": 0.55,
+      "p_web_before_github": 0.55,
+      "reason": "55％維持。新たな関税制度は国別条件を分け得るが、日本と中国の同等品目の実適用差は未確認。",
+      "support": "制裁条項が第三国へ波及し得る。",
+      "counter": "同一品目・取引条件での日本だけ不利という比較は成立していない。",
+      "watch": "日中同等品目の対象、例外、実税率、施行日の比較。",
+      "p_final": 0.55,
+      "daily_delta_pp": 0.0,
+      "github_delta_pp": 0
+    }
+  ],
+  "news": [
+    {
+      "id": "fed",
+      "title": "FRBが25bp利上げ、政策金利3.75〜4.00％",
+      "countries": [
+        "米国"
+      ],
+      "summary": "９/16声明は12対０で25bp引上げ、９/17から実施。インフレ高止まりと底堅い需要を指摘。日本の輸入負担はドル金利に加え為替にも左右される。",
+      "source": "FRB",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+      "category": "経済・市場",
+      "scenarios": [],
+      "published_date": "2026-09-16",
+      "published_time": "14:00 EDT",
+      "event": "９/16決定、９/17実施",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a1.htm"
+      ]
+    },
+    {
+      "id": "tariffs",
+      "title": "米下院、ロシア・イラン制裁法案を可決",
+      "countries": [
+        "米国",
+        "ロシア",
+        "イラン",
+        "中国",
+        "インド"
+      ],
+      "summary": "下院歳入委員会は可決を確認し、ロシア産エネルギーの主要購入国等への最大100％追加関税条項を説明。NPRは262対159と報道。署名・個別指定・実際の課税は未確認。日本への適用を先取りしない。",
+      "source": "米下院歳入委員会・NPR",
+      "url": "https://waysandmeans.house.gov/2026/09/16/chairman-smith-statement-on-house-passage-of-legislation-to-impose-sanctions-on-russia-use-tariff-policies-to-curtail-support-for-russias-war-on-ukraine/",
+      "category": "米国内政治・通商",
+      "scenarios": [
+        "E",
+        "H"
+      ],
+      "published_date": "2026-09-16",
+      "published_time": "委員会は時刻不明。NPR17:30 CDT",
+      "event": "９/16下院可決",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://www.apr.org/politics-government/2026-09-16/house-passes-russia-sanctions-sending-bill-named-for-lindsey-graham-to-trumps-desk"
+      ]
+    },
+    {
+      "id": "taiwan",
+      "title": "米中会談を前に同盟国が台湾政策を懸念",
+      "countries": [
+        "米国",
+        "中国",
+        "台湾",
+        "日本"
+      ],
+      "summary": "Reutersは経済成果と引換えに台湾への姿勢が弱まるとの懸念を報道。台湾外相は米国から政策不変の説明を受けたとしている。懸念と交換合意は別で、日本の同盟運用の実変更は未確認。",
+      "source": "Reuters",
+      "url": "https://www.internazionale.it/ultime-notizie-reuters/2026/09/17/us-allies-fret-over-how-trump-might-play-his-taiwan-hand-with-xi",
+      "category": "米中・安全保障",
+      "scenarios": [
+        "A",
+        "D",
+        "F",
+        "G"
+      ],
+      "published_date": "2026-09-17",
+      "published_time": "時刻不明",
+      "event": "９/17取材報道。翌週の首脳会談は予定・見込み",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "ai",
+      "title": "AI統治も米中会談の議題となる見込み",
+      "countries": [
+        "米国",
+        "中国",
+        "日本"
+      ],
+      "summary": "APはAIの危険への協力と技術競争が併存すると分析。議題入りの見込みであり、合意済みの共通ルールや半導体輸出緩和ではない。日本は参加範囲と実際の規則を確認する。",
+      "source": "AP",
+      "url": "https://wplginc-wplg-prod.web.arc-cdn.net/tech/2026/09/17/a-global-ai-safety-strategy-depends-on-us-china-cooperation-they-each-see-the-other-as-the-problem/",
+      "category": "米中・技術",
+      "scenarios": [
+        "E",
+        "G",
+        "H"
+      ],
+      "published_date": "2026-09-17",
+      "published_time": "00:02（掲載媒体表示、TZ明記なし）",
+      "event": "９/17報道、翌週の会談見込み",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "retail",
+      "title": "米８月小売売上高は前月比1.2％増",
+      "countries": [
+        "米国"
+      ],
+      "summary": "国勢調査局速報は7739億ドル、前年比6.0％増。季節調整済みだが物価調整前。消費量が同率増えたとはいえず、日本の輸出需要と米物価圧力を分けて読む。",
+      "source": "米国勢調査局",
+      "url": "https://www.census.gov/retail/marts/www/marts_current.pdf",
+      "category": "経済・市場",
+      "scenarios": [],
+      "published_date": "2026-09-16",
+      "published_time": "08:30 EDT",
+      "event": "2026年８月速報、比較元７月・前年８月",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "poll",
+      "title": "米下院投票先、民主51％・共和44％",
+      "countries": [
+        "米国"
+      ],
+      "summary": "Fox調査原表の登録有権者1211人、実査９/11〜14。確実投票層54対43とは母集団が違う。党派支持は政策成果を求める圧力の材料だが、議席や勝率に変換しない。",
+      "source": "Fox News・公開調査原表",
+      "url": "https://static.foxnews.com/foxnews.com/content/uploads/2026/09/fox_september-11-14-2026_national_topline_september-16-release-1.pdf",
+      "category": "米国内政治・選挙",
+      "scenarios": [
+        "B",
+        "C",
+        "E"
+      ],
+      "published_date": "2026-09-16",
+      "published_time": "18:00 ET以降公表指定",
+      "event": "９/11〜14実査",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": false
+    },
+    {
+      "id": "boj",
+      "title": "日銀会合は９/17〜18、政策結果は未確認",
+      "countries": [
+        "日本"
+      ],
+      "summary": "公表日程を確認。９/17段階で９月会合の決定本文は未確認。米利上げと合わせ、輸入価格への波及は日銀決定後の金利・為替を確認して判断する。",
+      "source": "日本銀行",
+      "url": "https://www.boj.or.jp/mopo/mpmsche_minu/",
+      "category": "経済・市場",
+      "scenarios": [],
+      "published_date": null,
+      "published_time": "日程ページの公表時刻不明",
+      "event": "９/17〜18会合予定",
+      "status": "予定",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "wang",
+      "title": "王毅・イラン外相会談、通航再開を協議",
+      "countries": [
+        "中国",
+        "イラン",
+        "オマーン"
+      ],
+      "summary": "中国外交部は９/16北京会談と、王毅のホルムズ早期開放の要請を公表。イラン・オマーンの計画は同公表によるイラン側説明。実際の通航再開やオマーン側による確認とは分ける。",
+      "source": "中国外交部",
+      "url": "https://www.fmprc.gov.cn/wjbzhd/202609/t20260916_12023687.shtml",
+      "category": "中東・外交",
+      "scenarios": [],
+      "published_date": "2026-09-16",
+      "published_time": "16:08（原文表示、TZ明記なし）",
+      "event": "９/16北京会談",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "houthis",
+      "title": "米当局者とフーシ派がオマーンで接触との報道",
+      "countries": [
+        "米国",
+        "イエメン",
+        "オマーン"
+      ],
+      "summary": "Reutersは週末のムスカット会談を複数筋に確認。米船を攻撃する意図はないとの説明があったという。米船への説明だけで全商船の安全や紅海全域の再開を認定しない。",
+      "source": "Reuters",
+      "url": "https://www.tbsnews.net/world/us-officials-met-iran-backed-houthis-oman-over-weekend-sources-say-1544531",
+      "category": "海運・中東",
+      "scenarios": [],
+      "published_date": "2026-09-16",
+      "published_time": "初出17:45、９/17 12:03更新（媒体TZ明記なし）",
+      "event": "直前の週末の会談、９/16〜17報道",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "saudi",
+      "title": "サウジが防空支援を要請、迎撃弾不足を指摘",
+      "countries": [
+        "サウジアラビア",
+        "米国",
+        "フランス",
+        "英国",
+        "パキスタン",
+        "エジプト"
+      ],
+      "summary": "APは地域当局者２人に基づき防空支援要請を報道。サウジ公式確認や具体的な残弾数はない。支援要請を配備完了とせず、日本周辺からの米戦力削減も推定しない。",
+      "source": "AP",
+      "url": "https://wplginc-wplg-prod.web.arc-cdn.net/news/world/2026/09/16/saudis-seek-allies-help-as-missile-defenses-run-low-in-fight-with-houthis-officials-say/",
+      "category": "中東・安全保障",
+      "scenarios": [
+        "C",
+        "D"
+      ],
+      "published_date": "2026-09-16",
+      "published_time": "04:42（掲載媒体表示、TZ明記なし）",
+      "event": "９/16取材報道",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "oil",
+      "title": "原油は下落、Brent103.95ドル",
+      "countries": [
+        "国際市場",
+        "サウジアラビア",
+        "オマーン"
+      ],
+      "summary": "９/17 06:32 GMTのBrent103.95、WTI100.66米ドル/バレル。Reutersはオマーン沖積替えの追加提案を報道。提案量を実配送とせず、日本の入着・保険条件を点検する。",
+      "source": "Reuters",
+      "url": "https://uk.marketscreener.com/news/oil-prices-extend-losses-as-fears-of-middle-east-supply-disruptions-ease-ce785bd3d98aff26",
+      "category": "海運・エネルギー",
+      "scenarios": [],
+      "published_date": "2026-09-17",
+      "published_time": "07:53 BST更新",
+      "event": "価格９/17 15:32 JST、取引時間中",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "bunker",
+      "title": "船舶燃料は高値、数量不足と区別",
+      "countries": [
+        "国際市場",
+        "シンガポール"
+      ],
+      "summary": "Ship & BunkerのG20-VLSFOは９/15に888.50米ドル/トン、２/27比63.5％高。一方で燃料調達に適応した業界の声もある。燃料費上昇と物量不足を分け、日本の輸送費への波及を追う。",
+      "source": "Ship & Bunker",
+      "url": "https://shipandbunker.com/news/world/940950-poll-will-we-yet-see-a-bunker-supply-squeeze-from-hormuz-and-middle-east-disruption",
+      "category": "海運・エネルギー",
+      "scenarios": [],
+      "published_date": "2026-09-17",
+      "published_time": "01:42 UTC",
+      "event": "指数９/15、比較元２/27",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "panama",
+      "title": "パナマ、異なる予約期間で連続日取得を認める",
+      "countries": [
+        "パナマ"
+      ],
+      "summary": "A-35はPanamaxの連続通航日制限を同一予約期間内に限定し、異なる期間では連続日取得を認める。枠自体の増加ではない。A-29の23/９枠、A-33の喫水14.63m維持も再確認。日本向け予約の柔軟性に関係する。",
+      "source": "パナマ運河庁",
+      "url": "https://pancanal.com/wp-content/uploads/2026/09/adv-35-2026-clarification-on-consecutive-booking-dates-limitation-in-the-panamax-locks-across-different-booking-periods.pdf",
+      "category": "海運・供給",
+      "scenarios": [],
+      "published_date": "2026-09-16",
+      "published_time": "時刻不明",
+      "event": "A-35即時適用、A-29/A-33は継続",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://pancanal.com/wp-content/uploads/2026/08/ADV-29-2026-Additional-Measures-to-Address-Reduced-Precipitation-in-the-Canal-Watershed.pdf",
+        "https://pancanal.com/wp-content/uploads/2026/09/ADV-33-2026-Postponement-of-Maximum-Authorized-Draft-Adjustment-in-the-Neopanamax-Locks.pdf",
+        "https://pancanal.com/en/maritime-services/advisory-to-shipping/"
+      ]
+    },
+    {
+      "id": "waves",
+      "title": "マラッカ北部等に2.5〜4mの波浪予報",
+      "countries": [
+        "インドネシア"
+      ],
+      "summary": "BMKGは９/17〜20、マラッカ北部、スンダ南部・ロンボク南部等に2.5〜4mを予報。予報は運休の確認ではない。日本への主航路と代替航路の遅延が同時に起きるかを追う。",
+      "source": "BMKG",
+      "url": "https://www.bmkg.go.id/cuaca/maritim/peringatan-gelombang-tinggi",
+      "category": "海運・気象",
+      "scenarios": [],
+      "published_date": null,
+      "published_time": "ページ公表時刻不明。有効期間と区別",
+      "event": "９/17 07:00 WIB〜20日、ロンボク08:00 WITA〜20日",
+      "status": "予報",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "horn",
+      "title": "ホーン岬・マゼラン経由の代替には追加リスク",
+      "countries": [
+        "チリ",
+        "スウェーデン"
+      ],
+      "summary": "Swedish Clubの９/14注意喚起を再確認。ドレーク海峡の荒天やマゼランの狭水路・潮流は迂回の制約。今日の閉鎖という意味ではなく、日本向け輸送の単純な代替計算を避ける材料。",
+      "source": "Swedish Club",
+      "url": "https://www.swedishclub.com/news/press-release/the-swedish-club-warns-cape-horn-should-remain-plan-c-for-panama-diversions/",
+      "category": "海運・代替航路",
+      "scenarios": [],
+      "published_date": "2026-09-14",
+      "published_time": "時刻不明",
+      "event": "９/14公表の注意喚起を９/17再確認",
+      "status": "背景・継続",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "grains",
+      "title": "米大豆先物13.3025ドル、米中会談を注視",
+      "countries": [
+        "米国",
+        "中国"
+      ],
+      "summary": "Reutersでは９/17 05:04 GMTのCBOT中心限月大豆が0.74％高。限月の明記は未確認。中国の既存購入約束の進捗と、新しい緩和合意は別。日本の食用油・飼料費への材料。",
+      "source": "Reuters",
+      "url": "https://www.brecorder.com/news/40439922/soybeans-rise-as-traders-eye-trump-xi-talks-wheat-corn-also-higher",
+      "category": "食料・肥料・農業",
+      "scenarios": [
+        "E"
+      ],
+      "published_date": "2026-09-17",
+      "published_time": "10:47更新（媒体TZ明記なし）",
+      "event": "９/17 14:04 JSTの先物価格",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "canada",
+      "title": "カナダ小麦10.9％減、大豆7.8％増の予測",
+      "countries": [
+        "カナダ"
+      ],
+      "summary": "統計局の2026年モデル推計は小麦3612.2万トン、前年比10.9％減、大豆745.6万トン、7.8％増。カノーラは0.8％減、トウモロコシ11.3％増。収穫実績ではなく、日本の製粉・油糧・飼料を品目別に点検する。",
+      "source": "カナダ統計局",
+      "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260916/dq260916b-eng.htm",
+      "category": "食料・肥料・農業",
+      "scenarios": [],
+      "published_date": "2026-09-16",
+      "published_time": "時刻不明",
+      "event": "８月末までのモデル情報による2026年収穫予測",
+      "status": "新着",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://www150.statcan.gc.ca/n1/daily-quotidien/260916/t001b-eng.htm"
+      ]
+    },
+    {
+      "id": "fertilizer",
+      "title": "米肥料、アンモニア・リン酸・カリで値動きが分かれる",
+      "countries": [
+        "米国"
+      ],
+      "summary": "９/４週のIllinois業者提示FOB価格はアンモニア892.50、尿素722.00、DAP921.11、MAP935.00、カリ500.42米ドル/ton。前回公表比は＋2.50、０、＋3.89、０、＋0.83。世界平均や日本の購入価格と接続しない。",
+      "source": "USDA AMS",
+      "url": "https://www.ams.usda.gov/mnreports/ams_3195.pdf",
+      "category": "食料・肥料・農業",
+      "scenarios": [],
+      "published_date": "2026-09-04",
+      "published_time": "時刻不明",
+      "event": "９/４終了週、最新取得公表分。原表tonを換算しない",
+      "status": "背景",
+      "phase": 1,
+      "cross_cutting": true,
+      "supporting_urls": [
+        "https://agr.illinois.gov/consumers/market-news.html"
+      ]
+    },
+    {
+      "id": "wasde",
+      "title": "世界需給は小麦・コメ在庫増、米トウモロコシ減産予測",
+      "countries": [
+        "米国",
+        "オーストラリア",
+        "インド",
+        "国際"
+      ],
+      "summary": "９月USDAは世界小麦在庫２億7630万トン、コメ１億9700万トンに上方修正。一方で米トウモロコシ生産は８月予測より２億1300万bushel減。生産・在庫・輸出物流を分け、日本の安定調達を評価する。",
+      "source": "USDA・WASDE",
+      "url": "https://www.usda.gov/oce/commodity/wasde/wasde0926.pdf",
+      "category": "食料・肥料・農業",
+      "scenarios": [],
+      "published_date": "2026-09-11",
+      "published_time": "公表時刻未確認",
+      "event": "2026/27年度等の予測、比較元８月予測",
+      "status": "背景・継続",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "fao",
+      "title": "８月食料価格指数133.3、前月比1.9％高",
+      "countries": [
+        "国際"
+      ],
+      "summary": "FAO９/４公表の８月平均。気象・中東・黒海物流などの懸念を指摘する月次指数で、本日の日次価格や日本の店頭物価ではない。所得・為替を含め購買可能性を追う。",
+      "source": "FAO",
+      "url": "https://fao.sitefinity.cloud/newsroom/detail/supply-concerns-drive-fao-food-price-index-higher/en",
+      "category": "食料・肥料・農業",
+      "scenarios": [],
+      "published_date": "2026-09-04",
+      "published_time": "時刻不明",
+      "event": "2026年８月、改定後７月比",
+      "status": "背景",
+      "phase": 1,
+      "cross_cutting": true
+    },
+    {
+      "id": "fincen-bmu-proposal",
+      "title": "Banque Misr UAEへの銀行規制は提案段階として確認",
+      "countries": [
+        "米国",
+        "アラブ首長国連邦",
+        "エジプト"
+      ],
+      "summary": "８/28公表の米銀コルレス口座禁止案を②で確認。現行一覧の最終規則欄は空欄。他国の同名銀行業務への自動拡大を避け、日本への影響は実際の取引・決済経路から評価する。今日の新規発動ではない。",
+      "source": "FinCEN",
+      "url": "https://www.fincen.gov/news/news-releases/fincen-proposes-rule-would-revoke-banque-misr-uaes-correspondent-banking-access",
+      "supporting_urls": [
+        "https://www.fincen.gov/resources/statutes-and-regulations/special-measures"
+      ],
+      "category": "制度・決済",
+      "scenarios": [],
+      "published_date": "2026-08-28",
+      "published_time": "時刻不明。一覧は９/17 17:25 JST確認",
+      "event": "８/28提案、９/17に②で公表資料を追加確認",
+      "status": "追加確認",
+      "phase": 2,
+      "cross_cutting": true
+    }
+  ]
+}
